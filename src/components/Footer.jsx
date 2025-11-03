@@ -39,7 +39,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-footer text-white py-12 w-full min-h-screen">
+    <footer className="bg-footer text-foreground py-12 w-full min-h-screen">
       <div className="w-full max-w-none px-4">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo and Description */}
@@ -47,7 +47,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-4">
               Joseph<span className="text-secondary">Gachuru</span>
             </h3>
-            <p className="text-white/80 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               Software Engineer passionate about creating innovative solutions
               and pushing the boundaries of technology.
             </p>
@@ -67,7 +67,7 @@ const Footer = () => {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-white/80 hover:text-secondary transition-colors duration-200 text-left md:text-center"
+                  className="text-muted-foreground hover:text-secondary transition-colors duration-200 text-left md:text-center"
                 >
                   {link.label}
                 </button>
@@ -85,7 +85,7 @@ const Footer = () => {
                   variant="ghost"
                   size="icon"
                   asChild
-                  className="text-white/80 hover:text-secondary hover:bg-white/10 transition-all duration-200 rounded-full"
+                  className="text-muted-foreground hover:text-secondary hover:bg-muted transition-all duration-200 rounded-full"
                 >
                   <a
                     href={social.href}
@@ -102,12 +102,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-white/10 mt-8 pt-8 text-center">
+        <div className="border-t border-border mt-8 pt-8 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/60 text-sm">
+            <p className="text-muted-foreground text-sm">
               © {currentYear} Joseph Gachuru. All Rights Reserved.
             </p>
-            <p className="text-white/60 text-sm flex items-center">
+            <p className="text-muted-foreground text-sm flex items-center">
               Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> and React
             </p>
           </div>

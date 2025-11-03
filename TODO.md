@@ -1,12 +1,12 @@
-# Portfolio Color Scheme Implementation
+# Portfolio Styling and Backend Removal TODO
 
 ## Tasks
-- [x] Update index.css with section-specific background variables for light and dark modes
-- [x] Modify Hero.jsx to use bg-hero
-- [x] Modify About.jsx to use bg-about
-- [x] Modify Skills.jsx to use bg-skills
-- [x] Modify Projects.jsx to use bg-projects
-- [x] Modify Contact.jsx to use bg-contact
-- [x] Modify Footer.jsx to use bg-footer
-- [x] Test application in light and dark modes
-- [x] Verify text contrast on new backgrounds
+- [x] Delete server.js to remove backend dependency
+- [x] Update Contact.jsx to handle form submission without backend (simulate success or use EmailJS)
+- [x] Adjust light mode colors in index.css to fix color collisions and make it professional
+- [x] Test the frontend-only portfolio website
+
+## Notes
+- Keep dark mode colors and functionality intact
+- Ensure professional light mode styling with no color clashes
+- Portfolio should run entirely in frontend

@@ -37,27 +37,12 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus('error');
-    } finally {
+    // Simulate form submission for frontend-only portfolio
+    setTimeout(() => {
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
-    }
+    }, 2000);
   };
 
   const contactInfo = [

@@ -4,42 +4,42 @@
 
 @layer base {
   :root {
-    /* Light Mode Colors */
-    --background: 0 0% 100%; /* #FFFFFF - Crisp white */
-    --foreground: 215 25% 27%; /* #334155 - Dark charcoal grey */
-    --card: 210 20% 98%; /* #F1F5F9 - Very light grey with cool undertone */
-    --card-foreground: 215 25% 27%; /* #334155 */
-    --popover: 210 20% 98%; /* #F1F5F9 */
-    --popover-foreground: 215 25% 27%; /* #334155 */
-    --primary: 204 94% 29%; /* #0369A1 - Vibrant cyan-blue */
+    /* Light Mode Colors - Professional Palette */
+    --background: 0 0% 100%; /* #FFFFFF - Pure white */
+    --foreground: 222 84% 5%; /* #0F172A - Deep slate */
+    --card: 210 40% 98%; /* #F8FAFC - Very light cool grey */
+    --card-foreground: 222 84% 5%; /* #0F172A */
+    --popover: 210 40% 98%; /* #F8FAFC */
+    --popover-foreground: 222 84% 5%; /* #0F172A */
+    --primary: 217 91% 60%; /* #2563EB - Professional blue */
     --primary-foreground: 0 0% 100%; /* #FFFFFF */
-    --secondary: 180 84% 44%; /* #0D9488 - Sophisticated teal */
+    --secondary: 142 76% 36%; /* #059669 - Professional green */
     --secondary-foreground: 0 0% 100%; /* #FFFFFF */
-    --muted: 210 20% 98%; /* #F1F5F9 */
-    --muted-foreground: 215 16% 47%; /* #64748B */
-    --accent: 160 84% 39%; /* #10B981 - Emerald green */
+    --muted: 210 40% 96%; /* #F1F5F9 - Light muted grey */
+    --muted-foreground: 215 16% 47%; /* #64748B - Medium grey */
+    --accent: 262 83% 58%; /* #7C3AED - Professional purple */
     --accent-foreground: 0 0% 100%; /* #FFFFFF */
-    --destructive: 0 84% 60%;
+    --destructive: 0 84% 60%; /* #DC2626 - Red */
     --destructive-foreground: 0 0% 100%;
-    --border: 210 20% 92%; /* #E2E8F0 */
-    --input: 210 20% 92%; /* #E2E8F0 */
-    --ring: 204 94% 29%; /* #0369A1 */
+    --border: 214 32% 91%; /* #E2E8F0 - Light border grey */
+    --input: 214 32% 91%; /* #E2E8F0 */
+    --ring: 217 91% 60%; /* #2563EB */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    /* Light Mode Section Backgrounds */
+    /* Light Mode Section Backgrounds - Subtle variations */
     --hero-bg: 0 0% 100%; /* #FFFFFF - Pure white */
-    --about-bg: 210 40% 98%; /* #F8FAFC - Cool off-white */
-    --skills-bg: 210 40% 98%; /* #F8FAFC - Cool off-white */
-    --projects-bg: 210 20% 96%; /* #F1F5F9 - Light slate blue */
-    --contact-bg: 210 20% 92%; /* #E2E8F0 - Pale blue-grey */
-    --footer-bg: 210 20% 85%; /* #CBD5E1 - Soft steel blue */
+    --about-bg: 210 40% 99%; /* #FEFEFE - Off-white */
+    --skills-bg: 210 40% 97%; /* #F8FAFC - Very light grey */
+    --projects-bg: 210 40% 95%; /* #F1F5F9 - Light grey */
+    --contact-bg: 210 40% 93%; /* #E2E8F0 - Medium light grey */
+    --footer-bg: 210 40% 90%; /* #CBD5E1 - Slightly darker grey */
 
-    /* Light Mode Hero Gradient */
-    --hero-gradient: linear-gradient(to bottom right, #1E3A8A, #3B82F6);
+    /* Light Mode Hero Gradient - Professional */
+    --hero-gradient: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
 
     --radius: 0.5rem;
   }
