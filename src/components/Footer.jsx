@@ -13,7 +13,7 @@ const Footer = () => {
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
-      href: '#',
+      href: 'https://www.linkedin.com/in/joseph-gachuru-375219350',
       label: 'LinkedIn',
     },
     {
@@ -23,7 +23,7 @@ const Footer = () => {
     },
     {
       icon: <Instagram className="h-5 w-5" />,
-      href: '#',
+      href: 'https://www.instagram.com/ni.jigisha',
       label: 'Instagram',
     },
   ];
