@@ -68,12 +68,12 @@ const About = () => {
 
           {/* Image/Visual Content */}
           <div ref={imageRef} className="opacity-0 transform translate-x-[50px] transition-all duration-1000">
-            <Card className="overflow-hidden shadow-2xl">
+            <Card className="overflow-hidden shadow-2xl hover:shadow-2xl transition-shadow">
               <CardContent className="p-0">
                 <div className="bg-gradient-to-br from-secondary to-primary p-8 text-center text-white">
                   <div className="w-48 h-48 mx-auto mb-6 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
                     <div className="text-center">
-                      <div className="text-6xl font-bold mb-2">JG</div>
+                      <div className="text-6xl font-bold mb-2 ">JG</div>
                       <div className="text-lg opacity-90">Joseph Gachuru</div>
                       <div className="text-sm opacity-75">Software Engineer</div>
                     </div>
