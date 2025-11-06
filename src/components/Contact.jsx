@@ -11,8 +11,10 @@ import {
   Github,
   Send,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  MessageCircle
 } from 'lucide-react';
+import { generateWhatsAppURL } from '../utils/whatsapp';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -51,18 +53,28 @@ const Contact = () => {
       title: 'Phone',
       content: '+254 743 121 169',
       color: 'text-green-600',
+      link: 'tel:+254743121169',
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: 'Email',
       content: 'josephgachuru336@gmail.com',
       color: 'text-blue-600',
+      link: 'mailto:josephgachuru336@gmail.com',
     },
     {
       icon: <Github className="h-6 w-6" />,
       title: 'GitHub',
       content: 'github.com/Jigishas',
       color: 'text-gray-800',
+      link: 'https://github.com/Jigishas',
+    },
+    {
+      icon: <MessageCircle className="h-6 w-6" />,
+      title: 'WhatsApp',
+      content: '+254 743 121 169',
+      color: 'text-green-500',
+      link: generateWhatsAppURL('+254743121169'),
     },
     {
       icon: <MapPin className="h-6 w-6" />,
@@ -99,17 +111,33 @@ const Contact = () => {
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <div className={`p-3 rounded-full bg-gray-100 ${info.color}`}>
-                        {info.icon}
+                  {info.link ? (
+                    <a href={info.link} target={info.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer">
+                      <CardContent className="p-6">
+                        <div className="flex items-center space-x-4">
+                          <div className={`p-3 rounded-full bg-gray-100 ${info.color}`}>
+                            {info.icon}
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-primary">{info.title}</h4>
+                            <p className="text-muted-foreground">{info.content}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </a>
+                  ) : (
+                    <CardContent className="p-6">
+                      <div className="flex items-center space-x-4">
+                        <div className={`p-3 rounded-full bg-gray-100 ${info.color}`}>
+                          {info.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-primary">{info.title}</h4>
+                          <p className="text-muted-foreground">{info.content}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-primary">{info.title}</h4>
-                        <p className="text-muted-foreground">{info.content}</p>
-                      </div>
-                    </div>
-                  </CardContent>
+                    </CardContent>
+                  )}
                 </Card>
               ))}
             </div>
