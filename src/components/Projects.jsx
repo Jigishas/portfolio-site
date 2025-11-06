@@ -30,11 +30,11 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'React Coffee Shop',
-      description: 'A modern e-commerce application for a coffee shop built with React.js, featuring product listings, shopping cart, and user authentication.',
+      title: 'Healthy Coffee',
+      description: 'A modern website application for checking coffee plants built with React.js, featuring product listings, shopping cart, and model integrations.',
       image: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
-      technologies: ['React', 'JavaScript', 'CSS', 'Firebase'],
-      github: 'https://github.com/Jigisha/react-coffee',
+      technologies: ['React', 'JavaScript', 'CSS', 'Flask'],
+      github: 'https://github.com/Jigishas/Healthycoffee.git',
       demo: '#',
     },
     {
@@ -42,7 +42,7 @@ const Projects = () => {
       description: 'A comprehensive e-commerce platform with advanced features like product recommendations, inventory management, and payment integration.',
       image: 'linear-gradient(135deg, #e67e22, #d35400)',
       technologies: ['MERN Stack', 'MongoDB', 'Express', 'React', 'Node.js'],
-      github: 'https://github.com/Jigisha/shopsphere',
+      github: 'https://github.com/Jigishas/shopsphere',
       demo: '#',
     },
     {
@@ -50,7 +50,7 @@ const Projects = () => {
       description: 'An educational platform connecting students and tutors, featuring video conferencing, resource sharing, and progress tracking.',
       image: 'linear-gradient(135deg, #27ae60, #229954)',
       technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      github: 'https://github.com/Jigisha/educonnect',
+      github: 'https://github.com/Jigishas/educonnect',
       demo: '#',
     },
     {
@@ -58,7 +58,7 @@ const Projects = () => {
       description: 'Data engineering projects implementing ETL pipelines with Apache Airflow and data warehousing solutions using Snowflake.',
       image: 'linear-gradient(135deg, #3498db, #2980b9)',
       technologies: ['Apache Airflow', 'Snowflake', 'Python', 'SQL'],
-      github: 'https://github.com/Jigisha',
+      github: 'https://github.com/Jigishas/Monthly-data-loader-ETL-system.git',
       demo: '#',
     },
     {
@@ -66,7 +66,7 @@ const Projects = () => {
       description: 'A legal assistance platform providing resources and connections to legal professionals, with features for case management and document sharing.',
       image: 'linear-gradient(135deg, #e74c3c, #c0392b)',
       technologies: ['Java', 'Spring Boot', 'MySQL', 'React'],
-      github: 'https://github.com/Jigisha/justice-hub',
+      github: 'https://github.com/Jigishas/justice-hub',
       demo: '#',
     },
     {
@@ -74,7 +74,7 @@ const Projects = () => {
       description: 'An enhanced version of Justice Hub with additional features like AI-powered legal document analysis and advanced search capabilities.',
       image: 'linear-gradient(135deg, #f39c12, #e67e22)',
       technologies: ['MERN Stack', 'AI/ML', 'Cloud Deployment'],
-      github: 'https://github.com/Jigisha/justice-hub-v2',
+      github: 'https://github.com/Jigishas/justice-hub-edition-2',
       demo: '#',
     },
   ];

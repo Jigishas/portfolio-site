@@ -55,13 +55,13 @@ const Contact = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: 'Email',
-      content: 'contact@josephgachuru.com',
+      content: 'josephgachuru336@gmail.com',
       color: 'text-blue-600',
     },
     {
       icon: <Github className="h-6 w-6" />,
       title: 'GitHub',
-      content: 'github.com/Jigisha',
+      content: 'github.com/Jigishas',
       color: 'text-gray-800',
     },
     {
