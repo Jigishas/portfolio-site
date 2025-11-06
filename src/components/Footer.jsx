@@ -39,13 +39,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-footer text-foreground py-12 w-full min-h-screen">
+    <footer className="bg-footer text-foreground py-12 w-full">
       <div className="w-full max-w-none px-4">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo and Description */}
           <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold mb-4">
-              Joseph<span className="text-secondary">Gachuru</span>
+              Joseph<span className="text-secondary"> Gachuru</span>
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               Software Engineer passionate about creating innovative solutions
