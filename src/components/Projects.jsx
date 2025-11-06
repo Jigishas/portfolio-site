@@ -32,7 +32,7 @@ const Projects = () => {
     {
       title: 'Healthy Coffee',
       description: 'A modern website application for checking coffee plants built with React.js, featuring product listings, shopping cart, and model integrations.',
-      image: 'https://picsum.photos/seed/coffee/400/300',
+      image: 'https://www.istockphoto.com/photo/coffee-plantation-on-a-highland-during-harvest-season-with-majestic-mountain-backdrop-gm2185573622-604331470?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_top&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fcoffee-plants&utm_term=coffee+plants%3A%3Alayout-below-fold-units-2%3Acontrolhttps://media.istockphoto.com/id/2185573622/photo/coffee-plantation-on-a-highland-during-harvest-season-with-majestic-mountain-backdrop.webp?a=1&b=1&s=612x612&w=0&k=20&c=3xNKy6et-1LCqtE7mt89l6Fk2MOVqfFoukudcTXQORI=',
       technologies: ['React', 'JavaScript', 'CSS', 'Flask'],
       github: 'https://github.com/Jigishas/Healthycoffee.git',
       demo: '#',
