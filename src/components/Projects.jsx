@@ -97,10 +97,13 @@ const Projects = () => {
               className="opacity-0 transform translate-y-8 transition-all duration-700 hover:shadow-2xl hover:-translate-y-2 group overflow-hidden"
             >
               {/* Project Image */}
-              <div
-                className="h-48 bg-cover bg-center relative overflow-hidden"
-                style={{ backgroundImage: `url(${project.image})` }}
-              >
+              <div className="h-48 relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex gap-4">
                     <Button
