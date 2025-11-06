@@ -1,2 +1,0 @@
-- [ ] Update image URLs in Projects.jsx to fetch from Unsplash matching each project
-- [ ] Test the changes by running the app and verifying images load
