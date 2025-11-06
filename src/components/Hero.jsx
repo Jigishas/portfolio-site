@@ -102,7 +102,7 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-12">
-            <a href="https://github.com/Jigisha" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/Jigishas" target="_blank" rel="noopener noreferrer"
                className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
               <Github className="h-6 w-6" />
             </a>
