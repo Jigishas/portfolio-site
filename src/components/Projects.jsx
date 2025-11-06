@@ -99,7 +99,7 @@ const Projects = () => {
               {/* Project Image */}
               <div
                 className="h-48 bg-cover bg-center relative overflow-hidden"
-                style={{ background: project.image }}
+                style={{ backgroundImage: `url(${project.image})` }}
               >
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex gap-4">
