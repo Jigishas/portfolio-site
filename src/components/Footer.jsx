@@ -23,7 +23,7 @@ const Footer = () => {
     },
     {
       icon: <Instagram className="h-5 w-5" />,
-      href: 'https://www.instagram.com/ni.jigisha',
+      href: 'https://www.instagram.com/ni.jigisha/',
       label: 'Instagram',
     },
   ];
