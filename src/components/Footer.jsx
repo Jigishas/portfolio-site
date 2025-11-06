@@ -18,7 +18,7 @@ const Footer = () => {
     },
     {
       icon: <Twitter className="h-5 w-5" />,
-      href: '#',
+      href: 'https://x.com/JigishaF5831/',
       label: 'Twitter',
     },
     {
