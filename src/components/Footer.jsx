@@ -19,7 +19,7 @@ const Footer = () => {
     {
       icon: <Twitter className="h-5 w-5" />,
       href: 'https://x.com/JigishaF5831/',
-      label: 'Twitter',
+      label: 'X',
     },
     {
       icon: <Instagram className="h-5 w-5" />,
