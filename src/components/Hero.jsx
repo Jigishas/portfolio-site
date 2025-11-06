@@ -109,10 +109,10 @@ const Hero = () => {
             <a href="https://www.linkedin.com/in/joseph-gachuru-375219350" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
               <Linkedin className="h-6 w-6" />
             </a>
-            <a href="#" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
+            <a href="https://x.com/JigishaF5831/" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
               <Twitter className="h-6 w-6" />
             </a>
-            <a href="#" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
+            <a href="https://www.instagram.com/ni.jigisha/" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
               <Instagram className="h-6 w-6" />
             </a>
           </div>
