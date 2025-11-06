@@ -52,8 +52,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="text-2xl font-bold text-secondary">
-            Joseph<span className="text-secondary">  Gachuru</span>
+          <a href="#home" className="text-2xl font-bold text-primary">
+            Joseph<span className="text-primary">  Gachuru</span>
           </a>
 
           {/* Desktop Navigation */}

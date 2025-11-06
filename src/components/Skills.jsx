@@ -61,6 +61,10 @@ const Skills = () => {
         { name: 'ETL Processes', primary: false },
         { name: 'Database Design', primary: false },
         { name: 'SQL', primary: false },
+        { name: 'Python', primary: false },
+        { name: 'cloud Computing', primary: false },
+        { name: 'Data Warehousing', primary: false },
+        { name: 'Big Query', primary: false },
       ],
     },
     {
@@ -73,6 +77,7 @@ const Skills = () => {
         { name: 'Docker', primary: false },
         { name: 'Git & GitHub', primary: false },
         { name: 'Linux', primary: false },
+        { name: 'Agile & Scrum', primary: false },
       ],
     },
   ];

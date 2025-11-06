@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
+import photo from '../../public/jose.jpg';
 import { ChevronDown, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 const Hero = () => {
@@ -61,7 +62,7 @@ const Hero = () => {
           {/* Profile Image */}
           <div className="mb-8">
             <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-6xl font-bold text-white shadow-2xl">
-              JG
+              <img src={photo} alt="Profile" className="w-32 h-32 rounded-full object-cover" />
             </div>
           </div>
 
@@ -70,7 +71,7 @@ const Hero = () => {
           </h1>
 
           <div className="text-xl md:text-2xl mb-4 h-8 flex items-center justify-center">
-            <span className="text-secondary font-semibold">{currentText}</span>
+            <span className="text-primary font-semibold">{currentText}</span>
             <span className="animate-pulse">|</span>
           </div>
 
