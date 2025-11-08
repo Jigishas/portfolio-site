@@ -43,7 +43,7 @@ const Projects = () => {
       image: 'https://picsum.photos/seed/ecommerce/400/300',
       technologies: ['MERN Stack', 'MongoDB', 'Express', 'React', 'Node.js'],
       github: 'https://github.com/Jigishas/shopsphere',
-      demo: '#',
+      demo: 'https://shopsphere-ashy.vercel.app/',
     },
     {
       title: 'EduConnect',
