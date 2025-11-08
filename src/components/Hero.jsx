@@ -115,8 +115,11 @@ const Hero = () => {
             <a href="https://www.instagram.com/ni.jigisha/" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
               <Instagram className="h-6 w-6" />
             </a>
+            <br />
           </div>
         </div>
+        <br />
+        <br />
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
