@@ -55,11 +55,11 @@ const Projects = () => {
     },
     {
       title: 'Airflow & Snowflake Projects',
-      description: 'Data engineering projects implementing ETL pipelines with Apache Airflow and data warehousing solutions using Snowflake.',
+      description: 'Data engineering projects implementing ETL pipelines with Apache Airflow, using DAGs and data warehousing solutions using Snowflake.',
       image: 'https://picsum.photos/seed/data/400/300',
       technologies: ['Apache Airflow', 'Snowflake', 'Python', 'SQL'],
-      github: 'https://github.com/Jigishas/Monthly-data-loader-ETL-system.git',
-      demo: '#',
+      github: 'https://github.com/Jigishas/Airflow-Dags.git',
+      demo: 'https://github.com/Jigishas/Airflow-Dags.git',
     },
     {
       title: 'Justice Hub',
