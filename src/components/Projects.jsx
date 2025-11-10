@@ -46,11 +46,11 @@ const Projects = () => {
       demo: 'https://shopsphere-ashy.vercel.app/',
     },
     {
-      title: 'EduConnect',
-      description: 'An educational platform connecting students and tutors, featuring video conferencing, resource sharing, and progress tracking.',
+      title: 'Web Socket-io',
+      description: 'A real-time chat application built with Socket.io, featuring user authentication, instant messaging, typing indicators, and private messaging capabilities.',
       image: 'https://picsum.photos/seed/education/400/300',
       technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      github: 'https://github.com/Jigishas/educonnect',
+      github: 'https://github.com/Jigishas/web-socket-io.git',
       demo: '#',
     },
     {
