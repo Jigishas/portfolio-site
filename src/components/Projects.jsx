@@ -35,7 +35,7 @@ const Projects = () => {
       image: 'https://media.istockphoto.com/id/2185573622/photo/coffee-plantation-on-a-highland-during-harvest-season-with-majestic-mountain-backdrop.webp?a=1&b=1&s=612x612&w=0&k=20&c=3xNKy6et-1LCqtE7mt89l6Fk2MOVqfFoukudcTXQORI=',
       technologies: ['React', 'JavaScript', 'CSS', 'Flask'],
       github: 'https://github.com/Jigishas/Healthycoffee.git',
-      demo: '#',
+      demo: 'https://github.com/Jigishas/Healthycoffee.git',
     },
     {
       title: 'ShopSphere',
@@ -51,7 +51,7 @@ const Projects = () => {
       image: 'https://picsum.photos/seed/education/400/300',
       technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
       github: 'https://github.com/Jigishas/web-socket-io.git',
-      demo: '#',
+      demo: 'https://github.com/Jigishas/web-socket-io.git',
     },
     {
       title: 'Airflow & Snowflake Projects',
@@ -67,7 +67,7 @@ const Projects = () => {
       image: 'https://picsum.photos/seed/justice/400/300',
       technologies: ['Java', 'Spring Boot', 'MySQL', 'React'],
       github: 'https://github.com/Jigishas/justice-hub',
-      demo: '#',
+      demo: 'https://github.com/Jigishas/justice-hub',
     },
     {
       title: 'Justice Hub Edition 2',
