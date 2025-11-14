@@ -79,7 +79,10 @@ const Hero = () => {
             Software Engineer | Data Engineer | Backend Specialist
           </p>
           <p className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Undergraduate at Kirinyaga University pursuing BSC in Software Engineering
+            Undergraduate at Kirinyaga University pursed BSC in Software Engineering
+          </p>
+          <p className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto ">
+          Graduate of Power Learn Project Africa.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
