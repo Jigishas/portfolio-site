@@ -67,7 +67,7 @@ const Projects = () => {
       image: 'https://picsum.photos/seed/justice/400/300',
       technologies: ['Java', 'Spring Boot', 'MySQL', 'React'],
       github: 'https://github.com/Jigishas/justice-hub',
-      demo: 'https://github.com/Jigishas/justice-hub',
+      demo: 'https://justice-hub-delta.vercel.app',
     },
     {
       title: 'Justice Hub Edition 2',

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
@@ -14,29 +14,6 @@ import {
 } from 'lucide-react';
 
 const Skills = () => {
-  const cardsRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('animate-fade-in');
-            }, index * 200);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const skillCategories = [
     {
       title: 'Software Engineering',
@@ -152,7 +129,7 @@ const Skills = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category) => (
             <motion.div
               key={category.title}
               variants={cardVariants}
@@ -170,7 +147,7 @@ const Skills = () => {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{
-                      delay: index * 0.2 + 0.3,
+                      delay: 0.3,
                       type: "spring",
                       stiffness: 200,
                     }}
@@ -251,7 +228,7 @@ const Skills = () => {
               { icon: <Server className="h-5 w-5 text-secondary" />, label: 'AWS' },
               { icon: <Zap className="h-5 w-5 text-secondary" />, label: 'REST APIs' },
               { icon: <Laptop className="h-5 w-5 text-secondary" />, label: 'Agile/Scrum' },
-            ].map((tool, index) => (
+            ].map((tool) => (
               <motion.div
                 key={tool.label}
                 className="flex items-center gap-2 bg-card rounded-full px-4 py-2 shadow-md hover:shadow-lg transition-shadow"
