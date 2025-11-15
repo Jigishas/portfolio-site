@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import photo from '../../public/jose.jpg';
 import { ChevronDown, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
@@ -48,8 +50,52 @@ const Hero = () => {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
+  const socialVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.1,
+        delayChildren: 0.8,
+      },
+    },
+  };
+
+  const socialItemVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
   return (
-    <section id="home" className="relative h-screen w-full flex items-center justify-center bg-hero-gradient dark:bg-hero-gradient-dark text-white overflow-hidden">
+    <motion.section
+      id="home"
+      className="relative h-screen w-full flex items-center justify-center bg-hero-gradient dark:bg-hero-gradient-dark text-white overflow-hidden"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -60,78 +106,140 @@ const Hero = () => {
       <div className="w-full max-w-none px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image */}
-          <div className="mb-8">
-            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-6xl font-bold text-white shadow-2xl">
-              <img src={photo} alt="Profile" className="w-32 h-32 rounded-full object-cover" />
-            </div>
-          </div>
+          <motion.div
+            className="mb-8"
+            variants={itemVariants}
+          >
+            <motion.div
+              className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-6xl font-bold text-white shadow-2xl"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.img
+                src={photo}
+                alt="Profile"
+                className="w-32 h-32 rounded-full object-cover"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              />
+            </motion.div>
+          </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold mb-6"
+            variants={itemVariants}
+          >
             Joseph Gachuru
-          </h1>
+          </motion.h1>
 
-          <div className="text-xl md:text-2xl mb-4 h-8 flex items-center justify-center">
+          <motion.div
+            className="text-xl md:text-2xl mb-4 h-8 flex items-center justify-center"
+            variants={itemVariants}
+          >
             <span className="text-primary font-semibold">{currentText}</span>
-            <span className="animate-pulse">|</span>
-          </div>
+            <motion.span
+              animate={{ opacity: [1, 0] }}
+              transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+            >
+              |
+            </motion.span>
+          </motion.div>
 
-          <p className="text-lg md:text-xl text-white/90 mb-2 max-w-2xl mx-auto">
+          <motion.p
+            className="text-lg md:text-xl text-white/90 mb-2 max-w-2xl mx-auto"
+            variants={itemVariants}
+          >
             Software Engineer | Data Engineer | Backend Specialist
-          </p>
-          <p className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Undergraduate at Kirinyaga University pursed BSC in Software Engineering
-          </p>
-          <p className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto ">
-          Graduate of Power Learn Project Africa.
-          </p>
+          </motion.p>
+          <motion.p
+            className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
+            variants={itemVariants}
+          >
+            Undergraduate at Kirinyaga University pursuing BSC in Software Engineering
+          </motion.p>
+          <motion.p
+            className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
+            variants={itemVariants}
+          >
+            Graduate of Power Learn Project Africa.
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button
-              onClick={() => scrollToSection('#projects')}
-              size="lg"
-              className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            variants={itemVariants}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              View My Work
-            </Button>
-            <Button
-              onClick={() => scrollToSection('#contact')}
-              variant="outline"
-              size="lg"
-              className="border-2 border-white text-blue-400 hover:bg-white hover:text-primary px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              <Button
+                onClick={() => scrollToSection('#projects')}
+                size="lg"
+                className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                View My Work
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Get In Touch
-            </Button>
-          </div>
+              <Button
+                onClick={() => scrollToSection('#contact')}
+                variant="outline"
+                size="lg"
+                className="border-2 border-white text-blue-400 hover:bg-white hover:text-primary px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Get In Touch
+              </Button>
+            </motion.div>
+          </motion.div>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-6 mb-12">
-            <a href="https://github.com/Jigishas" target="_blank" rel="noopener noreferrer"
-               className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
-              <Github className="h-6 w-6" />
-            </a>
-            <a href="https://www.linkedin.com/in/joseph-gachuru-375219350" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
-              <Linkedin className="h-6 w-6" />
-            </a>
-            <a href="https://x.com/JigishaF5831/" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
-              <Twitter className="h-6 w-6" />
-            </a>
-            <a href="https://www.instagram.com/ni.jigisha/" className="text-white/80 hover:text-secondary transition-colors duration-300 transform hover:scale-110">
-              <Instagram className="h-6 w-6" />
-            </a>
-            <br />
-          </div>
+          <motion.div
+            className="flex justify-center space-x-6 mb-12"
+            variants={socialVariants}
+          >
+            {[
+              { href: "https://github.com/Jigishas", icon: <Github className="h-6 w-6" />, label: "GitHub" },
+              { href: "https://www.linkedin.com/in/joseph-gachuru-375219350", icon: <Linkedin className="h-6 w-6" />, label: "LinkedIn" },
+              { href: "https://x.com/JigishaF5831/", icon: <Twitter className="h-6 w-6" />, label: "Twitter" },
+              { href: "https://www.instagram.com/ni.jigisha/", icon: <Instagram className="h-6 w-6" />, label: "Instagram" },
+            ].map((social) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-secondary transition-colors duration-300"
+                variants={socialItemVariants}
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </motion.div>
         </div>
-        <br />
-        <br />
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <button onClick={() => scrollToSection('#about')} className="text-white/80 hover:text-white transition-colors duration-300">
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <motion.button
+            onClick={() => scrollToSection('#about')}
+            className="text-white/80 hover:text-white transition-colors duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <ChevronDown className="h-8 w-8" />
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
