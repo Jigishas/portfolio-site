@@ -35,7 +35,7 @@ const Projects = () => {
       image: 'https://media.istockphoto.com/id/2185573622/photo/coffee-plantation-on-a-highland-during-harvest-season-with-majestic-mountain-backdrop.webp?a=1&b=1&s=612x612&w=0&k=20&c=3xNKy6et-1LCqtE7mt89l6Fk2MOVqfFoukudcTXQORI=',
       technologies: ['React', 'JavaScript', 'CSS', 'Flask'],
       github: 'https://github.com/Jigishas/Healthycoffee.git',
-      demo: 'https://github.com/Jigishas/Healthycoffee.git',
+      demo: 'https://healthycoffee.vercel.app',
     },
     {
       title: 'ShopSphere',
@@ -43,7 +43,7 @@ const Projects = () => {
       image: 'https://picsum.photos/seed/ecommerce/400/300',
       technologies: ['MERN Stack', 'MongoDB', 'Express', 'React', 'Node.js'],
       github: 'https://github.com/Jigishas/shopsphere',
-      demo: 'https://shopsphere-ashy.vercel.app/',
+      demo: 'https://shopsphere-ashy.vercel.app',
     },
     {
       title: 'Web Socket-io',
@@ -75,7 +75,7 @@ const Projects = () => {
       image: 'https://picsum.photos/seed/justice2/400/300',
       technologies: ['MERN Stack', 'AI/ML', 'Cloud Deployment'],
       github: 'https://github.com/Jigishas/justice-hub-edition-2',
-      demo: 'https://justice-hub-edition-2.vercel.app/',
+      demo: 'https://justice-hub-edition-2.vercel.app',
     },
   ];
 
