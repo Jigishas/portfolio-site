@@ -222,6 +222,9 @@ const Hero = () => {
             ))}
           </motion.div>
         </div>
+        <br />
+        <br />
+        <br />
 
         {/* Scroll Indicator */}
         <motion.div
