@@ -43,9 +43,9 @@ const Footer = () => {
       <div className="w-full max-w-none px-4">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo and Description */}
-          <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-4">
-              Joseph<span className="text-secondary"> Gachuru</span>
+          <div className="text-center md:text-left ">
+            <h3 className="text-2xl font-bold mb-4 text-secondary dark:text-primary">
+              Joseph<span className="text-secondary dark:text-primary "> Gachuru</span>
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               Software Engineer passionate about creating innovative solutions
