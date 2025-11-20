@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
@@ -27,6 +28,9 @@ const Skills = () => {
         { name: 'JavaScript', primary: false },
         { name: 'HTML/CSS', primary: false },
         { name: 'Java Programming', primary: false },
+        { name: 'RESTful APIs', primary: false },
+        { name: 'Version Control (Git)', primary: false },
+        { name:  'Python', primary: false },
       ],
     },
     {
@@ -43,6 +47,7 @@ const Skills = () => {
         { name: 'cloud Computing', primary: false },
         { name: 'Data Warehousing', primary: false },
         { name: 'Big Query', primary: false },
+        { name: 'DAGs', primary: false },
       ],
     },
     {
@@ -56,6 +61,7 @@ const Skills = () => {
         { name: 'Git & GitHub', primary: false },
         { name: 'Linux', primary: false },
         { name: 'Agile & Scrum', primary: false },
+        { name: 'Docker-Compose', primary: false },
       ],
     },
   ];
