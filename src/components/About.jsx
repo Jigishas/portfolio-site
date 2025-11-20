@@ -108,7 +108,7 @@ const About = () => {
               Passionate Software Engineer & Tech Enthusiast
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Hello! I'm Joseph Gachuru, a dedicated Software Engineering student at Kirinyaga University with a strong passion for technology and software development. I specialize in creating efficient, scalable solutions across multiple domains.
+              Hello! I'm Joseph Gachuru, a dedicated Software Engineering student of Kirinyaga University with a strong passion for technology and software development. I specialize in creating efficient, scalable solutions across multiple domains.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               My expertise spans{' '}
