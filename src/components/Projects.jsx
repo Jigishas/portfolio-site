@@ -24,7 +24,7 @@ const projects = [
     image: 'https://picsum.photos/seed/ecommerce/800/600',
     technologies: ['MERN Stack', 'MongoDB', 'Express', 'React', 'Node.js'],
     github: 'https://github.com/Jigishas/shopsphere',
-    demo: 'https://shopsphere-ashy.vercel.app',
+    demo: 'https://shopsphere-ye71.vercel.app/',
   },
   {
     title: 'Web Socket-io',
