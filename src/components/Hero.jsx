@@ -103,11 +103,11 @@ const Hero = () => {
         }}></div>
       </div>
 
-      <div className="w-full max-w-none px-4 text-center relative z-10">
+      <div className="w-full max-w-none mt-20 px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image */}
           <motion.div
-            className="mb-8"
+            className="mb-8 mt-4"
             variants={itemVariants}
           >
             <motion.div
