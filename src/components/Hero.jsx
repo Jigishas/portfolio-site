@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import photo from '../../public/jose.jpg';
+import photo from '../../public/jose.jpeg';
 import { ChevronDown, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 const Hero = () => {
