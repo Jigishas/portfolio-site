@@ -62,6 +62,7 @@ const Skills = () => {
         { name: 'Linux', primary: false },
         { name: 'Agile & Scrum', primary: false },
         { name: 'Docker-Compose', primary: false },
+        { name: 'Docker-Network', primary: false },
       ],
     },
   ];
