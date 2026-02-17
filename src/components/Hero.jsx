@@ -2,13 +2,28 @@ import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
+
 import photo from '../../public/jose.jpeg';
-import { ChevronDown, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { 
+  ChevronDown, 
+  Github, 
+  Linkedin, 
+  Twitter, 
+  Instagram, 
+  Download,
+  Code2,
+  Database,
+  Cloud,
+  Server,
+  Terminal
+} from 'lucide-react';
+
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const texts = [
     'Software Engineer',
@@ -16,6 +31,28 @@ const Hero = () => {
     'Backend Specialist',
     'Tech Enthusiast'
   ];
+
+  // Floating tech icons data
+  const floatingIcons = [
+    { Icon: Code2, delay: 0, x: '10%', y: '20%' },
+    { Icon: Database, delay: 1, x: '85%', y: '15%' },
+    { Icon: Cloud, delay: 2, x: '75%', y: '70%' },
+    { Icon: Server, delay: 3, x: '15%', y: '75%' },
+    { Icon: Terminal, delay: 4, x: '90%', y: '50%' },
+  ];
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20,
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
 
   useEffect(() => {
     const type = () => {
@@ -91,47 +128,143 @@ const Hero = () => {
   return (
     <motion.section
       id="home"
-      className="relative h-screen w-full flex items-center justify-center bg-hero-gradient dark:bg-hero-gradient-dark text-white overflow-hidden"
+      className="relative h-screen w-screen min-w-full flex items-center justify-center bg-hero-gradient dark:bg-hero-gradient-dark text-white overflow-hidden"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Animated Background Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-white/20 rounded-full"
+            initial={{
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+            }}
+            animate={{
+              y: [null, -20, 20],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              delay: Math.random() * 2,
+            }}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating Tech Icons */}
+      {floatingIcons.map((item, index) => {
+        const IconComponent = item.Icon;
+        return (
+          <motion.div
+            key={index}
+            className="absolute text-white/20 pointer-events-none hidden md:block"
+            style={{ left: item.x, top: item.y }}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: [0, -15, 0],
+            }}
+            transition={{
+              opacity: { delay: item.delay * 0.5, duration: 0.5 },
+              scale: { delay: item.delay * 0.5, duration: 0.5 },
+              y: {
+                delay: item.delay * 0.5,
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              },
+            }}
+          >
+            <IconComponent className="w-8 h-8 md:w-12 md:h-12" />
+          </motion.div>
+        );
+      })}
+
+
+
+
+      {/* Background Pattern with Parallax */}
+      <motion.div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          x: mousePosition.x,
+          y: mousePosition.y,
+        }}
+      >
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}></div>
-      </div>
+      </motion.div>
+
 
       <div className="w-full max-w-none mt-20 px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Profile Image */}
+          {/* Profile Image with Animated Ring */}
           <motion.div
-            className="mb-8 mt-4"
+            className="mb-8 mt-4 relative"
             variants={itemVariants}
           >
             <motion.div
-              className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-6xl font-bold text-white shadow-2xl"
+              className="w-36 h-36 mx-auto rounded-full relative"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.img
-                src={photo}
-                alt="Profile"
-                className="w-32 h-32 rounded-full object-cover"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+              {/* Animated Border Ring */}
+              <motion.div
+                className="absolute -inset-2 rounded-full bg-gradient-to-r from-secondary via-accent to-secondary opacity-75"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               />
+              <motion.div
+                className="absolute -inset-1 rounded-full bg-gradient-to-r from-accent via-secondary to-accent opacity-50"
+                animate={{ rotate: -360 }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+              />
+              <div className="relative w-full h-full rounded-full bg-gradient-to-br from-secondary to-accent p-1">
+                <motion.img
+                  src={photo}
+                  alt="Joseph Gachuru"
+                  className="w-full h-full rounded-full object-cover border-4 border-white/20"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                />
+              </div>
             </motion.div>
           </motion.div>
 
+
+          {/* Gradient Text Name */}
           <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-secondary to-accent bg-clip-text text-transparent"
             variants={itemVariants}
+            style={{
+              backgroundSize: '200% 200%',
+            }}
+            animate={{
+              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
           >
             Joseph Gachuru
           </motion.h1>
+
 
           <motion.div
             className="text-xl md:text-2xl mb-4 h-8 flex items-center justify-center"
@@ -189,12 +322,27 @@ const Hero = () => {
                 onClick={() => scrollToSection('#contact')}
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-blue-400 hover:bg-white hover:text-primary px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Get In Touch
               </Button>
             </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-2 border-white/50 text-white hover:bg-white/10 px-6 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                onClick={() => window.open('/resume.pdf', '_blank')}
+              >
+                <Download className="w-5 h-5" />
+                Resume
+              </Button>
+            </motion.div>
           </motion.div>
+
 
           {/* Social Links */}
           <motion.div
