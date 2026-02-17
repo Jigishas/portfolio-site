@@ -106,7 +106,7 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-2xl font-bold mb-4 text-primary">
-                Joseph<span className="text-secondary">Gachuru</span>
+                Joseph<span className="text-secondary"> Gachuru</span>
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 Software Engineer passionate about creating innovative solutions
