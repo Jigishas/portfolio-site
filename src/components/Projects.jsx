@@ -58,7 +58,7 @@ const projects = [
     description:
       'An enhanced version of Justice Hub with additional features like AI-powered legal document analysis and advanced search capabilities.',
     image: 'https://picsum.photos/seed/justice2/800/600',
-    technologies: ['MERN Stack', 'AI/ML', 'Cloud Deployment'],
+    technologies: ['MERN Stack', 'Express', 'Cloud Deployment'],
     github: 'https://github.com/Jigishas/justice-hub-edition-2',
     demo: 'https://justice-hub-edition-2.vercel.app',
   },
