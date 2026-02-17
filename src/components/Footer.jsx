@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Badge } from './ui/badge';
@@ -22,8 +22,7 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
+ 
 
   const socialLinks = [
     {
@@ -69,14 +68,7 @@ const Footer = () => {
     }
   };
 
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 3000);
-    }
-  };
+
 
   const footerLinks = {
     navigation: [
@@ -103,50 +95,6 @@ const Footer = () => {
       {/* Newsletter Section */}
       <div className="w-full max-w-none px-4 py-12 border-b border-border">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Mail className="h-6 w-6 text-secondary" />
-              <h3 className="text-2xl font-bold text-primary">Stay Updated</h3>
-            </div>
-            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-              Subscribe to my newsletter for the latest updates on projects, tech insights, 
-              and software engineering tips.
-            </p>
-            
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1"
-                required
-              />
-              <Button 
-                type="submit" 
-                className="bg-secondary hover:bg-secondary/90 text-white"
-                disabled={subscribed}
-              >
-                {subscribed ? 'Subscribed!' : 'Subscribe'}
-              </Button>
-            </form>
-            
-            {subscribed && (
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-green-600 text-sm mt-3 flex items-center justify-center gap-1"
-              >
-                <Sparkles className="h-4 w-4" />
-                Thanks for subscribing! Check your inbox soon.
-              </motion.p>
-            )}
-          </motion.div>
         </div>
       </div>
 
