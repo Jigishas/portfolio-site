@@ -51,12 +51,7 @@ const Footer = () => {
     },
   ];
 
-  const techStack = [
-    { name: 'React', icon: <Code2 className="h-4 w-4" /> },
-    { name: 'Node.js', icon: <Server className="h-4 w-4" /> },
-    { name: 'MongoDB', icon: <Database className="h-4 w-4" /> },
-    { name: 'AWS', icon: <Cloud className="h-4 w-4" /> },
-  ];
+  
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -215,33 +210,6 @@ const Footer = () => {
             </motion.div>
           </div>
 
-          {/* Tech Stack Badge */}
-          <motion.div
-            className="border-t border-border pt-8 mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <span className="text-sm text-muted-foreground flex items-center gap-2">
-                <Heart className="h-4 w-4 text-red-500" />
-                Made with passion using
-              </span>
-              <div className="flex flex-wrap justify-center gap-2">
-                {techStack.map((tech) => (
-                  <Badge
-                    key={tech.name}
-                    variant="outline"
-                    className="flex items-center gap-1 px-3 py-1 hover:bg-secondary/10 transition-colors"
-                  >
-                    {tech.icon}
-                    {tech.name}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </motion.div>
 
           {/* Bottom Bar */}
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
