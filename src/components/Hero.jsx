@@ -156,7 +156,7 @@ const Hero = () => {
             className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
             variants={itemVariants}
           >
-            Undergraduate at Kirinyaga University pursuing BSC in Software Engineering
+            Undergraduate at Kirinyaga University. BSC in Software Engineering
           </motion.p>
           <motion.p
             className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
