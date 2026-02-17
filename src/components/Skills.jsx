@@ -66,6 +66,40 @@ const Skills = () => {
         { name: 'Docker-Network', primary: false },
       ],
     },
+     {
+      title: 'Data Analysis & Visualization',
+      icon: <Cloud className="h-8 w-8 text-secondary" />,
+      skills: [
+        { name: '', primary: true },
+        { name: 'Data Analysis', primary: false },
+        { name: 'Data Visualization', primary: false },
+        { name: 'Python for Data Science', primary: false },
+        { name: 'SQL', primary: false },
+        { name: 'Tableau', primary: false },
+        { name: 'Power BI', primary: false },
+        { name: 'Docker-Compose', primary: false },
+        { name: 'Docker-Network', primary: false },
+      ],
+    },
+     {
+      title: 'Database Management & Administration',
+      icon: <Database className="h-8 w-8 text-secondary" />,
+      skills: [
+        { name: 'Database Design', primary: true },
+        { name: 'Data Migration', primary: false },
+        { name: 'Data Replication', primary: false },
+        { name: 'Sharding', primary: false },
+        { name: 'Database Administration', primary: false },
+        { name: 'Data Validation Checks', primary: false },
+        { name: 'Docker-Network Connection', primary: false },
+        { name: 'Database Security', primary: false },
+        { name: 'Performance Optimization', primary: false },
+        { name: 'Backup and Recovery', primary: false },
+        { name: 'Monitoring and Troubleshooting', primary: false },
+        { name: 'Cloud Database Services', primary: false },
+        { name: 'Data Warehousing', primary: false },
+      ],
+    },
   ];
 
   const containerVariants = {
@@ -236,6 +270,13 @@ const Skills = () => {
               { icon: <Server className="h-5 w-5 text-secondary" />, label: 'AWS' },
               { icon: <Zap className="h-5 w-5 text-secondary" />, label: 'REST APIs' },
               { icon: <Laptop className="h-5 w-5 text-secondary" />, label: 'Agile/Scrum' },
+              { icon: <Cloud className="h-5 w-5 text-secondary" />, label: 'CI/CD' },
+              { icon: <Database className="h-5 w-5 text-secondary" />, label: 'SQL' },
+              { icon: <Code className="h-5 w-5 text-secondary" />, label: 'Python' },
+              { icon: <Code className="h-5 w-5 text-secondary" />, label: 'Tableau' },
+              { icon: <Code className="h-5 w-5 text-secondary" />, label: 'Power BI' },
+              { icon: <Code className="h-5 w-5 text-secondary" />, label: 'Big Query' },
+              { }
             ].map((tool) => (
               <motion.div
                 key={tool.label}
