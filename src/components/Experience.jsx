@@ -43,10 +43,10 @@ const Experience = () => {
       description: 'Intensive training program covering full-stack development, data engineering, and cloud computing. Completed 6-month intensive bootcamp with hands-on projects.',
       achievements: [
         'Top 10% of graduating cohort',
-        'Built 8 production-ready applications',
+        'Built 3 production-ready applications',
         'Mentored 5 junior developers',
       ],
-      technologies: ['MERN Stack', 'Apache Airflow', 'Snowflake', 'AWS', 'Docker'],
+      technologies: ['Full-Stack Web Development-MERN', 'AI Safari', 'Database Design & Programming with SQL', 'Python ', 'Web Development v2', 'Startup Building for Developers', 'Blockchain-101', 'AI for Business Intelligence-Powered by PromptBi'],
       icon: <Code className="h-6 w-6" />,
       color: 'bg-green-500',
     },
