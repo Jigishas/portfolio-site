@@ -23,7 +23,7 @@ const Experience = () => {
       title: 'Software Engineering Student',
       organization: 'Kirinyaga University',
       location: 'Kirinyaga, Kenya',
-      period: '2022 - Present',
+      period: '2023 - Present',
       description: 'Pursuing Bachelor of Science in Software Engineering. Focusing on full-stack development, data structures, algorithms, and software architecture.',
       achievements: [
         'Dean\'s List for Academic Excellence',
@@ -39,7 +39,7 @@ const Experience = () => {
       title: 'Software Development Trainee',
       organization: 'Power Learn Project Africa',
       location: 'Remote',
-      period: '2023 - 2024',
+      period: 'July 2025 - Dec 2025',
       description: 'Intensive training program covering full-stack development, data engineering, and cloud computing. Completed 6-month intensive bootcamp with hands-on projects.',
       achievements: [
         'Top 10% of graduating cohort',
