@@ -49,7 +49,7 @@ const projects = [
     description:
       'A legal assistance platform providing resources and connections to legal professionals, with features for case management and document sharing.',
     image: 'https://picsum.photos/seed/justice/800/600',
-    technologies: ['Java', 'Spring Boot', 'MySQL', 'React'],
+    technologies: ['MERN Stack', 'Express', 'Tailwindcss', 'React'],
     github: 'https://github.com/Jigishas/justice-hub',
     demo: 'https://justice-hub-delta.vercel.app',
   },
