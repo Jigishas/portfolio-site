@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { Badge } from './ui/badge';
 import { 
   Github, 
   Linkedin, 
@@ -17,6 +18,7 @@ import {
 } from 'lucide-react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
