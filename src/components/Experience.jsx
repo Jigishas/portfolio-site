@@ -278,13 +278,13 @@ const Experience = () => {
               {
                 title: 'Power Learn Project Graduate',
                 issuer: 'Power Learn Project Africa',
-                year: '2024',
+                year: '2025',
                 icon: <Award className="h-8 w-8" />,
               },
               {
                 title: 'Data Engineering Specialist',
                 issuer: 'Self-Certified Projects',
-                year: '2024',
+                year: '2026',
                 icon: <Database className="h-8 w-8" />,
               },
               {
