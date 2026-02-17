@@ -21,6 +21,7 @@ const Skills = () => {
       icon: <Code className="h-8 w-8 text-secondary" />,
       skills: [
         { name: 'MERN Stack', primary: true },
+        { name: 'Full-Stack Development', primary: false },
         { name: 'React.js', primary: false },
         { name: 'Node.js', primary: false },
         { name: 'Express.js', primary: false },
