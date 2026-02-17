@@ -22,7 +22,7 @@ const projects = [
     description:
       'A comprehensive e-commerce platform with advanced features like product recommendations, inventory management, and payment integration.',
     image: 'https://picsum.photos/seed/ecommerce/800/600',
-    technologies: ['Tailwindcss', 'MongoDB', 'Express', 'React', 'Node.js' ],
+    technologies: ['Tailwindcss', 'MongoDB', 'Express', 'React', 'Node.js', 'Shadcn' ],
     github: 'https://github.com/Jigishas/shopsphere',
     demo: 'https://shopsphere-ye71.vercel.app/',
   },
