@@ -221,7 +221,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Animated Border Ring */}
+              {/* Animated Border Ring
               <motion.div
                 className="absolute -inset-2 rounded-full bg-gradient-to-r from-secondary via-accent to-secondary opacity-75"
                 animate={{ rotate: 360 }}
@@ -231,7 +231,7 @@ const Hero = () => {
                 className="absolute -inset-1 rounded-full bg-gradient-to-r from-accent via-secondary to-accent opacity-50"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-              />
+              /> */}
               <div className="relative w-full h-full rounded-full bg-gradient-to-br from-secondary to-accent p-1">
                 <motion.img
                   src={photo}
