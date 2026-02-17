@@ -116,12 +116,15 @@ const About = () => {
                 <Badge variant="secondary" className="mx-1">Software Engineering</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
+                <Badge variant="secondary" className="mx-1">Data Analytics</Badge>
+              </motion.span>,{' '}
+              <motion.span variants={badgeVariants}>
                 <Badge variant="secondary" className="mx-1">Data Engineering</Badge>
               </motion.span>, and{' '}
               <motion.span variants={badgeVariants}>
                 <Badge variant="secondary" className="mx-1">Backend Development</Badge>
               </motion.span>{' '}
-              with proficiency in the MERN stack, cloud computing, Java programming, and DevOps practices.
+              with proficiency in the MERN stack, cloud computing, Python programming, and DevOps practices.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               I'm constantly learning and exploring new technologies to enhance my skills and contribute to innovative projects that solve real-world problems.
@@ -133,7 +136,7 @@ const About = () => {
             >
               {[
                 'MERN Stack',
-                'Java',
+                'Php',
                 'Python',
                 'Apache Airflow',
                 'Snowflake',
@@ -183,7 +186,7 @@ const About = () => {
                           whileInView={{ scale: 1 }}
                           transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                          2+
+                          3+
                         </motion.div>
                         <div className="text-sm opacity-90">Years Experience</div>
                       </motion.div>
