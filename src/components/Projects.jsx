@@ -31,7 +31,7 @@ const projects = [
     description:
       'A real-time chat application built with Socket.io, featuring user authentication, instant messaging, typing indicators, and private messaging capabilities.',
     image: 'https://picsum.photos/seed/education/800/600',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express', 'Tailwindcss'],
     github: 'https://github.com/Jigishas/web-socket-io.git',
     demo: 'https://github.com/Jigishas/web-socket-io.git',
   },
