@@ -107,9 +107,9 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm">
               © {currentYear} Joseph Gachuru. All Rights Reserved.
             </p>
-            <p className="text-muted-foreground text-sm flex items-center">
+            {/* <p className="text-muted-foreground text-sm flex items-center">
               Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> and React
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
