@@ -142,6 +142,9 @@ const About = () => {
                 'Snowflake',
                 'Docker',
                 'AWS',
+                'Azure',
+                'Django',
+                'Laravel',
               ].map((tech) => (
                 <motion.div
                   key={tech}
