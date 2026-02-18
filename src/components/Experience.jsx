@@ -19,11 +19,11 @@ import {
 const Experience = () => {
   const experiences = [
     {
-      type: 'work',
+      type: 'Education',
       title: 'Software Engineering Student',
       organization: 'Kirinyaga University',
       location: 'Kirinyaga, Kenya',
-      period: '2023 - Present',
+      period: '2023 - 2026',
       description: 'Pursuing Bachelor of Science in Software Engineering. Focusing on full-stack development, data structures, algorithms, and software architecture.',
       achievements: [
         'Dean\'s List for Academic Excellence',
