@@ -228,7 +228,7 @@ const Contact = () => {
                 {submitStatus === 'success' && (
                   <div className="flex items-center space-x-2 text-green-600 bg-green-50 p-4 rounded-lg">
                     <CheckCircle className="h-5 w-5" />
-                    <span>Message sent successfully! I'll get back to you soon.</span>
+                    <span>Message sent successfully! I'll get back to you soon. You can click the whatsapp icon on the left and reach me ASAp.</span>
                   </div>
                 )}
 
