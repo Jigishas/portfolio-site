@@ -35,7 +35,7 @@ const Experience = () => {
       color: 'bg-blue-500',
     },
     {
-      type: 'work',
+      type: 'Education',
       title: 'Software Development Trainee',
       organization: 'Power Learn Project Africa',
       location: 'Remote',
@@ -71,7 +71,7 @@ const Experience = () => {
       title: 'Data Engineering Certification',
       organization: 'Various Online Platforms',
       location: 'Online',
-      period: '2023 - 2024',
+      period: '2024 - 2025',
       description: 'Self-directed learning in data engineering technologies including Apache Airflow, Snowflake, and cloud data warehousing solutions.',
       achievements: [
         'Completed 5+ specialized courses',

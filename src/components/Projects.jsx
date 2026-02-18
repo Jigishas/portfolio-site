@@ -32,7 +32,7 @@ const projects = [
     description:
       'A modern website application for checking coffee plants built with React.js, featuring product listings, shopping cart, and model integrations.',
     longDescription: 'Healthy Coffee is a comprehensive web application designed to help coffee farmers and enthusiasts monitor coffee plant health. The platform features an intuitive React.js frontend with Flask backend, real-time plant health monitoring, and predictive analytics for disease detection.',
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop',
+    image: 'https://media.istockphoto.com/id/2185573622/photo/coffee-plantation-on-a-highland-during-harvest-season-with-majestic-mountain-backdrop.webp?a=1&b=1&s=612x612&w=0&k=20&c=3xNKy6et-1LCqtE7mt89l6Fk2MOVqfFoukudcTXQORI=',
     technologies: ['React', 'JavaScript', 'CSS', 'Flask'],
     github: 'https://github.com/Jigishas/Healthycoffee.git',
     demo: 'https://healthycoffee.vercel.app',
