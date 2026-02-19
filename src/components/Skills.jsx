@@ -20,12 +20,12 @@ const Skills = () => {
     {
       title: 'Frontend Development',
       icon: <Layout className="h-6 w-6 text-secondary" />,
-      skills: ['React.js', 'JavaScript', 'HTML/CSS', 'Tailwind CSS', 'TypeScript', 'Responsive Design'],
+      skills: ['React.js', 'JavaScript', 'HTML/CSS', 'Tailwind CSS', 'TypeScript', 'Responsive Design', 'ShadCN'],
     },
     {
       title: 'Backend Development',
       icon: <Code className="h-6 w-6 text-secondary" />,
-      skills: ['Node.js', 'Express.js', 'Python', 'RESTful APIs', 'Java', 'GraphQL'],
+      skills: ['Node.js', 'Express.js', 'Python', 'RESTful APIs', 'Java', 'GraphQL', 'Django', 'Laravel'],
     },
     {
       title: 'Database & Data',
@@ -45,7 +45,7 @@ const Skills = () => {
     {
       title: 'Tools & Others',
       icon: <Settings className="h-6 w-6 text-secondary" />,
-      skills: ['Agile/Scrum', 'Jest/Testing', 'Figma', 'Postman', 'VS Code', 'Jira'],
+      skills: ['Agile/Scrum', 'Jest/Testing', 'Figma', 'Postman', 'VS Code', 'Jira', 'Nginx'],
     },
   ];
 

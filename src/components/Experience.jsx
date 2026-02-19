@@ -30,7 +30,7 @@ const Experience = () => {
         'Led student tech community of 50+ members',
         'Developed 5+ projects for coursework',
       ],
-      technologies: ['Java', 'Python', 'JavaScript', 'SQL', 'Software Architecture'],
+      technologies: ['Java', 'Python', 'JavaScript','Php', 'SQL', 'Software Architecture'],
       icon: <GraduationCap className="h-6 w-6" />,
       color: 'bg-blue-500',
     },
