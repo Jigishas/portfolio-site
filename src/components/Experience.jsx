@@ -295,6 +295,9 @@ const Experience = () => {
               },
               {
                 title: 'Data Analytics',
+                issuer: 'Online Courses',
+                year: '2026',
+                icon: <Cloud className="h-8 w-8" />,
               }
             ].map((cert, index) => (
               <motion.div
