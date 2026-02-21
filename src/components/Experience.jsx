@@ -276,7 +276,7 @@ const Experience = () => {
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               {
-                title: 'Power Learn Project Graduate',
+                title: 'MERN Stack Developer',
                 issuer: 'Power Learn Project Africa',
                 year: '2025',
                 icon: <Award className="h-8 w-8" />,
@@ -293,6 +293,9 @@ const Experience = () => {
                 year: '2023-2024',
                 icon: <Code className="h-8 w-8" />,
               },
+              {
+                title: 'Data Analytics',
+              }
             ].map((cert, index) => (
               <motion.div
                 key={cert.title}
