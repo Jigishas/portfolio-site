@@ -110,7 +110,7 @@ const Footer = () => {
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 Software Engineer passionate about creating innovative solutions
-                and pushing the boundaries of technology.
+                and pushing the boundaries of technology. Above and beyond is my bare minimum.
               </p>
               
               {/* Social Links */}
