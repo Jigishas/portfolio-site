@@ -33,7 +33,7 @@ const projects = [
       'A modern website application for checking coffee plants built with React.js, featuring product listings, shopping cart, and model integrations.',
     longDescription: 'Healthy Coffee is a comprehensive web application designed to help coffee farmers and enthusiasts monitor coffee plant health. The platform features an intuitive React.js frontend with Flask backend, real-time plant health monitoring, and predictive analytics for disease detection.',
     image: 'https://media.istockphoto.com/id/2185573622/photo/coffee-plantation-on-a-highland-during-harvest-season-with-majestic-mountain-backdrop.webp?a=1&b=1&s=612x612&w=0&k=20&c=3xNKy6et-1LCqtE7mt89l6Fk2MOVqfFoukudcTXQORI=',
-    technologies: ['React', 'JavaScript', 'CSS', 'Flask'],
+    technologies: ['React', 'JavaScript', 'TailwindCSS', 'Flask', 'CNN Model', 'Cloud Deployment'],
     github: 'https://github.com/Jigishas/Healthycoffee.git',
     demo: 'https://healthycoffee.vercel.app',
     category: 'Full Stack',
@@ -77,7 +77,7 @@ const projects = [
     demo: 'https://github.com/Jigishas/Airflow-Dags.git',
     category: 'Data Engineering',
     featured: true,
-    status: 'Completed',
+    status: 'Not Complete',
   },
   {
     title: 'Justice Hub',
