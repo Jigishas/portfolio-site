@@ -113,7 +113,7 @@ const About = () => {
             <p className="text-lg text-muted-foreground leading-relaxed">
               My expertise spans{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-1">Software Engineering</Badge>
+                <Badge variant="primary" className="mx-1">Software Engineering</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
                 <Badge variant="secondary" className="mx-1">Data Analytics</Badge>
