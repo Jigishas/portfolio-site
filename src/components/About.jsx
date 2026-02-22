@@ -124,7 +124,7 @@ const About = () => {
               <motion.span variants={badgeVariants}>
                 <Badge variant="secondary" className="mx-1">Backend Development</Badge>
               </motion.span>{' '}
-              with proficiency in the MERN stack, cloud computing, Python programming, and DevOps practices.
+              with proficiency in the MERN stack development, cloud computing, Python programming, and DevOps practices.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               I'm constantly learning and exploring new technologies to enhance my skills and contribute to innovative projects that solve real-world problems.
