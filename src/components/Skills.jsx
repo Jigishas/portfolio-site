@@ -77,13 +77,13 @@ const Skills = () => {
   return (
     <motion.section
       id="skills"
-      className="py-16 w-full min-h-screen bg-skills"
+      className="py-16 w-full bg-transparent"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <div className="w-full max-w-none px-4">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
@@ -105,7 +105,7 @@ const Skills = () => {
 
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -151,9 +151,9 @@ const Skills = () => {
                         viewport={{ once: true }}
                         transition={{ delay: skillIndex * 0.05 }}
                       >
-                        <Badge 
-                          variant="secondary" 
-                          className="text-xs font-medium px-3 py-1.5 bg-secondary/10 text-secondary-foreground hover:bg-secondary hover:text-white border-0 transition-all duration-300 cursor-default shadow-sm"
+                        <Badge
+                          variant="secondary"
+                          className="text-xs font-medium px-3 py-1.5 bg-secondary/10 text-secondary hover:bg-secondary hover:text-white border-0 transition duration-300 cursor-default shadow-sm"
                         >
                           {skill}
                         </Badge>
@@ -169,7 +169,7 @@ const Skills = () => {
 
         {/* Summary Stats */}
         <motion.div
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
