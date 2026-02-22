@@ -116,15 +116,15 @@ const About = () => {
                 <Badge variant="primary" className="mx-2">Software Engineering</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-1">Data Analytics</Badge>
+                <Badge variant="primary" className="mx-2">Data Analytics</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-1">Data Engineering</Badge>
+                <Badge variant="primary" className="mx-2">Data Engineering</Badge>
               </motion.span>, and{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-1">Backend Development</Badge>
+                <Badge variant="primary" className="mx-2">Backend Development</Badge>
               </motion.span>{' '}
-              with proficiency in the MERN stack development, cloud computing, Python programming, and DevOps practices. I am also skilling in laravel and django frameworks.
+              with proficiency in the MERN stack development, cloud computing, Python programming, and DevOps practices.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               I'm constantly learning and exploring new technologies to enhance my skills and contribute to innovative projects that solve real-world problems.
