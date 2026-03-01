@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { Button } from './ui/button';
+import { Button } from './ui/button.tsx';
 
 import photo from '../../public/jose.jpeg';
 import { 
@@ -334,7 +334,7 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/50 text-white hover:bg-white/10 px-6 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                className="rounded-full border-2 border-white/50 text-white hover:bg-white/10 hover:text-white px-6 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
                 onClick={() => window.open('/resume.pdf', '_blank')}
               >
                 <Download className="w-5 h-5" />
