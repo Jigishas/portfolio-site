@@ -39,7 +39,7 @@
     --footer-bg: 210 40% 90%; /* #CBD5E1 - Slightly darker grey */
 
     /* Light Mode Hero Gradient - Professional */
-    --hero-gradient: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+    --hero-gradient: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #5b21b6 100%);
 
     --radius: 0.5rem;
   }

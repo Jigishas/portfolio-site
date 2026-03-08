@@ -309,7 +309,7 @@ const Hero = () => {
               <Button
                 onClick={() => scrollToSection('#projects')}
                 size="lg"
-                className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold px-8 py-3 text-lg rounded-full shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300"
               >
                 View My Work
               </Button>
@@ -322,7 +322,7 @@ const Hero = () => {
                 onClick={() => scrollToSection('#contact')}
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                className="border-2 border-white bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 hover:border-white px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Get In Touch
               </Button>
@@ -334,7 +334,7 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full border-2 border-white/50 text-white hover:bg-white/10 hover:text-white px-6 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                className="rounded-full border-2 border-white bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 hover:border-white px-6 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
                 onClick={() => window.open('/resume.pdf', '_blank')}
               >
                 <Download className="w-5 h-5" />
