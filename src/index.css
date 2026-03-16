@@ -225,7 +225,7 @@
   /* Modal/Dialog styling */
   .modal-overlay {
     background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(4px);
+
   }
   
   .modal-content {
