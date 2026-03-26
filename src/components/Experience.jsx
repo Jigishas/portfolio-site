@@ -183,13 +183,7 @@ const Experience = () => {
       icon: <Award className="h-8 w-8" />,
       pdfPath: '/Certificates/joseph plp certificate.pdf'
     },
-    {
-      title: 'Mastering TensorFlow',
-      issuer: 'Online Course',
-      year: '2024',
-      icon: <Award className="h-8 w-8" />,
-      pdfPath: '/Certificates/Mastering tensorflow.pdf'
-    },
+ 
     {
       title: 'React.js ',
       issuer: 'Online Course',
