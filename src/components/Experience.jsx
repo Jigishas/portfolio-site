@@ -79,7 +79,7 @@ const Experience = () => {
         'Built production ETL pipelines',
         'Contributed to open-source data tools',
       ],
-      technologies: ['Apache Airflow', 'Snowflake', 'Python', 'SQL', 'BigQuery'],
+      technologies: ['Apache Airflow', 'Snowflake', 'Python', 'SQL', 'BigQuery', 'Databricks'],
       icon: <Database className="h-6 w-6" />,
       color: 'bg-orange-500',
     },
@@ -123,7 +123,7 @@ const Experience = () => {
     {
       title: 'AI Training Certificate',
       issuer: 'ADMI Digital Skills Training',
-      year: '2024',
+      year: '2026',
       icon: <Award className="h-8 w-8" />,
       pdfPath: '/Certificates/Artificial-Intelligence-Training-ADMI-AI-Certificate-Digital-Skills-Training.pdf'
     },
@@ -136,20 +136,20 @@ const Experience = () => {
     },
     {
       title: 'Intro to MERN Stack',
-      issuer: 'Online Course',
+      issuer: 'Simplilearn',
       year: '2024',
       icon: <Award className="h-8 w-8" />,
       pdfPath: '/Certificates/intro to mern stack.pdf'
     },
     {
       title: 'Intro to Web Scraping',
-      issuer: 'Online Course',
+      issuer: 'simplilearn',
       year: '2024',
       icon: <Award className="h-8 w-8" />,
       pdfPath: '/Certificates/Intro to web scrapping.pdf'
     },
     {
-      title: 'Cybersecurity Awareness',
+      title: 'Cybersecurity ',
       issuer: 'Shujaa Digital Skills Training',
       year: '2026',
       icon: <Award className="h-8 w-8" />,
@@ -158,7 +158,7 @@ const Experience = () => {
     {
       title: 'Data Analytics',
       issuer: 'Digital Skills Training',
-      year: '2024',
+      year: '2026',
       icon: <Award className="h-8 w-8" />,
       pdfPath: '/Certificates/Joseph Gachuru Data Analytics.pdf'
     },
