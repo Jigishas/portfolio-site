@@ -120,6 +120,13 @@ const Experience = () => {
   };
 
   const certifications = [
+     {
+      title: 'MERN stack Developer',
+      issuer: 'Power Learn Project',
+      year: '2025',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Joseph Gachuru certificate plp MERN'
+    },
     {
       title: 'AI Training Certificate',
       issuer: 'ADMI Digital Skills Training',
