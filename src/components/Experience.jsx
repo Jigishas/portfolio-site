@@ -198,7 +198,7 @@ const Experience = () => {
       pdfPath: '/Certificates/React js for Beginners.pdf'
     },
     {
-      title: 'Intro to Azure Basics',
+      title: ' Azure Basics',
       issuer: 'Simplilearn',
       year: '2024',
       icon: <Award className="h-8 w-8" />,
