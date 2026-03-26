@@ -27,8 +27,8 @@ const Experience = () => {
       period: '2023 - 2026',
       description: 'Pursuing Bachelor of Science in Software Engineering. Focusing on full-stack development, data structures, algorithms, and software architecture.',
       achievements: [
-        \"Dean's List for Academic Excellence\",
-        \"Led student tech community of 50+ members\",
+        "Dean\\'s List for Academic Excellence",
+        "Led student tech community of 50+ members",
         'Developed 5+ projects for coursework',
       ],
       technologies: ['Java', 'Python', 'JavaScript','Php', 'SQL', 'Software Architecture'],
@@ -43,7 +43,7 @@ const Experience = () => {
       period: 'July 2025 - Dec 2025',
       description: 'Intensive training program covering full-stack development, data engineering, and cloud computing. Completed 6-month intensive bootcamp with hands-on projects.',
       achievements: [
-        \"Top 10% of graduating cohort\",
+        "Top 10% of graduating cohort",
         'Built 3 production-ready applications',
         'Mentored 5 junior developers',
       ],
