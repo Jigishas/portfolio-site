@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 import {
   Briefcase,
   GraduationCap,
@@ -26,7 +27,7 @@ const Experience = () => {
       period: '2023 - 2026',
       description: 'Pursuing Bachelor of Science in Software Engineering. Focusing on full-stack development, data structures, algorithms, and software architecture.',
       achievements: [
-        'Dean\'s List for Academic Excellence',
+        'Dean's List for Academic Excellence',
         'Led student tech community of 50+ members',
         'Developed 5+ projects for coursework',
       ],
@@ -117,6 +118,86 @@ const Experience = () => {
       },
     },
   };
+
+  const certifications = [
+    {
+      title: 'AI Training Certificate',
+      issuer: 'ADMI Digital Skills Training',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Artificial-Intelligence-Training-ADMI-AI-Certificate-Digital-Skills-Training.pdf'
+    },
+    {
+      title: 'Azure Fundamentals',
+      issuer: 'Microsoft',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Azure fundamentals.pdf'
+    },
+    {
+      title: 'Intro to MERN Stack',
+      issuer: 'Online Course',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/intro to mern stack.pdf'
+    },
+    {
+      title: 'Intro to Web Scraping',
+      issuer: 'Online Course',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Intro to web scrapping.pdf'
+    },
+    {
+      title: 'Cybersecurity Awareness',
+      issuer: 'Shujaa Digital Skills Training',
+      year: '2026',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Joseph Gachuru Cybersecurity-and-Emerging-Technologies-Awareness-Training-Shujaa-March-2026-Cybersec-Certificate-Digital-Skills-Training.pdf'
+    },
+    {
+      title: 'Data Analytics',
+      issuer: 'Digital Skills Training',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Joseph Gachuru Data Analytics.pdf'
+    },
+    {
+      title: 'Cloud Infrastructure Fundamentals',
+      issuer: 'Digital Skills Training',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Joseph Gachuru Fundamentals-to-Cloud-Infrastructure-and-Services-Pathways-Cloud-Infrastructure-and-Services-Certificate-Digital-Skills-Training.pdf'
+    },
+    {
+      title: 'PLP Certificate',
+      issuer: 'Power Learn Project',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/joseph plp certificate.pdf'
+    },
+    {
+      title: 'Mastering TensorFlow',
+      issuer: 'Online Course',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Mastering tensorflow.pdf'
+    },
+    {
+      title: 'React.js for Beginners',
+      issuer: 'Online Course',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/React js for Beginners.pdf'
+    },
+    {
+      title: 'Intro to Azure Basics',
+      issuer: 'Simplilearn',
+      year: '2024',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Simplilearn cert.intro to azure basics.pdf'
+    }
+  ];
 
   return (
     <motion.section
@@ -273,39 +354,14 @@ const Experience = () => {
             <div className="w-16 h-1 bg-secondary mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                title: 'MERN Stack Developer',
-                issuer: 'Power Learn Project Africa',
-                year: '2025',
-                icon: <Award className="h-8 w-8" />,
-              },
-              {
-                title: 'Data Engineering Specialist',
-                issuer: 'Self-Certified Projects',
-                year: '2026',
-                icon: <Database className="h-8 w-8" />,
-              },
-              {
-                title: 'Full Stack Developer',
-                issuer: 'Portfolio Projects',
-                year: '2023-2024',
-                icon: <Code className="h-8 w-8" />,
-              },
-              {
-                title: 'Data Analytics',
-                issuer: 'Online Courses',
-                year: '2026',
-                icon: <Cloud className="h-8 w-8" />,
-              }
-            ].map((cert, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {certifications.map((cert, index) => (
               <motion.div
                 key={cert.title}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
                 <Card className="text-center p-6 hover:shadow-lg transition-all duration-300">
@@ -317,6 +373,11 @@ const Experience = () => {
                   <Badge variant="outline" className="mt-2">
                     {cert.year}
                   </Badge>
+                  <Button variant="outline" size="sm" className="mt-3 w-full" asChild>
+                    <a href={cert.pdfPath} target="_blank" rel="noopener noreferrer">
+                      View Certificate
+                    </a>
+                  </Button>
                 </Card>
               </motion.div>
             ))}
@@ -328,3 +389,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
