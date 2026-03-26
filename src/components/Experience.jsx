@@ -149,7 +149,7 @@ const Experience = () => {
       pdfPath: '/Certificates/intro to mern stack.pdf'
     },
     {
-      title: 'Intro to Web Scraping',
+      title: ' Web Scraping',
       issuer: 'simplilearn',
       year: '2024',
       icon: <Award className="h-8 w-8" />,
@@ -177,7 +177,7 @@ const Experience = () => {
       pdfPath: '/Certificates/Joseph Gachuru Fundamentals-to-Cloud-Infrastructure-and-Services-Pathways-Cloud-Infrastructure-and-Services-Certificate-Digital-Skills-Training.pdf'
     },
     {
-      title: 'PLP Certificate',
+      title: 'Software Engineering ',
       issuer: 'Power Learn Project',
       year: '2024',
       icon: <Award className="h-8 w-8" />,
