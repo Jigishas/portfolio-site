@@ -191,7 +191,7 @@ const Experience = () => {
       pdfPath: '/Certificates/Mastering tensorflow.pdf'
     },
     {
-      title: 'React.js for Beginners',
+      title: 'React.js ',
       issuer: 'Online Course',
       year: '2024',
       icon: <Award className="h-8 w-8" />,
