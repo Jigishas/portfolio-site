@@ -125,7 +125,7 @@ const Experience = () => {
       issuer: 'Power Learn Project',
       year: '2025',
       icon: <Award className="h-8 w-8" />,
-      pdfPath: '/Certificates/Joseph Gachuru certificate plp MERN'
+      pdfPath: '/Certificates/Joseph Gachuru certificate plp MERN.pdf'
     },
     {
       title: 'AI Training Certificate',
