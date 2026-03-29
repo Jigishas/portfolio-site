@@ -134,6 +134,13 @@ const Experience = () => {
       icon: <Award className="h-8 w-8" />,
       pdfPath: '/Certificates/Artificial-Intelligence-Training-ADMI-AI-Certificate-Digital-Skills-Training.pdf'
     },
+        {
+      title: 'Agentic AI on AWS',
+      issuer: 'Become A solutions Architect',
+      year: '2026',
+      icon: <Award className="h-8 w-8" />,
+      pdfPath: '/Certificates/Agentic AI on AWS.pdf'
+    },
     {
       title: 'Azure Fundamentals',
       issuer: 'Microsoft',
