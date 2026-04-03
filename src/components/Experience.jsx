@@ -351,7 +351,7 @@ const Experience = () => {
               className="w-full max-w-md px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
               asChild
             >
-              <a href="/Certificates/" target="_blank" rel="noopener noreferrer">
+              <a href={`${import.meta.env.BASE_URL}Certificates/`} target="_blank" rel="noopener noreferrer">
                 📜 View All Certificates
               </a>
             </Button>
