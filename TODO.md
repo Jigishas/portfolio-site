@@ -1,11 +1,10 @@
-# Certificate Integration TODO
+# Task: Remove Simplilearn certificates from Experience.jsx and add button redirecting to certificates
 
-## Plan Steps:
-- [x] Step 1: Create TODO.md ✓
-- [x] Step 2: Update src/components/Experience.jsx with certificates array, Button import, card view buttons, grid layout ✓
-- [x] Step 3: Test locally (npm run dev, check Experience section, button links) ✓
-- [x] Step 4: Mark complete and cleanup TODO.md ✓
+## Steps to complete:
+- [ ] Step 1: Create TODO.md tracking progress ✅
+- [ ] Step 2: Edit src/components/Experience.jsx - Remove 3 Simplilearn certs from array
+- [ ] Step 3: Edit src/components/Experience.jsx - Replace certifications grid with button linking to /Certificates/
+- [ ] Step 4: Verify changes in browser (9 certs gone, button works)
+- [ ] Step 5: Mark complete and attempt_completion
 
-## Progress: All steps complete! Task done.
-
-
+Current progress: Starting edits...

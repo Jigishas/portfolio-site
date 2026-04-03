@@ -148,20 +148,8 @@ const Experience = () => {
       icon: <Award className="h-8 w-8" />,
       pdfPath: '/Certificates/Azure fundamentals.pdf'
     },
-    {
-      title: 'Intro to MERN Stack',
-      issuer: 'Simplilearn',
-      year: '2024',
-      icon: <Award className="h-8 w-8" />,
-      pdfPath: '/Certificates/intro to mern stack.pdf'
-    },
-    {
-      title: ' Web Scraping',
-      issuer: 'simplilearn',
-      year: '2024',
-      icon: <Award className="h-8 w-8" />,
-      pdfPath: '/Certificates/Intro to web scrapping.pdf'
-    },
+
+
     {
       title: 'Cybersecurity ',
       issuer: 'Shujaa Digital Skills Training',
@@ -198,13 +186,7 @@ const Experience = () => {
       icon: <Award className="h-8 w-8" />,
       pdfPath: '/Certificates/React js for Beginners.pdf'
     },
-    {
-      title: ' Azure Basics',
-      issuer: 'Simplilearn',
-      year: '2024',
-      icon: <Award className="h-8 w-8" />,
-      pdfPath: '/Certificates/Simplilearn cert.intro to azure basics.pdf'
-    }
+
   ];
 
   return (
@@ -362,33 +344,16 @@ const Experience = () => {
             <div className="w-16 h-1 bg-secondary mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={cert.title}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <Card className="text-center p-6 hover:shadow-lg transition-all duration-300">
-                  <div className="flex justify-center mb-4 text-secondary">
-                    {cert.icon}
-                  </div>
-                  <h4 className="font-semibold text-primary mb-1">{cert.title}</h4>
-                  <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                  <Badge variant="outline" className="mt-2">
-                    {cert.year}
-                  </Badge>
-                  <Button variant="outline" size="sm" className="mt-3 w-full" asChild>
-                    <a href={cert.pdfPath} target="_blank" rel="noopener noreferrer">
-                      View Certificate
-                    </a>
-                  </Button>
-                </Card>
-              </motion.div>
-            ))}
+          <div className="flex justify-center">
+            <Button 
+              size="lg" 
+              className="w-full max-w-md px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              asChild
+            >
+              <a href="/Certificates/" target="_blank" rel="noopener noreferrer">
+                📜 View All Certificates
+              </a>
+            </Button>
           </div>
         </motion.div>
       </div>
