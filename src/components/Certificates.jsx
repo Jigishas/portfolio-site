@@ -117,7 +117,7 @@ const Certificates = () => {
               transition={{ delay: index * 0.05 }}
               whileHover={{ scale: 1.05, y: -5 }}
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300 border-l-4 border-l-secondary group">
+              <Card className="h-full hover:shadow-xl transition-all duration-300 border-l-4 border-l-primary/50 group bg-gradient-to-br from-blue-400/5 to-blue-500/5">
                 <CardContent className="p-8">
                   <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
                     <Award className="h-12 w-12" />
@@ -129,8 +129,8 @@ const Certificates = () => {
                   </div>
                   <Button className="w-full" variant="outline" size="lg" asChild>
                     <a href={`/Certificates/${cert.file}`} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center">
-                      <Download className="h-4 w-4 mr-2" />
-                      Download Certificate
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      View Certificate
                       <ExternalLink className="h-4 w-4 ml-2" />
                     </a>
                   </Button>
