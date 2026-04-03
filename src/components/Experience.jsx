@@ -120,7 +120,7 @@ const Experience = () => {
   };
 
   // certifications array kept for reference but not displayed
-  const certifications = [
+  const _certifications = [
      {
       title: 'MERN stack Developer',
       issuer: 'Power Learn Project',
