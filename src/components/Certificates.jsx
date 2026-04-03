@@ -1,6 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion'
-import { Download, Award, ExternalLink } from 'lucide-react';
+import React, { motion } from 'framer-motion';
+import { Award, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
