@@ -351,7 +351,7 @@ const Experience = () => {
               className="w-full max-w-md px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
               asChild
             >
-              <a href="https://portfolio-site-phi-self.vercel.app/public/Certificates/" target="_blank" rel="noopener noreferrer">
+              <a href="#certificates">
                 📜 View All Certificates
               </a>
             </Button>
