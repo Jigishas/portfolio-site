@@ -119,6 +119,7 @@ const Experience = () => {
     },
   };
 
+  // certifications array kept for reference but not displayed
   const certifications = [
      {
       title: 'MERN stack Developer',
