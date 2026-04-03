@@ -1,10 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion'
-import { Download, ExternalLink } from 'lucide-react';
+import { Download, Award, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { Download, Award, ExternalLink } from 'lucide-react';
 
 const certificates = [
   {
@@ -129,7 +128,7 @@ const Certificates = () => {
                     <Badge variant="outline" className="text-xs">{cert.year}</Badge>
                   </div>
                   <Button className="w-full" variant="outline" size="lg" asChild>
-                    <a href={`/Certificates/${cert.file}`} target="_blank" rel="noopener noreferrer" className="w-full">
+                    <a href={`/Certificates/${cert.file}`} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center">
                       <Download className="h-4 w-4 mr-2" />
                       Download Certificate
                       <ExternalLink className="h-4 w-4 ml-2" />
