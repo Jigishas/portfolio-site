@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Award, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
@@ -120,11 +121,10 @@ const Certificates = () => {
                     <p className="text-sm text-muted-foreground font-medium">{cert.issuer}</p>
                     <Badge variant="outline" className="text-xs">{cert.year}</Badge>
                   </div>
-                  <Button className="w-full" variant="outline" size="lg" asChild>
+                  <Button className="w-full" variant="outline" size="lg">
                     <a href={`/Certificates/${cert.file}`} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center">
                       <ExternalLink className="h-4 w-4 mr-2" />
                       View Certificate
-                      <ExternalLink className="h-4 w-4 ml-2" />
                     </a>
                   </Button>
                 </CardContent>
