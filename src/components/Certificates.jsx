@@ -1,4 +1,4 @@
-import React, { motion } from 'framer-motion';
+import React from 'react';
 import { Award, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
