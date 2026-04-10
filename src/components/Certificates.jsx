@@ -78,6 +78,7 @@ const Certificates = () => {
   return (
     <motion.section
       id="certificates"
+      aria-labelledby="certificates-title"
       className="py-20 w-full min-h-screen bg-gradient-to-b from-background to-muted/30"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -92,7 +93,7 @@ const Certificates = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          <h2 id="certificates-title" className="text-4xl md:text-5xl font-bold text-primary mb-4">
             All Certificates
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
@@ -101,7 +102,7 @@ const Certificates = () => {
           <div className="w-24 h-1 bg-secondary mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.file}
@@ -111,22 +112,26 @@ const Certificates = () => {
               transition={{ delay: index * 0.05 }}
               whileHover={{ scale: 1.05, y: -5 }}
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300 border-l-4 border-l-primary/50 group bg-gradient-to-br from-blue-400/5 to-blue-500/5">
-                <CardContent className="p-8">
-                  <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
-                    <Award className="h-12 w-12" />
+              <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border-l-4 border-l-primary/50 group bg-gradient-to-br from-blue-400/5 to-blue-500/5">
+                <CardContent className="p-6 md:p-8 flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                      <Award className="h-12 w-12" />
+                    </div>
+                    <h3 className="text-lg md:text-xl font-semibold text-primary mb-2 text-center">{cert.title}</h3>
+                    <div className="flex items-center justify-center gap-2 mb-4">
+                      <p className="text-sm text-muted-foreground font-medium">{cert.issuer}</p>
+                      <Badge variant="outline" className="text-xs">{cert.year}</Badge>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-2 text-center">{cert.title}</h3>
-                  <div className="flex items-center justify-center gap-2 mb-4">
-                    <p className="text-sm text-muted-foreground font-medium">{cert.issuer}</p>
-                    <Badge variant="outline" className="text-xs">{cert.year}</Badge>
+                  <div className="mt-4">
+                    <Button asChild variant="outline" size="lg" className="w-full">
+                      <a href={`/Certificates/${encodeURIComponent(cert.file)}`} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        View Certificate
+                      </a>
+                    </Button>
                   </div>
-                  <Button className="w-full" variant="outline" size="lg">
-                    <a href={`/Certificates/${cert.file}`} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      View Certificate
-                    </a>
-                  </Button>
                 </CardContent>
               </Card>
             </motion.div>
