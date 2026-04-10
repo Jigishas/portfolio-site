@@ -70,12 +70,6 @@ const certificates = [
     issuer: 'Online Course',
     year: '2024',
     file: 'Mastering tensorflow.pdf'
-  },
-  {
-    title: 'Agentic AI on AWS',
-    issuer: 'Online Course',
-    year: '2026',
-    file: 'Agentic AI on AWS.pdf'
   }
 ];
 
@@ -144,3 +138,4 @@ const Certificates = () => {
 };
 
 export default Certificates;
+
