@@ -19,11 +19,29 @@ const certificates = [
     year: '2026',
     file: 'Artificial-Intelligence-Training-ADMI-AI-Certificate-Digital-Skills-Training.pdf'
   },
+    {
+    title: 'Data Fundamentals',
+    issuer: 'Online Course',
+    year: '2026',
+    file: 'IBM Data Fundamentals.pdf'
+  },
+   {
+    title: 'Data Analytics',
+    issuer: 'Digital Skills Training',
+    year: '2026',
+    file: 'Joseph Gachuru Data Analytics.pdf'
+  },
   {
     title: 'Agentic AI on AWS',
     issuer: 'Become A solutions Architect',
     year: '2026',
     file: 'Agentic AI on AWS.pdf'
+  },
+   {
+    title: 'Cybersecurity',
+    issuer: 'Shujaa Digital Skills Training',
+    year: '2026',
+    file: 'Joseph Gachuru Cybersecurity-and-Emerging-Technologies-Awareness-Training-Shujaa-March-2026-Cybersec-Certificate-Digital-Skills-Training.pdf'
   },
   {
     title: 'Azure Fundamentals',
@@ -31,12 +49,7 @@ const certificates = [
     year: '2024',
     file: 'Azure fundamentals.pdf'
   },
-  {
-    title: 'Cybersecurity',
-    issuer: 'Shujaa Digital Skills Training',
-    year: '2026',
-    file: 'Joseph Gachuru Cybersecurity-and-Emerging-Technologies-Awareness-Training-Shujaa-March-2026-Cybersec-Certificate-Digital-Skills-Training.pdf'
-  },
+ 
   {
     title: 'Data Analytics',
     issuer: 'Digital Skills Training',
