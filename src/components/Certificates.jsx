@@ -67,9 +67,9 @@ const certificates = [
     file: 'Intro to web scrapping.pdf'
   },
   {
-    title: 'Mastering TensorFlow',
+    title: 'Data Fundamentals',
     issuer: 'Online Course',
-    year: '2024',
+    year: '2026',
     file: 'Mastering tensorflow.pdf'
   }
 ];
