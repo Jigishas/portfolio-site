@@ -345,7 +345,7 @@ const Experience = () => {
             <div className="w-16 h-1 bg-secondary mx-auto"></div>
           </div>
 
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <Button 
               size="lg" 
               className="w-full max-w-md px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
@@ -355,7 +355,7 @@ const Experience = () => {
                 📜 View All Certificates
               </a>
             </Button>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </motion.section>
