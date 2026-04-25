@@ -338,12 +338,12 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="text-center mb-12">
+          {/* <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-primary mb-4">
               Certifications & Awards
             </h3>
             <div className="w-16 h-1 bg-secondary mx-auto"></div>
-          </div>
+          </div> */}
 
           {/* <div className="flex justify-center">
             <Button 
