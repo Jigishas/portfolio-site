@@ -330,7 +330,7 @@ const Experience = () => {
           </motion.div>
         </div>
 
-        {/* Certifications Section */}
+        {/* Certifications Section
         <motion.div
           className="mt-20"
           initial={{ opacity: 0, y: 30 }}
@@ -355,8 +355,8 @@ const Experience = () => {
                 📜 View All Certificates
               </a>
             </Button>
-          </div> */}
-        </motion.div>
+          </div> 
+        </motion.div> */}
       </div>
     </motion.section>
   );
