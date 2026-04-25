@@ -70,7 +70,7 @@ const certificates = [
     title: 'Data Fundamentals',
     issuer: 'Online Course',
     year: '2026',
-    file: 'Mastering tensorflow.pdf'
+    file: 'Master.pdf'
   }
 ];
 
