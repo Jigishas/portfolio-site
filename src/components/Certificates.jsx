@@ -79,13 +79,13 @@ const Certificates = () => {
     <motion.section
       id="certificates"
       aria-labelledby="certificates-title"
-      className="py-20 w-full min-h-screen bg-gradient-to-b from-background to-muted/30"
+      className="py-20 w-full min-h-screen bg-background"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <div className="w-full max-w-6xl mx-auto px-4">
+      <div className="w-full max-w-6xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -30 }}
@@ -93,16 +93,16 @@ const Certificates = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 id="certificates-title" className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            All Certificates
+          <h2 id="certificates-title" className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary mb-4">
+            Certificates & Training
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-            Complete collection of my professional certifications and achievements
+          <p className="text-muted-foreground/90 max-w-2xl mx-auto mb-6 text-base md:text-lg">
+            A curated collection of professional certifications and completed trainings
           </p>
-          <div className="w-24 h-1 bg-secondary mx-auto"></div>
+          <div className="w-24 h-1 rounded-full bg-gradient-to-r from-primary to-secondary mx-auto shadow-sm"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.file}
@@ -112,22 +112,24 @@ const Certificates = () => {
               transition={{ delay: index * 0.05 }}
               whileHover={{ scale: 1.05, y: -5 }}
             >
-              <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border-l-4 border-l-primary/50 group bg-gradient-to-br from-blue-400/5 to-blue-500/5">
+              <Card className="h-full flex flex-col transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl group">
                 <CardContent className="p-6 md:p-8 flex flex-col justify-between h-full">
                   <div>
-                    <div className="flex justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
-                      <Award className="h-12 w-12" />
+                    <div className="flex justify-center mb-6">
+                      <span className="bg-primary/10 text-primary rounded-full p-3 inline-flex items-center justify-center shadow-sm">
+                        <Award className="h-6 w-6" />
+                      </span>
                     </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-primary mb-2 text-center">{cert.title}</h3>
-                    <div className="flex items-center justify-center gap-2 mb-4">
-                      <p className="text-sm text-muted-foreground font-medium">{cert.issuer}</p>
-                      <Badge variant="outline" className="text-xs">{cert.year}</Badge>
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1 text-center">{cert.title}</h3>
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                      <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                      <Badge variant="secondary" className="text-xs">{cert.year}</Badge>
                     </div>
                   </div>
                   <div className="mt-4">
-                    <Button asChild variant="outline" size="lg" className="w-full">
-                      <a href={`/Certificates/${encodeURIComponent(cert.file)}`} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center">
-                        <ExternalLink className="h-4 w-4 mr-2" />
+                    <Button asChild size="lg" className="w-full">
+                      <a href={`/Certificates/${encodeURIComponent(cert.file)}`} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2">
+                        <ExternalLink className="h-4 w-4" />
                         View Certificate
                       </a>
                     </Button>
