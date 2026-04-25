@@ -95,7 +95,7 @@ const Certificates = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 id="certificates-title" className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary mb-4">
-            Certificates & Training
+            Certificates, Training & Awards
           </h2>
           <p className="text-muted-foreground/90 max-w-2xl mx-auto mb-6 text-base md:text-lg">
             A curated collection of professional certifications and completed trainings
