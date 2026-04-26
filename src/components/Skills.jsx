@@ -177,7 +177,7 @@ const Skills = () => {
         >
           {[
             { icon: <Code className="h-6 w-6" />, value: '12+', label: 'Technologies' },
-            { icon: <Laptop className="h-6 w-6" />, value: '20+', label: 'Projects' },
+            { icon: <Laptop className="h-6 w-6" />, value: '10+', label: 'Projects' },
             { icon: <Zap className="h-6 w-6" />, value: '3+', label: 'Years Experience' },
             { icon: <Shield className="h-6 w-6" />, value: '100%', label: 'Commitment' },
           ].map((stat, index) => (
