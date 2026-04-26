@@ -176,7 +176,7 @@ const Skills = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           {[
-            { icon: <Code className="h-6 w-6" />, value: '12+', label: 'Technologies' },
+            { icon: <Code className="h-6 w-6" />, value: '7+', label: 'Technologies' },
             { icon: <Laptop className="h-6 w-6" />, value: '10+', label: 'Projects' },
             { icon: <Zap className="h-6 w-6" />, value: '3+', label: 'Years Experience' },
             { icon: <Shield className="h-6 w-6" />, value: '100%', label: 'Commitment' },
