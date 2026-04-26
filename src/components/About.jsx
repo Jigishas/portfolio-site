@@ -116,7 +116,7 @@ const About = () => {
                 <Badge variant="secondary" className="mx-2">Software Engineering</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="primary" className="mx-2">Data Analytics</Badge>
+                <Badge variant="secondary" className="mx-2">Data Analytics</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
                 <Badge variant="primary" className="mx-2">Data Engineering</Badge>
