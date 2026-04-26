@@ -200,7 +200,7 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center text-white text-xs">✓</span>
-                  Available for freelance work.
+                  Available for freelance work
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs">📍</span>
