@@ -204,7 +204,7 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs">📍</span>
-                  Kirinyaga, Kenya
+                  Nairobi, Kenya
                 </li>
               </ul>
             </motion.div>
