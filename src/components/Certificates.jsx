@@ -79,12 +79,6 @@ const certificates = [
     issuer: 'Simplilearn',
     year: '2024',
     file: 'Intro to web scrapping.pdf'
-  },
-  {
-    title: 'Data Fundamentals',
-    issuer: 'Online Course',
-    year: '2026',
-    file: 'IBM Data Fundamentals.pdf'
   }
 ];
 
