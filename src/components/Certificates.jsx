@@ -21,7 +21,7 @@ const certificates = [
   },
   {
     title: 'Product Management',
-    issuer: 'Moringa School',
+    issuer: 'Product NBO',
     year: '2026',
     file: 'joseph-gachuru_certificate Moringa.pdf'
   },
