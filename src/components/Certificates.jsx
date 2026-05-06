@@ -123,7 +123,7 @@ const Certificates = () => {
         </motion.div>
 
         <div className="mb-12 text-center">
-          <p className='text-lg ml-4'>You can find my badges and certificates on:
+          <p className='text-lg ml-4'>You can find my badges and certificates on:<p></p>   
           <span><a href='https://www.credly.com/users/joseph-gachuru' target='_blank' rel="noopener noreferrer">Credly</a></span>
           </p>
         </div>
