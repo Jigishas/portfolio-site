@@ -20,6 +20,12 @@ const certificates = [
     file: 'joseph-gachuru_certificate Moringa.pdf'
   },
   {
+    title: 'Product Management',
+    issuer: 'Moringa School',
+    year: '2026',
+    file: 'joseph-gachuru_certificate Moringa.pdf'
+  },
+  {
     title: 'AI Training Certificate',
     issuer: 'ADMI Digital Skills Training',
     year: '2026',
