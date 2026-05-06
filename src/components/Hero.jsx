@@ -210,7 +210,7 @@ const Hero = () => {
       </motion.div>
 
 
-      <div className="w-full max-w-none mt-20 px-4 text-center relative z-10">
+      <div className="w-full max-w-none mt-40 px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image with Animated Ring */}
           <motion.div
