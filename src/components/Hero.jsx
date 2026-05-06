@@ -281,10 +281,10 @@ const Hero = () => {
           </motion.div>
 
           <motion.p
-            className="text-lg md:text-xl text-white/90 mb-2 max-w-2xl mx-auto"
+            className="text-xl md:text-xl text-white/90 mb-2 max-w-2xl mx-auto"
             variants={itemVariants}
           >
-            Software Engineer | Data Engineer | Product Manager
+            Software Engineer | Data Engineer | Product Manager 
           </motion.p>
           <motion.p
             className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
