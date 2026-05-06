@@ -14,7 +14,7 @@ const certificates = [
     file: 'Joseph Gachuru certificate plp MERN.pdf'
   },
   {
-    title: 'AI essentials for professionals',
+    title: 'AI Essentials for Professionals',
     issuer: 'Moringa School',
     year: '2026',
     file: 'joseph-gachuru_certificate Moringa.pdf'
