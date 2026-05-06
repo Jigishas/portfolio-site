@@ -105,7 +105,7 @@ const About = () => {
             variants={textVariants}
           >
             <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
-              Passionate Software Engineer & Tech Enthusiast
+              Passionate Software Engineer & AI Enthusiast
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Hello! I'm Joseph Gachuru, a dedicated Software Engineering student of Kirinyaga University with a strong passion for technology and software development. I specialize in creating efficient, scalable solutions across multiple domains.
@@ -116,7 +116,7 @@ const About = () => {
                 <Badge variant="secondary" className="mx-2">Software Engineering</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-2">Data Analytics</Badge>
+                <Badge variant="secondary" className="mx-2">Data Science</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
                 <Badge variant="secondary" className="mx-2">Data Engineering</Badge>
