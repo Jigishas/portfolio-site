@@ -17,7 +17,7 @@ const certificates = [
     title: 'AI essentials for professionals',
     issuer: 'Moringa School',
     year: '2026',
-    file: 'Joseph Gachuru Data Science & AI.pdf'
+    file: 'joseph-gachuru_certificate Moringa.pdf'
   },
   {
     title: 'AI Training Certificate',
