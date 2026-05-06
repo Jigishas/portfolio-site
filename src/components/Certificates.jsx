@@ -110,6 +110,11 @@ const Certificates = () => {
           <div className="w-24 h-1 rounded-full bg-gradient-to-r from-primary to-secondary mx-auto shadow-sm"></div>
         </motion.div>
 
+        <div className="mb-12 text-center">
+          <p>You can find my badges and certificates on:</p>
+          <span><a href='https://www.credly.com/users/joseph-gachuru'></a></span>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert, index) => (
             <motion.div
