@@ -23,7 +23,7 @@ const certificates = [
     title: 'Product Management',
     issuer: 'Product NBO',
     year: '2026',
-    file: 'joseph-gachuru_certificate Moringa.pdf'
+    file: 'Product NBO .pdf'
   },
   {
     title: 'AI Training Certificate',
