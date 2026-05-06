@@ -14,6 +14,12 @@ const certificates = [
     file: 'Joseph Gachuru certificate plp MERN.pdf'
   },
   {
+    title: 'AI essentials for professionals',
+    issuer: 'Moringa School',
+    year: '2025',
+    file: 'Joseph Gachuru Data Science & AI.pdf'
+  },
+  {
     title: 'AI Training Certificate',
     issuer: 'ADMI Digital Skills Training',
     year: '2026',
