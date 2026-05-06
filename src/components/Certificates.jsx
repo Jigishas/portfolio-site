@@ -33,7 +33,7 @@ const certificates = [
   },
     {
     title: 'Data Fundamentals',
-    issuer: 'Online Course',
+    issuer: 'IBM Skillsbuild',
     year: '2026',
     file: 'IBM Data Fundamentals.pdf'
   },
