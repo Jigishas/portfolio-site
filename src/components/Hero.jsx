@@ -214,7 +214,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Profile Image with Animated Ring */}
           <motion.div
-            className="mb-8 mt-4 relative"
+            className="mb-8 mt-20 relative"
             variants={itemVariants}
           >
             <motion.div
