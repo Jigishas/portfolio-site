@@ -29,7 +29,8 @@ const Hero = () => {
     'Software Engineer',
     'Data Engineer',
     'Backend Specialist',
-    'Tech Enthusiast'
+    'Product Manager',
+    'AI Enthusiast'
   ];
 
   // Floating tech icons data
