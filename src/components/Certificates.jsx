@@ -8,16 +8,16 @@ import { Button } from './ui/button';
 
 const certificates = [
   {
-    title: 'MERN stack Developer',
-    issuer: 'Power Learn Project',
-    year: '2025',
-    file: 'Joseph Gachuru certificate plp MERN.pdf'
-  },
-  {
     title: 'AI Essentials for Professionals',
     issuer: 'Moringa School',
     year: '2026',
     file: 'joseph-gachuru_certificate Moringa.pdf'
+  },
+  {
+    title: 'MERN stack Developer',
+    issuer: 'Power Learn Project',
+    year: '2025',
+    file: 'Joseph Gachuru certificate plp MERN.pdf'
   },
   {
     title: 'Product Management',
