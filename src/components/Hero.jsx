@@ -297,6 +297,8 @@ const Hero = () => {
             variants={itemVariants}
           >
             Graduate of Power Learn Project Africa.
+            Graduate of Moringa School.
+            Graduate of productNBO for product managers
           </motion.p>
 
           <motion.div
