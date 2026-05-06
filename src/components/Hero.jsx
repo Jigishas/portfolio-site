@@ -284,7 +284,7 @@ const Hero = () => {
             className="text-lg md:text-xl text-white/90 mb-2 max-w-2xl mx-auto"
             variants={itemVariants}
           >
-            Software Engineer | Data Engineer | Backend Specialist
+            Software Engineer | Data Engineer | Product Manager
           </motion.p>
           <motion.p
             className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
