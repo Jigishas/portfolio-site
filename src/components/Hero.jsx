@@ -281,7 +281,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.p
-            className="text-xl md:text-xl text-white/90 mb-2 max-w-2xl mx-auto"
+            className="text-xl font-bold md:text-xl text-white/90 mb-2 max-w-2xl mx-auto"
             variants={itemVariants}
           >
             Software Engineer | Data Engineer | Product Manager 
