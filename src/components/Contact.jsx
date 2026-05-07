@@ -16,36 +16,36 @@ import {
 } from 'lucide-react';
 import { generateWhatsAppURL } from '../utils/whatsapp';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+// const Contact = () => {
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     email: '',
+//     subject: '',
+//     message: '',
+//   });
+//   const [isSubmitting, setIsSubmitting] = useState(false);
+//   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+//   // const handleInputChange = (e) => {
+//   //   const { name, value } = e.target;
+//   //   setFormData((prev) => ({
+//   //     ...prev,
+//   //     [name]: value,
+//   //   }));
+//   // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
+//   // const handleSubmit = async (e) => {
+//   //   e.preventDefault();
+//   //   setIsSubmitting(true);
+//   //   setSubmitStatus(null);
 
-    // Simulate form submission for frontend-only portfolio
-    setTimeout(() => {
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setIsSubmitting(false);
-    }, 2000);
-  };
+//     // Simulate form submission for frontend-only portfolio
+//     setTimeout(() => {
+//       setSubmitStatus('success');
+//       setFormData({ name: '', email: '', subject: '', message: '' });
+//       setIsSubmitting(false);
+//     }, 2000);
+//   };
 
   const contactInfo = [
     {
