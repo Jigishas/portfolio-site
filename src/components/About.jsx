@@ -145,6 +145,9 @@ const About = () => {
                 'Azure',
                 'Django',
                 'Laravel',
+                'Jira',
+                'Git',
+                'AI/ML',
               ].map((tech) => (
                 <motion.div
                   key={tech}
