@@ -144,7 +144,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="shadow-xl">
+          {/* <Card className="shadow-xl">
             <CardHeader>
               <CardTitle className="text-2xl text-primary">Send a Message</CardTitle>
             </CardHeader>
@@ -240,7 +240,7 @@ const Contact = () => {
                 )}
               </form>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </section>
