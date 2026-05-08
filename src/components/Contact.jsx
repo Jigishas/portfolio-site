@@ -101,7 +101,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form (intentionally removed for now to keep file syntactically correct) */}
+        
           <div />
         </div>
       </div>
