@@ -14,7 +14,7 @@ const certificates = [
     file: 'joseph-gachuru_certificate Moringa.pdf'
   },
   {
-    title: 'MERN stack Developer',
+    title: 'MERN Stack Developer',
     issuer: 'Power Learn Project',
     year: '2025',
     file: 'Joseph Gachuru certificate plp MERN.pdf'
