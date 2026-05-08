@@ -25,6 +25,12 @@ const certificates = [
     year: '2026',
     file: 'Product NBO .pdf'
   },
+   {
+    title: 'Software Engineering',
+    issuer: 'Power Learn Project',
+    year: '2024',
+    file: 'joseph plp certificate.pdf'
+  },
   {
     title: 'AI Training Certificate',
     issuer: 'ADMI Digital Skills Training',
@@ -74,12 +80,7 @@ const certificates = [
     year: '2024',
     file: 'Joseph Gachuru Fundamentals-to-Cloud-Infrastructure-and-Services-Pathways-Cloud-Infrastructure-and-Services-Certificate-Digital-Skills-Training.pdf'
   },
-  {
-    title: 'Software Engineering',
-    issuer: 'Power Learn Project',
-    year: '2024',
-    file: 'joseph plp certificate.pdf'
-  },
+ 
   {
     title: 'React.js for Beginners',
     issuer: 'Online Course',
