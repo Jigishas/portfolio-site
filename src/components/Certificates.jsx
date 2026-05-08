@@ -28,7 +28,7 @@ const certificates = [
    {
     title: 'Software Engineering',
     issuer: 'Power Learn Project',
-    year: '2024',
+    year: '2025',
     file: 'joseph plp certificate.pdf'
   },
   {
