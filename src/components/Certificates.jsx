@@ -20,12 +20,12 @@ const certificates = [
     file: 'Joseph Gachuru certificate plp MERN.pdf'
   },
   {
-    title: 'Product Management',
+    title: 'Product NBO — Product Manager & AI',
     issuer: 'Product NBO',
     year: '2026',
     file: 'Product NBO .pdf'
   },
-   {
+  {
     title: 'Software Engineering',
     issuer: 'Power Learn Project',
     year: '2025',
@@ -124,8 +124,16 @@ const Certificates = () => {
         </motion.div>
 
         <div className="mb-12 text-center">
-          <p className='text-lg ml-4'>You can find my badges and certificates on:<p></p>   
-          <span><a href='https://www.credly.com/users/joseph-gachuru' target='_blank' rel="noopener noreferrer">Credly</a></span>
+          <p className="text-lg text-foreground/90">
+            You can find my badges and certificates on:{' '}
+            <a
+              href="https://www.credly.com/users/joseph-gachuru"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary font-semibold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors"
+            >
+              Credly
+            </a>
           </p>
         </div>
 
@@ -133,29 +141,65 @@ const Certificates = () => {
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.file}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.05, y: -5 }}
+              custom={index}
+              initial={{ opacity: 0, y: 22, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: index * 0.06, duration: 0.6, ease: [0.22, 0.9, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.03 }}
             >
-              <Card className="h-full flex flex-col transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl group">
-                <CardContent className="p-6 md:p-8 flex flex-col justify-between h-full">
+              <Card className="relative h-full overflow-hidden rounded-2xl border border-border/70 bg-card/80 backdrop-blur-sm shadow-sm transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl">
+                {/* premium gradient glow */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background:
+                      'linear-gradient(135deg, rgba(37,99,235,0.55) 0%, rgba(124,58,237,0.35) 45%, rgba(5,150,105,0.45) 100%)'
+                  }}
+                />
+                {/* subtle inner sheen */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-300"
+                  style={{
+                    background:
+                      'radial-gradient(600px circle at 10% 10%, rgba(255,255,255,0.18), transparent 35%), radial-gradient(500px circle at 90% 40%, rgba(255,255,255,0.12), transparent 40%)'
+                  }}
+                />
+
+                <CardContent className="relative p-6 md:p-8 flex flex-col justify-between h-full">
                   <div>
                     <div className="flex justify-center mb-6">
-                      <span className="bg-primary/10 text-primary rounded-full p-3 inline-flex items-center justify-center shadow-sm">
-                        <Award className="h-6 w-6" />
+                      <span className="relative inline-flex items-center justify-center rounded-full p-3 bg-primary/10 text-primary shadow-sm transition-transform duration-300 group-hover:scale-110">
+                        <span className="absolute inset-0 rounded-full bg-primary/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <Award className="h-6 w-6 relative" />
                       </span>
                     </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1 text-center">{cert.title}</h3>
+
+                    <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 text-center tracking-tight">
+                      {cert.title}
+                    </h3>
+
                     <div className="flex items-center justify-center gap-3 mb-4">
-                      <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                      <Badge variant="secondary" className="text-xs">{cert.year}</Badge>
+                      <p className="text-sm text-muted-foreground text-center">{cert.issuer}</p>
+                      <Badge
+                        variant="secondary"
+                        className="text-xs font-semibold px-2 py-0.5 bg-secondary/20 text-secondary border border-secondary/30"
+                      >
+                        {cert.year}
+                      </Badge>
                     </div>
                   </div>
+
                   <div className="mt-4">
-                    <Button asChild size="lg" className="w-full">
-                      <a href={`/Certificates/${encodeURIComponent(cert.file)}`} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2">
+                    <Button asChild size="lg" className="w-full btn-animated">
+                      <a
+                        href={`/Certificates/${encodeURIComponent(cert.file)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full inline-flex items-center justify-center gap-2"
+                      >
                         <ExternalLink className="h-4 w-4" />
                         View Certificate
                       </a>
