@@ -11,88 +11,80 @@ const certificates = [
     title: 'AI Essentials for Professionals',
     issuer: 'Moringa School',
     year: '2026',
-    file: 'joseph-gachuru_certificate Moringa.pdf'
+    file: 'joseph-gachuru_certificate Moringa.pdf',
   },
   {
     title: 'MERN Stack Developer',
     issuer: 'Power Learn Project',
     year: '2025',
-    file: 'Joseph Gachuru certificate plp MERN.pdf'
+    file: 'Joseph Gachuru certificate plp MERN.pdf',
   },
   {
     title: 'Product NBO — Product Manager & AI',
     issuer: 'Product NBO',
     year: '2026',
-    file: 'Product NBO .pdf'
+    file: 'Product NBO .pdf',
   },
   {
     title: 'Software Engineering',
     issuer: 'Power Learn Project',
     year: '2025',
-    file: 'joseph plp certificate.pdf'
+    file: 'joseph plp certificate.pdf',
   },
   {
     title: 'AI Training Certificate',
     issuer: 'ADMI Digital Skills Training',
     year: '2026',
-    file: 'Artificial-Intelligence-Training-ADMI-AI-Certificate-Digital-Skills-Training.pdf'
+    file: 'Artificial-Intelligence-Training-ADMI-AI-Certificate-Digital-Skills-Training.pdf',
   },
-    {
+  {
     title: 'Data Fundamentals',
     issuer: 'IBM Skillsbuild',
     year: '2026',
-    file: 'IBM Data Fundamentals.pdf'
+    file: 'IBM Data Fundamentals.pdf',
   },
-   {
+  {
     title: 'Data Analytics',
     issuer: 'Digital Skills Training',
     year: '2026',
-    file: 'Joseph Gachuru Data Analytics.pdf'
+    file: 'Joseph Gachuru Data Analytics.pdf',
   },
   {
     title: 'Agentic AI on AWS',
     issuer: 'Become A solutions Architect',
     year: '2026',
-    file: 'Agentic AI on AWS.pdf'
+    file: 'Agentic AI on AWS.pdf',
   },
-   {
+  {
     title: 'Cybersecurity',
     issuer: 'Shujaa Digital Skills Training',
     year: '2026',
-    file: 'Joseph Gachuru Cybersecurity-and-Emerging-Technologies-Awareness-Training-Shujaa-March-2026-Cybersec-Certificate-Digital-Skills-Training.pdf'
+    file: 'Joseph Gachuru Cybersecurity-and-Emerging-Technologies-Awareness-Training-Shujaa-March-2026-Cybersec-Certificate-Digital-Skills-Training.pdf',
   },
   {
     title: 'Azure Fundamentals',
     issuer: 'Microsoft',
     year: '2024',
-    file: 'Azure fundamentals.pdf'
-  },
- 
-  {
-    title: 'Data Analytics',
-    issuer: 'Digital Skills Training',
-    year: '2026',
-    file: 'Joseph Gachuru Data Analytics.pdf'
+    file: 'Azure fundamentals.pdf',
   },
   {
     title: 'Cloud Infrastructure Fundamentals',
     issuer: 'Digital Skills Training',
     year: '2024',
-    file: 'Joseph Gachuru Fundamentals-to-Cloud-Infrastructure-and-Services-Pathways-Cloud-Infrastructure-and-Services-Certificate-Digital-Skills-Training.pdf'
+    file: 'Joseph Gachuru Fundamentals-to-Cloud-Infrastructure-and-Services-Pathways-Cloud-Infrastructure-and-Services-Certificate-Digital-Skills-Training.pdf',
   },
- 
   {
     title: 'React.js for Beginners',
     issuer: 'Online Course',
     year: '2024',
-    file: 'React js for Beginners.pdf'
+    file: 'React js for Beginners.pdf',
   },
   {
     title: 'Intro to Web Scraping',
     issuer: 'Simplilearn',
     year: '2024',
-    file: 'Intro to web scrapping.pdf'
-  }
+    file: 'Intro to web scrapping.pdf',
+  },
 ];
 
 const Certificates = () => {
@@ -148,7 +140,7 @@ const Certificates = () => {
               transition={{ delay: index * 0.06, duration: 0.6, ease: [0.22, 0.9, 0.36, 1] }}
               whileHover={{ y: -6, scale: 1.03 }}
             >
-              <Card className="relative h-full overflow-hidden rounded-2xl border border-border/70 bg-card/80 backdrop-blur-sm shadow-sm transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl">
+              <Card className="relative h-full overflow-hidden rounded-2xl glass border-border/50 shadow-sm transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl">
                 {/* premium gradient glow */}
                 <div
                   aria-hidden="true"

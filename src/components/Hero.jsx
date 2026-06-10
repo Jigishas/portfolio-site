@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-import { Button } from './ui/button.tsx';
+import { motion, useReducedMotion } from 'framer-motion'
+import { Button } from './ui/button.tsx'
 
 import photo from '../../public/jose.jpeg';
 import { 
@@ -23,15 +23,12 @@ const Hero = () => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const prefersReducedMotion = useReducedMotion()
 
-  const texts = [
-    'Software Engineer',
-    'Data Engineer',
-    'Backend Specialist',
-    'Product Manager',
-    'AI Enthusiast'
-  ];
+  const texts = React.useMemo(
+    () => ['Software Engineer', 'Data Engineer', 'Backend Specialist', 'Product Manager', 'AI Enthusiast'],
+    [],
+  );
 
   // Floating tech icons data
   const floatingIcons = [
@@ -43,16 +40,9 @@ const Hero = () => {
   ];
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    // Keep hero snappy on low-power devices; no mouse parallax when reduced motion is enabled.
+    if (prefersReducedMotion) return
+  }, [prefersReducedMotion])
 
 
   useEffect(() => {
@@ -76,7 +66,7 @@ const Hero = () => {
 
     const timer = setTimeout(type, isDeleting ? 50 : 100);
     return () => clearTimeout(timer);
-  }, [currentText, currentIndex, isDeleting]);
+  }, [currentText, currentIndex, isDeleting, texts]);
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -136,30 +126,31 @@ const Hero = () => {
     >
       {/* Animated Background Particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-white/20 rounded-full"
-            initial={{
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-            }}
-            animate={{
-              y: [null, -20, 20],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              repeatType: "reverse",
-              delay: Math.random() * 2,
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
+        {!prefersReducedMotion &&
+          [...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-white/20 rounded-full"
+              initial={{
+                x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+                y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+              }}
+              animate={{
+                y: [null, -20, 20],
+                opacity: [0.2, 0.5, 0.2],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                repeatType: "reverse",
+                delay: Math.random() * 2,
+              }}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+            />
+          ))}
       </div>
 
       {/* Floating Tech Icons */}
@@ -196,17 +187,18 @@ const Hero = () => {
 
 
 
-      {/* Background Pattern with Parallax */}
-      <motion.div 
+      {/* Background Pattern (no mouse parallax when reduced motion) */}
+      <motion.div
         className="absolute inset-0 opacity-10"
-        style={{
-          x: mousePosition.x,
-          y: mousePosition.y,
-        }}
+        initial={prefersReducedMotion ? false : { opacity: 1 }}
+        animate={prefersReducedMotion ? undefined : { opacity: 1 }}
       >
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
       </motion.div>
 
 

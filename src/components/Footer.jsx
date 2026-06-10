@@ -1,23 +1,8 @@
-import React from 'react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Badge } from './ui/badge';
-import { 
-  Github, 
-  Linkedin, 
-  Twitter, 
-  Instagram, 
-  Heart, 
-  Mail,
-  ArrowUp,
-  Code2,
-  Database,
-  Cloud,
-  Server,
-  Sparkles
-} from 'lucide-react';
+import React from 'react'
+import { Button } from './ui/button'
+import { Mail, Github, Linkedin, Twitter, Instagram } from 'lucide-react'
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 
 const Footer = () => {
@@ -29,27 +14,23 @@ const Footer = () => {
       icon: <Github className="h-5 w-5" />,
       href: 'https://github.com/Jigishas',
       label: 'GitHub',
-      color: 'hover:bg-gray-800 hover:text-white',
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
       href: 'https://www.linkedin.com/in/joseph-gachuru-375219350',
       label: 'LinkedIn',
-      color: 'hover:bg-blue-600 hover:text-white',
     },
     {
       icon: <Twitter className="h-5 w-5" />,
       href: 'https://x.com/JigishaF5831/',
       label: 'X',
-      color: 'hover:bg-black hover:text-white',
     },
     {
       icon: <Instagram className="h-5 w-5" />,
       href: 'https://www.instagram.com/ni.jigisha/',
       label: 'Instagram',
-      color: 'hover:bg-pink-600 hover:text-white',
     },
-  ];
+  ]
 
   
 
@@ -125,7 +106,7 @@ const Footer = () => {
                       variant="ghost"
                       size="icon"
                       asChild
-                      className={`rounded-full transition-all duration-300 ${social.color}`}
+                      className="rounded-full transition-all duration-300 glass border-border/50 hover:shadow-lg hover:bg-muted/50"
                     >
                       <a
                         href={social.href}

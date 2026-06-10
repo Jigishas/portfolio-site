@@ -148,7 +148,7 @@ const Projects = () => {
     : projects.filter(p => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-20 w-full min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950">
+    <section id="projects" className="py-20 w-full min-h-screen bg-projects">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <motion.div
@@ -179,7 +179,7 @@ const Projects = () => {
                     'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300',
                     selectedCategory === category
                       ? 'bg-secondary text-white shadow-lg scale-105'
-                      : 'bg-white/50 text-muted-foreground hover:bg-white hover:text-foreground border border-border'
+                      : 'glass text-muted-foreground hover:text-foreground hover:shadow-md border border-border/50'
                   )}
                 >
                   {category}

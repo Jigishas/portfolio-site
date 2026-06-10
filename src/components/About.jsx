@@ -1,32 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react'
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-import { Card, CardContent } from './ui/card';
-import { Badge } from './ui/badge';
+import { motion } from 'framer-motion'
+import { Card, CardContent } from './ui/card'
+import { Badge } from './ui/badge'
 
 const About = () => {
-  // eslint-disable-next-line no-unused-vars
-  const sectionRef = useRef(null);
-  const textRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (textRef.current) observer.observe(textRef.current);
-    if (imageRef.current) observer.observe(imageRef.current);
-
-    return () => observer.disconnect();
-  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -162,67 +140,54 @@ const About = () => {
           </motion.div>
 
           {/* Image/Visual Content */}
-          <motion.div
-            variants={imageVariants}
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Card className="overflow-hidden shadow-2xl hover:shadow-2xl transition-shadow">
-                <CardContent className="p-0">
-                  <div className="bg-gradient-to-br from-secondary to-primary p-8 text-center text-white">
-                    <div className="w-48 h-48 mx-auto mb-6 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+          <motion.div variants={imageVariants}>
+            <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.3 }}>
+              <Card className="glass transition-shadow hover:shadow-2xl border-border/50">
+                <CardContent className="p-8">
+                  <div className="relative text-center">
+                    <div className="absolute inset-0 rounded-2xl opacity-40 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.35),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(124,58,237,0.30),transparent_40%),radial-gradient(circle_at_50%_90%,rgba(16,185,129,0.25),transparent_35%)]" />
+                    <div className="relative w-48 h-48 mx-auto mb-6 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 flex items-center justify-center">
                       <div className="text-center">
-                        <div className="text-6xl font-bold mb-2 ">JG</div>
+                        <div className="text-6xl font-bold mb-2 text-primary">JG</div>
                         <div className="text-lg opacity-90">Joseph Gachuru</div>
                         <div className="text-sm opacity-75">Software Engineer</div>
                       </div>
                     </div>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-4 mt-8">
-                      <motion.div
-                        className="text-center"
-                        variants={statVariants}
-                      >
+                    <div className="grid grid-cols-3 gap-4 mt-8 relative">
+                      <motion.div className="text-center" variants={statVariants}>
                         <motion.div
-                          className="text-2xl font-bold"
+                          className="text-2xl font-bold text-primary"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
                           transition={{ duration: 0.6, delay: 0.2 }}
                         >
                           3+
                         </motion.div>
-                        <div className="text-sm opacity-90">Years Experience</div>
+                        <div className="text-sm opacity-90 text-muted-foreground">Years Experience</div>
                       </motion.div>
-                      <motion.div
-                        className="text-center"
-                        variants={statVariants}
-                      >
+                      <motion.div className="text-center" variants={statVariants}>
                         <motion.div
-                          className="text-2xl font-bold"
+                          className="text-2xl font-bold text-secondary"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
                           transition={{ duration: 0.6, delay: 0.4 }}
                         >
                           10+
                         </motion.div>
-                        <div className="text-sm opacity-90">Projects Completed</div>
+                        <div className="text-sm opacity-90 text-muted-foreground">Projects Completed</div>
                       </motion.div>
-                      <motion.div
-                        className="text-center"
-                        variants={statVariants}
-                      >
+                      <motion.div className="text-center" variants={statVariants}>
                         <motion.div
-                          className="text-2xl font-bold"
+                          className="text-2xl font-bold text-accent"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
                           transition={{ duration: 0.6, delay: 0.6 }}
                         >
                           7+
                         </motion.div>
-                        <div className="text-sm opacity-90">Technologies</div>
+                        <div className="text-sm opacity-90 text-muted-foreground">Technologies</div>
                       </motion.div>
                     </div>
                   </div>
