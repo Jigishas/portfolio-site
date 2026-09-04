@@ -83,29 +83,26 @@ const About = () => {
             variants={textVariants}
           >
             <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
-              Passionate Software Engineer & AI Enthusiast
+              Backend & Product Engineering
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Hello! I'm Joseph Gachuru, a dedicated Software Engineering student of Kirinyaga University with a strong passion for technology and software development. I specialize in creating efficient, scalable solutions across multiple domains.
+              Hello! I'm Joseph Gachuru — a Software Engineer focused on backend and product engineering. I work across the full product lifecycle: identifying a business problem, designing workflows, building the backend architecture, shipping the interface and deploying the final system.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              My expertise spans{' '}
+              My work centers on{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-2">Software Engineering</Badge>
+                <Badge variant="secondary" className="mx-2">Backend Engineering</Badge>
               </motion.span>,{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-2">Data Science & AI</Badge>
-              </motion.span>,{' '}
-              <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-2">Product management</Badge>
+                <Badge variant="secondary" className="mx-2">Product Engineering</Badge>
               </motion.span>, and{' '}
               <motion.span variants={badgeVariants}>
-                <Badge variant="secondary" className="mx-2">Backend Development</Badge>
+                <Badge variant="secondary" className="mx-2">Data Engineering</Badge>
               </motion.span>{' '}
-              with proficiency in the MERN stack development, cloud computing, Python programming, jira and DevOps practices.
+              — spanning logistics, property management, agriculture and legal tech. I design relational schemas, build REST APIs with role-based access control and deploy behind Linux/Nginx with caching and monitoring.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm constantly learning and exploring new technologies to enhance my skills and contribute to innovative projects that solve real-world problems.
+              I care about why a feature exists, not only how to code it — which is why I build real, multi-user systems rather than tutorial apps, and measure the impact of the engineering behind them.
             </p>
 
             <motion.div
@@ -113,19 +110,19 @@ const About = () => {
               variants={badgeVariants}
             >
               {[
-                'MERN Stack',
-                'Php',
-                'Python',
-                'Apache Airflow',
-                'Snowflake',
-                'Docker',
-                'AWS',
-                'Azure',
-                'Django',
                 'Laravel',
-                'Jira',
-                'Git',
-                'AI/ML',
+                'Node.js',
+                'Python',
+                'PostgreSQL',
+                'MySQL',
+                'React',
+                'TypeScript',
+                'Redis',
+                'Docker',
+                'Nginx',
+                'REST APIs',
+                'RBAC',
+                'ETL',
               ].map((tech) => (
                 <motion.div
                   key={tech}
@@ -150,7 +147,7 @@ const About = () => {
                       <div className="text-center">
                         <div className="text-6xl font-bold mb-2 text-primary">JG</div>
                         <div className="text-lg opacity-90">Joseph Gachuru</div>
-                        <div className="text-sm opacity-75">Software Engineer</div>
+                        <div className="text-sm opacity-75">Backend & Product Engineer</div>
                       </div>
                     </div>
 
@@ -185,9 +182,9 @@ const About = () => {
                           whileInView={{ scale: 1 }}
                           transition={{ duration: 0.6, delay: 0.6 }}
                         >
-                          7+
+                          4
                         </motion.div>
-                        <div className="text-sm opacity-90 text-muted-foreground">Technologies</div>
+                        <div className="text-sm opacity-90 text-muted-foreground">Featured Platforms</div>
                       </motion.div>
                     </div>
                   </div>

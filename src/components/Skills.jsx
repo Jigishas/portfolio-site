@@ -7,12 +7,13 @@ import {
   Code,
   Database,
   Cloud,
-  Laptop,
   Zap,
   Layout,
   BarChart3,
   Settings,
-  Shield
+  Shield,
+  Layers,
+  Workflow
 } from 'lucide-react';
 
 const Skills = () => {

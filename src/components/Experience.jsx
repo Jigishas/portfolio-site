@@ -20,6 +20,24 @@ import {
 const Experience = () => {
   const experiences = [
     {
+      type: 'work',
+      title: 'Software Engineer — Backend & Product',
+      organization: 'PLAT-DEL · Logistics & Delivery Platform',
+      location: 'Remote',
+      period: '2025 — Present',
+      description: 'Backend and product engineering on a production logistics platform connecting customers, vendors, riders and administrators through automated order-to-delivery workflows.',
+      achievements: [
+        'Designed and implemented Laravel backend APIs for logistics workflows',
+        'Built role-based access control across customer, vendor, rider and admin surfaces',
+        'Optimized API/database performance and frontend request patterns under high traffic',
+        'Worked with production Linux/Nginx infrastructure, caching and background processing',
+        'Collaborated on product requirements and shipped features end-to-end',
+      ],
+      technologies: ['Laravel', 'MySQL', 'React', 'TypeScript', 'Redis', 'Nginx', 'Docker'],
+      icon: <Rocket className="h-6 w-6" />,
+      color: 'bg-purple-500',
+    },
+    {
       type: 'Education',
       title: 'Software Engineering Student',
       organization: 'Kirinyaga University',
@@ -52,16 +70,16 @@ const Experience = () => {
       color: 'bg-green-500',
     },
     {
-      type: 'project',
-      title: 'Full Stack Developer - Freelance',
+      type: 'work',
+      title: 'Full Stack Developer — Freelance',
       organization: 'Self-Employed',
       location: 'Remote',
       period: '2023 - Present',
-      description: 'Developing custom web applications and data solutions for clients. Specializing in MERN stack applications and data engineering pipelines.',
+      description: 'Building custom web applications and data products for clients — from business problem and workflow design to backend architecture, interfaces and production deployment.',
       achievements: [
-        'Delivered 10+ successful projects',
-        '100% client satisfaction rate',
-        'Specialized in e-commerce and legal tech solutions',
+        'Delivered complete products across e-commerce, legal tech and agricultural domains',
+        'Designed multi-user, role-based workflows for client platforms',
+        'Owned deployment, caching and performance work on shipped systems',
       ],
       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS'],
       icon: <Rocket className="h-6 w-6" />,
