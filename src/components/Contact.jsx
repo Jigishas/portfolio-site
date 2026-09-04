@@ -1,11 +1,14 @@
 import React from 'react';
 import { Card, CardContent } from './ui/card';
+import { Button } from './ui/button';
 import {
   Mail,
   Phone,
   MapPin,
   Github,
   MessageCircle,
+  FileText,
+  Linkedin,
 } from 'lucide-react';
 import { generateWhatsAppURL } from '../utils/whatsapp';
 
@@ -51,13 +54,49 @@ const Contact = () => {
     <section id="contact" className="py-20 w-full min-h-screen bg-contact">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-sm font-semibold">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+            </span>
+            Open to Software Engineering opportunities
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Get In Touch
+            Let's Build Something
           </h2>
           <div className="w-24 h-1 bg-secondary mx-auto" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
-            I’m open to new opportunities, collaborations, and freelance work. Reach out and let’s build something great.
+            I'm particularly interested in Backend, Full-Stack and Product Engineering roles — and I enjoy Data Engineering work. Reach out and let's build something great.
           </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
+            {['Backend Engineering', 'Full-Stack Engineering', 'Product Engineering', 'Software Engineering', 'Data Engineering'].map((role) => (
+              <span key={role} className="px-4 py-1.5 rounded-full text-sm font-medium bg-card border border-border/60 text-muted-foreground">
+                {role}
+              </span>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button asChild size="lg" className="gap-2">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <FileText className="h-4 w-4" /> View Resume
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="gap-2">
+              <a href="https://github.com/Jigishas" target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" /> GitHub
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="gap-2">
+              <a href="https://www.linkedin.com/in/joseph-gachuru-375219350" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-4 w-4" /> LinkedIn
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="gap-2">
+              <a href="mailto:josephgachuru336@gmail.com">
+                <Mail className="h-4 w-4" /> Email
+              </a>
+            </Button>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -123,7 +162,7 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <span className="inline-flex w-2.5 h-2.5 rounded-full bg-accent" />
-                  Areas: Full-stack, Data Engineering, AI/Automation
+                  Focus: Backend · Product · Data Engineering
                 </div>
               </div>
             </div>

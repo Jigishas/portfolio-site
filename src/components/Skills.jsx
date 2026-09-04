@@ -19,34 +19,34 @@ import {
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Frontend Development',
-      icon: <Layout className="h-6 w-6 text-secondary" />,
-      skills: ['React.js', 'JavaScript', 'HTML/CSS', 'Tailwind CSS', 'TypeScript', 'Responsive Design', 'ShadCN'],
-    },
-    {
-      title: 'Backend Development',
+      title: 'Backend Engineering · Core',
       icon: <Code className="h-6 w-6 text-secondary" />,
-      skills: ['Node.js', 'Express.js', 'Python', 'RESTful APIs', 'Java', 'GraphQL', 'Django', 'Laravel'],
+      skills: ['Laravel', 'Node.js / Express', 'Python', 'REST APIs', 'Authentication & RBAC', 'API Design', 'Validation & Error Handling'],
     },
     {
-      title: 'Database & Data',
+      title: 'Databases & Data · Core',
       icon: <Database className="h-6 w-6 text-secondary" />,
-      skills: ['MongoDB', 'SQL', 'Database Design', 'Data Modeling', 'Redis', 'PostgreSQL'],
+      skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'SQL', 'Schema Design', 'Query Optimization'],
     },
     {
-      title: 'Data Engineering',
-      icon: <BarChart3 className="h-6 w-6 text-secondary" />,
-      skills: ['Apache Airflow', 'Snowflake', 'ETL Processes', 'Data Pipelines', 'BigQuery', 'Data Warehousing'],
+      title: 'Frontend · Core',
+      icon: <Layout className="h-6 w-6 text-secondary" />,
+      skills: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design', 'State Management'],
     },
     {
-      title: 'Cloud & DevOps',
+      title: 'Infrastructure · Core',
       icon: <Cloud className="h-6 w-6 text-secondary" />,
-      skills: ['Docker', 'AWS', 'CI/CD', 'Git & GitHub', 'Linux', 'Kubernetes'],
+      skills: ['Docker', 'Linux', 'Nginx', 'Git & GitHub', 'CI/CD', 'Production Deployment'],
     },
     {
-      title: 'Tools & Others',
-      icon: <Settings className="h-6 w-6 text-secondary" />,
-      skills: ['Agile/Scrum', 'Jest/Testing', 'Figma', 'Postman', 'VS Code', 'Jira', 'Nginx'],
+      title: 'Data Engineering · Core',
+      icon: <BarChart3 className="h-6 w-6 text-secondary" />,
+      skills: ['ETL Pipelines', 'Apache Airflow', 'Data Modeling', 'Data Warehousing', 'Snowflake'],
+    },
+    {
+      title: 'Product Engineering · Core',
+      icon: <Workflow className="h-6 w-6 text-secondary" />,
+      skills: ['Problem → Production', 'Workflow Design', 'Agile / Scrum', 'Jira', 'Stakeholder Collaboration'],
     },
   ];
 
@@ -96,10 +96,10 @@ const Skills = () => {
             Expertise
           </span>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent mb-4">
-            Technical Skills
+            Engineering Skills
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
-            Technologies and tools I work with to build scalable solutions
+            A focused core stack I build with daily — plus the tools I keep close.
           </p>
           <div className="w-32 h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
         </motion.div>
@@ -168,6 +168,24 @@ const Skills = () => {
           ))}
         </motion.div>
 
+        {/* Familiar With */}
+        <div className="mt-12 text-center">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+            Familiar With
+          </h3>
+          <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+            {['Java', 'GraphQL', 'Django', 'Kubernetes', 'AWS', 'BigQuery', 'Socket.io', 'Web Scraping', 'Jest / Testing', 'Azure', 'Flask', 'TensorFlow / ML'].map((skill) => (
+              <Badge
+                key={skill}
+                variant="outline"
+                className="text-xs px-3 py-1.5 border-border/60 text-muted-foreground"
+              >
+                {skill}
+              </Badge>
+            ))}
+          </div>
+        </div>
+
         {/* Summary Stats */}
         <motion.div
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
@@ -177,10 +195,10 @@ const Skills = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           {[
-            { icon: <Code className="h-6 w-6" />, value: '7+', label: 'Technologies' },
-            { icon: <Laptop className="h-6 w-6" />, value: '10+', label: 'Projects' },
-            { icon: <Zap className="h-6 w-6" />, value: '3+', label: 'Years Experience' },
-            { icon: <Shield className="h-6 w-6" />, value: '100%', label: 'Commitment' },
+            { icon: <Layers className="h-6 w-6" />, value: '4', label: 'Featured Platforms' },
+            { icon: <Code className="h-6 w-6" />, value: '10+', label: 'Projects Delivered' },
+            { icon: <Zap className="h-6 w-6" />, value: '3+', label: 'Years Building' },
+            { icon: <Shield className="h-6 w-6" />, value: 'Backend', label: 'Product-Focused' },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

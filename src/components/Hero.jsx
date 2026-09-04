@@ -1,36 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { motion, useReducedMotion } from 'framer-motion'
-import { Button } from './ui/button.tsx'
+import { motion, useReducedMotion } from 'framer-motion';
+import { Button } from './ui/button.tsx';
 
 import photo from '../../public/jose.jpeg';
-import { 
-  ChevronDown, 
-  Github, 
-  Linkedin, 
-  Twitter, 
-  Instagram, 
+import {
+  ChevronDown,
+  Github,
+  Linkedin,
+  Twitter,
+  Instagram,
   Download,
   Code2,
   Database,
   Cloud,
   Server,
-  Terminal
+  Terminal,
+  ArrowRight,
 } from 'lucide-react';
-
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const prefersReducedMotion = useReducedMotion()
+  const prefersReducedMotion = useReducedMotion();
 
   const texts = React.useMemo(
-    () => ['Software Engineer', 'Data Engineer', 'Backend Specialist', 'Product Manager', 'AI Enthusiast'],
+    () => ['Software Engineer', 'Backend & Product Engineer', 'Scalable APIs & Systems', 'Data-Driven Products'],
     [],
   );
 
-  // Floating tech icons data
   const floatingIcons = [
     { Icon: Code2, delay: 0, x: '10%', y: '20%' },
     { Icon: Database, delay: 1, x: '85%', y: '15%' },
@@ -39,17 +38,15 @@ const Hero = () => {
     { Icon: Terminal, delay: 4, x: '90%', y: '50%' },
   ];
 
+  // Keep hero snappy on low-power devices
   useEffect(() => {
-    // Keep hero snappy on low-power devices; no mouse parallax when reduced motion is enabled.
-    if (prefersReducedMotion) return
-  }, [prefersReducedMotion])
-
+    if (prefersReducedMotion) return;
+  }, [prefersReducedMotion]);
 
   useEffect(() => {
     const type = () => {
       const current = texts[currentIndex];
       const shouldDelete = isDeleting;
-
       if (shouldDelete) {
         setCurrentText(current.substring(0, currentText.length - 1));
         if (currentText === '') {
@@ -63,7 +60,6 @@ const Hero = () => {
         }
       }
     };
-
     const timer = setTimeout(type, isDeleting ? 50 : 100);
     return () => clearTimeout(timer);
   }, [currentText, currentIndex, isDeleting, texts]);
@@ -71,10 +67,7 @@ const Hero = () => {
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: 'smooth',
-      });
+      window.scrollTo({ top: element.offsetTop - 80, behavior: 'smooth' });
     }
   };
 
@@ -82,20 +75,13 @@ const Hero = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2,
-      },
+      transition: { duration: 0.6, staggerChildren: 0.2 },
     },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   const socialVariants = {
@@ -103,11 +89,7 @@ const Hero = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: {
-        duration: 0.5,
-        staggerChildren: 0.1,
-        delayChildren: 0.8,
-      },
+      transition: { duration: 0.5, staggerChildren: 0.1, delayChildren: 0.8 },
     },
   };
 
@@ -115,6 +97,8 @@ const Hero = () => {
     hidden: { opacity: 0, scale: 0 },
     visible: { opacity: 1, scale: 1 },
   };
+
+  const techStrip = ['Laravel', 'Node.js', 'Python', 'React', 'PostgreSQL', 'Redis', 'Docker'];
 
   return (
     <motion.section
@@ -135,20 +119,14 @@ const Hero = () => {
                 x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
                 y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
               }}
-              animate={{
-                y: [null, -20, 20],
-                opacity: [0.2, 0.5, 0.2],
-              }}
+              animate={{ y: [null, -20, 20], opacity: [0.2, 0.5, 0.2] }}
               transition={{
                 duration: 3 + Math.random() * 2,
                 repeat: Infinity,
-                repeatType: "reverse",
+                repeatType: 'reverse',
                 delay: Math.random() * 2,
               }}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
+              style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
             />
           ))}
       </div>
@@ -162,11 +140,7 @@ const Hero = () => {
             className="absolute text-white/20 pointer-events-none hidden md:block"
             style={{ left: item.x, top: item.y }}
             initial={{ opacity: 0, scale: 0 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -15, 0],
-            }}
+            animate={{ opacity: 1, scale: 1, y: [0, -15, 0] }}
             transition={{
               opacity: { delay: item.delay * 0.5, duration: 0.5 },
               scale: { delay: item.delay * 0.5, duration: 0.5 },
@@ -174,8 +148,8 @@ const Hero = () => {
                 delay: item.delay * 0.5,
                 duration: 3,
                 repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
+                repeatType: 'reverse',
+                ease: 'easeInOut',
               },
             }}
           >
@@ -184,15 +158,8 @@ const Hero = () => {
         );
       })}
 
-
-
-
-      {/* Background Pattern (no mouse parallax when reduced motion) */}
-      <motion.div
-        className="absolute inset-0 opacity-10"
-        initial={prefersReducedMotion ? false : { opacity: 1 }}
-        animate={prefersReducedMotion ? undefined : { opacity: 1 }}
-      >
+      {/* Background Pattern */}
+      <motion.div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
           style={{
@@ -201,64 +168,51 @@ const Hero = () => {
         ></div>
       </motion.div>
 
-
       <div className="w-full max-w-none mt-40 px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image with Animated Ring */}
-          <motion.div
-            className="mb-8 mt-20 relative"
-            variants={itemVariants}
-          >
+          <motion.div className="mb-8 mt-20 relative" variants={itemVariants}>
             <motion.div
               className="w-36 h-36 mx-auto rounded-full relative"
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {/* Animated Border Ring
-              <motion.div
-                className="absolute -inset-2 rounded-full bg-gradient-to-r from-secondary via-accent to-secondary opacity-75"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              />
-              <motion.div
-                className="absolute -inset-1 rounded-full bg-gradient-to-r from-accent via-secondary to-accent opacity-50"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-              /> */}
-              <div className="relative w-full h-full rounded-full bg-gradient-to-br from-secondary to-accent p-1">
+              <motion.div className="relative w-full h-full rounded-full bg-gradient-to-br from-secondary to-accent p-1">
                 <motion.img
                   src={photo}
-                  alt="Joseph Gachuru"
+                  alt="Joseph Gachuru — Software Engineer"
                   className="w-full h-full rounded-full object-cover border-4 border-white/20"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 />
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
 
+          {/* Availability Badge */}
+          <motion.div className="mb-6 flex justify-center" variants={itemVariants}>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/25 text-white text-sm font-medium backdrop-blur-sm">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+              </span>
+              Open to Software Engineering opportunities
+            </span>
+          </motion.div>
 
-          {/* Gradient Text Name */}
+          {/* Name */}
           <motion.h1
             className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-secondary to-accent bg-clip-text text-transparent"
             variants={itemVariants}
-            style={{
-              backgroundSize: '200% 200%',
-            }}
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            style={{ backgroundSize: '200% 200%' }}
+            animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
           >
             Joseph Gachuru
           </motion.h1>
 
-
+          {/* Typing Roles */}
           <motion.div
             className="text-xl md:text-2xl mb-4 h-8 flex items-center justify-center"
             variants={itemVariants}
@@ -266,66 +220,55 @@ const Hero = () => {
             <span className="text-primary font-semibold">{currentText}</span>
             <motion.span
               animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+              transition={{ duration: 0.8, repeat: Infinity, repeatType: 'reverse' }}
             >
               |
             </motion.span>
           </motion.div>
 
-          <motion.p
-            className="text-xl font-bold md:text-xl text-white/90 mb-2 max-w-2xl mx-auto"
-            variants={itemVariants}
-          >
-            Software Engineer | Data Engineer | Product Manager 
+          {/* Positioning */}
+          <motion.p className="text-lg font-semibold text-white/90 mb-3 max-w-2xl mx-auto" variants={itemVariants}>
+            Backend & Product Engineering
           </motion.p>
           <motion.p
-            className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
+            className="text-base md:text-lg text-white/80 mb-6 max-w-3xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
-            Undergraduate at Kirinyaga University. BSC in Software Engineering
-          </motion.p>
-          <motion.p
-            className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
-            variants={itemVariants}
-          >
-            Graduate of Power Learn Project Africa.
-            
-          </motion.p>
-           <motion.p
-            className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
-            variants={itemVariants}
-          >
-            Graduate of Moringa School.
-            
-          </motion.p>
-           <motion.p
-            className="text-base md:text-lg text-white/80 mb-8 max-w-2xl mx-auto"
-            variants={itemVariants}
-          >
-              Graduate of productNBO for product managers.
-            
+            I build scalable APIs, business systems and data-driven products — taking ideas from problem to production with Laravel, Node.js, Python, React and PostgreSQL.
           </motion.p>
 
+          {/* Tech Strip */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            className="flex flex-wrap justify-center items-center gap-2 mb-6 max-w-3xl mx-auto"
             variants={itemVariants}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            {techStrip.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 rounded-full text-xs font-medium bg-white/10 border border-white/20 text-white/85 backdrop-blur-sm"
+              >
+                {tech}
+              </span>
+            ))}
+          </motion.div>
+
+          <motion.p className="text-sm text-white/70 mb-8 max-w-2xl mx-auto" variants={itemVariants}>
+            BSc Software Engineering (Kirinyaga University) · Graduate of Power Learn Project Africa, Moringa School & productNBO.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" variants={itemVariants}>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 onClick={() => scrollToSection('#projects')}
                 size="lg"
-                className="bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold px-8 py-3 text-lg rounded-full shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300"
+                className="bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold px-8 py-3 text-lg rounded-full shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 inline-flex items-center gap-2"
               >
                 View My Work
+                <ArrowRight className="w-5 h-5" />
               </Button>
             </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 onClick={() => scrollToSection('#contact')}
                 variant="outline"
@@ -335,10 +278,7 @@ const Hero = () => {
                 Get In Touch
               </Button>
             </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="outline"
                 size="lg"
@@ -351,17 +291,13 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-
           {/* Social Links */}
-          <motion.div
-            className="flex justify-center space-x-6 mb-12"
-            variants={socialVariants}
-          >
+          <motion.div className="flex justify-center space-x-6 mb-12" variants={socialVariants}>
             {[
-              { href: "https://github.com/Jigishas", icon: <Github className="h-6 w-6" />, label: "GitHub" },
-              { href: "https://www.linkedin.com/in/joseph-gachuru-375219350", icon: <Linkedin className="h-6 w-6" />, label: "LinkedIn" },
-              { href: "https://x.com/JigishaF5831/", icon: <Twitter className="h-6 w-6" />, label: "Twitter" },
-              { href: "https://www.instagram.com/ni.jigisha/", icon: <Instagram className="h-6 w-6" />, label: "Instagram" },
+              { href: 'https://github.com/Jigishas', icon: <Github className="h-6 w-6" />, label: 'GitHub' },
+              { href: 'https://www.linkedin.com/in/joseph-gachuru-375219350', icon: <Linkedin className="h-6 w-6" />, label: 'LinkedIn' },
+              { href: 'https://x.com/JigishaF5831/', icon: <Twitter className="h-6 w-6" />, label: 'Twitter' },
+              { href: 'https://www.instagram.com/ni.jigisha/', icon: <Instagram className="h-6 w-6" />, label: 'Instagram' },
             ].map((social) => (
               <motion.a
                 key={social.label}

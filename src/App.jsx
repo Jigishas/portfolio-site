@@ -2,9 +2,11 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'
-import Experience from './components/Experience'
 import Projects from './components/Projects'
+import Experience from './components/Experience'
+import EngineeringPrinciples from './components/EngineeringPrinciples'
+import Skills from './components/Skills'
+import Articles from './components/Articles'
 import Certificates from './components/Certificates'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -16,10 +18,12 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Skills />
-      <Experience />
-      <Certificates />
       <Projects />
+      <Experience />
+      <EngineeringPrinciples />
+      <Skills />
+      <Articles />
+      <Certificates />
       <Contact />
       <Footer />
     </div>

@@ -37,10 +37,12 @@ const Navbar = () => {
   const navItems = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#certificates', label: 'Certificates' },
     { href: '#projects', label: 'Projects' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#engineering', label: 'Engineering' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#notes', label: 'Notes' },
+    { href: '#certificates', label: 'Certificates' },
     { href: '#contact', label: 'Contact' },
   ];
 

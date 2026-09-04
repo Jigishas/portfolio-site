@@ -50,9 +50,12 @@ const Footer = () => {
     navigation: [
       { href: '#home', label: 'Home' },
       { href: '#about', label: 'About' },
-      { href: '#skills', label: 'Skills' },
-      { href: '#experience', label: 'Experience' },
       { href: '#projects', label: 'Projects' },
+      { href: '#experience', label: 'Experience' },
+      { href: '#engineering', label: 'How I Engineer' },
+      { href: '#skills', label: 'Skills' },
+      { href: '#notes', label: 'Engineering Notes' },
+      { href: '#certificates', label: 'Certificates' },
       { href: '#contact', label: 'Contact' },
     ],
     resources: [
@@ -90,8 +93,7 @@ const Footer = () => {
                 Joseph<span className="text-secondary"> Gachuru</span>
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                Software Engineer passionate about creating innovative solutions
-                and pushing the boundaries of technology. Above and beyond is my bare minimum.
+                Software Engineer building scalable APIs, business systems and data-driven products — from problem to production.
               </p>
               
               {/* Social Links */}
