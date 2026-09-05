@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ExternalLink, Github, X, CheckCircle2, AlertTriangle, Layers, MapPin } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
-import { projects, featuredProjects, secondaryProjects } from './projects/projectsData';
+import {  featuredProjects, secondaryProjects } from './projects/projectsData';
 
 const sectionVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.15 } } };
 const itemVariants = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 0.9, 0.36, 1] } } };
