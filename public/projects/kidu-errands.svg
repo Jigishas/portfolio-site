@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#17102b"/>
-      <stop offset="1" stop-color="#2a1250"/>
+      <stop offset="0" stop-color="#2a0a1e"/>
+      <stop offset="1" stop-color="#4d123a"/>
     </linearGradient>
     <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#8b5cf6"/>
-      <stop offset="1" stop-color="#d946ef"/>
+      <stop offset="0" stop-color="#ffc94d"/>
+      <stop offset="1" stop-color="#ffb119"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">
-      <stop offset="0" stop-color="#a855f7" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#a855f7" stop-opacity="0"/>
+      <stop offset="0" stop-color="#671347" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#671347" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="1200" height="800" fill="url(#bg)"/>
   <rect width="1200" height="800" fill="url(#glow)"/>
-  <circle cx="600" cy="330" r="150" fill="none" stroke="url(#brand)" stroke-width="3" opacity="0.55"/>
-  <circle cx="600" cy="330" r="150" fill="url(#brand)" opacity="0.08"/>
-  <ellipse cx="600" cy="402" rx="120" ry="14" fill="#17102b" opacity="0.55"/>
-  <path d="M 568 288 v -20 a 32 32 0 0 1 64 0 v 20" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="600" cy="330" r="150" fill="none" stroke="#671347" stroke-width="3" opacity="0.6"/>
+  <circle cx="600" cy="330" r="150" fill="#671347" opacity="0.15"/>
+  <ellipse cx="600" cy="402" rx="120" ry="14" fill="#2a0a1e" opacity="0.55"/>
+  <path d="M 568 288 v -20 a 32 32 0 0 1 64 0 v 20" fill="none" stroke="#ffb119" stroke-width="11" stroke-linecap="round"/>
   <rect x="535" y="283" width="130" height="115" rx="20" fill="#ffffff"/>
-  <circle cx="600" cy="338" r="15" fill="url(#brand)"/>
+  <circle cx="600" cy="338" r="15" fill="#671347"/>
   <circle cx="600" cy="338" r="5" fill="#ffffff"/>
-  <line x1="450" y1="447" x2="750" y2="447" stroke="url(#brand)" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round" opacity="0.85"/>
-  <circle cx="444" cy="447" r="6" fill="url(#brand)"/>
-  <circle cx="756" cy="447" r="6" fill="url(#brand)"/>
-  <text x="600" y="535" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="3" fill="#ffffff">KIDU ERRANDS</text>
-  <text x="600" y="582" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="6" fill="#d8b4fe">ON-DEMAND ERRANDS &amp; DELIVERY</text>
-  <rect x="468" y="612" width="264" height="42" rx="21" fill="#17102b" stroke="#4c1d95" stroke-width="1.5" opacity="0.9"/>
-  <text x="600" y="639" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="4" fill="#a78bfa">PRODUCTION &#183; TANZANIA</text>
+  <line x1="450" y1="446" x2="750" y2="446" stroke="url(#brand)" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="444" cy="446" r="6" fill="#671347"/>
+  <circle cx="756" cy="446" r="6" fill="#671347"/>
+  <text x="600" y="535" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="3" fill="#ffb119">KIDU ERRANDS&#174;</text>
+  <text x="600" y="582" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="6" fill="#f9a8d4">ON-DEMAND ERRANDS &amp; DELIVERY</text>
+  <rect x="468" y="612" width="264" height="42" rx="21" fill="#2a0a1e" stroke="#a21caf" stroke-width="1.5" opacity="0.9"/>
+  <text x="600" y="639" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="4" fill="#f0abfc">PRODUCTION &#183; TANZANIA</text>
 </svg>
