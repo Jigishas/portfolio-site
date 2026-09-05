@@ -4,7 +4,6 @@ import { ArrowUpRight, ExternalLink, Github, X, CheckCircle2, AlertTriangle, Lay
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
 import {  featuredProjects, secondaryProjects } from './projects/projectsData';
 
-const sectionVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.15 } } };
 const itemVariants = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 0.9, 0.36, 1] } } };
 
 const StatusBadge = ({ status }) => {
@@ -55,7 +54,7 @@ const ProjectCTA = ({ project, onSelect }) => (
 const FeaturedProject = ({ project, index, onSelect }) => {
   const isReversed = project.layout === 'left';
   return (
-    <motion.div variants={itemVariants} className="relative">
+    <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="relative">
       <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center`}>
         <div className={`lg:col-span-7 ${isReversed ? 'lg:order-2' : ''}`}>
           <ProjectVisual project={project} eager={index === 0} large className="aspect-video rounded-xl border border-border/40 bg-card" />
@@ -76,7 +75,7 @@ const FeaturedProject = ({ project, index, onSelect }) => {
 };
 
 const ProjectCard = ({ project, onSelect }) => (
-  <motion.div variants={itemVariants} className="group">
+  <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="group">
     <div className="relative mb-4">
       <ProjectVisual project={project} className="aspect-[4/3] rounded-xl border border-border/40 bg-card" />
     </div>
@@ -119,8 +118,8 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 md:py-32 w-full bg-projects">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-          <motion.div variants={itemVariants} className="max-w-3xl mb-20 md:mb-28">
+        <div>
+          <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="max-w-3xl mb-20 md:mb-28">
             <span className="inline-block text-[11px] uppercase tracking-widest text-muted-foreground font-medium mb-6">Selected Work</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">Software built around<br />real-world problems.</h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">A selection of products, platforms and engineering systems I've built across logistics, artificial intelligence, SaaS and data engineering.</p>
@@ -136,12 +135,12 @@ const Projects = () => {
             <p className="text-sm text-muted-foreground max-w-2xl mb-10">Additional systems exploring SaaS architecture, information systems and data engineering.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{secondaryProjects.map((project) => (<ProjectCard key={project.id} project={project} onSelect={setSelectedProject} />))}</div>
           </div>
-          <motion.div variants={itemVariants} className="mt-20 md:mt-28 pt-12 border-t border-border/30 text-center">
+          <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mt-20 md:mt-28 pt-12 border-t border-border/30 text-center">
             <h3 className="text-xl font-semibold text-primary mb-3">Explore more of my work</h3>
             <p className="text-sm text-muted-foreground mb-6">More experiments, engineering projects and open-source work are available on GitHub.</p>
             <a href="https://github.com/Jigishas" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border/40 text-sm font-medium hover:border-primary/40 hover:text-primary transition-colors">View GitHub <ArrowUpRight className="w-4 h-4" /></a>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
       <AnimatePresence>{selectedProject && (<CaseStudyDialog project={selectedProject} onClose={() => setSelectedProject(null)} />)}</AnimatePresence>
     </section>
