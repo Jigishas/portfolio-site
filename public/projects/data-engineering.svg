@@ -1,63 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e"/>
-      <stop offset="100%" style="stop-color:#16213e"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a0b14"/>
+      <stop offset="1" stop-color="#38091f"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ec4899"/>
-      <stop offset="100%" style="stop-color:#be185d"/>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ec4899"/>
+      <stop offset="1" stop-color="#be185d"/>
     </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#ec4899" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ec4899" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="1200" height="800" fill="url(#bg)"/>
-  <rect x="40" y="40" width="1120" height="720" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
-  <rect x="40" y="40" width="1120" height="48" rx="12" fill="#1e293b"/>
-  <circle cx="64" cy="64" r="8" fill="#ef4444"/>
-  <circle cx="88" cy="64" r="8" fill="#f59e0b"/>
-  <circle cx="112" cy="64" r="8" fill="#22c55e"/>
-  <rect x="400" y="56" width="400" height="16" rx="8" fill="#334155"/>
-  <rect x="80" y="120" width="1040" height="640" rx="8" fill="#1e293b"/>
-  <rect x="100" y="140" width="200" height="16" rx="4" fill="#334155"/>
-  <rect x="100" y="164" width="120" height="12" rx="4" fill="#1e293b"/>
-  <rect x="100" y="200" width="1000" height="540" rx="8" fill="#0f172a"/>
-  <rect x="120" y="220" width="160" height="120" rx="4" fill="url(#accent)" opacity="0.2"/>
-  <rect x="120" y="220" width="80" height="16" rx="2" fill="#334155"/>
-  <text x="160" y="280" text-anchor="middle" fill="#334155" font-size="14" font-family="monospace">extract</text>
-  <rect x="320" y="220" width="160" height="120" rx="4" fill="url(#accent)" opacity="0.15"/>
-  <rect x="320" y="220" width="80" height="16" rx="2" fill="#334155"/>
-  <text x="400" y="280" text-anchor="middle" fill="#334155" font-size="14" font-family="monospace">transform</text>
-  <rect x="520" y="220" width="160" height="120" rx="4" fill="url(#accent)" opacity="0.1"/>
-  <rect x="520" y="220" width="80" height="16" rx="2" fill="#334155"/>
-  <text x="600" y="280" text-anchor="middle" fill="#334155" font-size="14" font-family="monospace">validate</text>
-  <rect x="720" y="220" width="160" height="120" rx="4" fill="url(#accent)" opacity="0.08"/>
-  <rect x="720" y="220" width="80" height="16" rx="2" fill="#334155"/>
-  <text x="800" y="280" text-anchor="middle" fill="#334155" font-size="14" font-family="monospace">load</text>
-  <rect x="920" y="220" width="160" height="120" rx="4" fill="url(#accent)" opacity="0.05"/>
-  <rect x="920" y="220" width="80" height="16" rx="2" fill="#334155"/>
-  <text x="1000" y="280" text-anchor="middle" fill="#334155" font-size="14" font-family="monospace">monitor</text>
-  <rect x="120" y="380" width="960" height="40" rx="4" fill="#1e293b"/>
-  <rect x="140" y="395" width="60" height="10" rx="2" fill="#334155"/>
-  <rect x="220" y="395" width="60" height="10" rx="2" fill="url(#accent)" opacity="0.3"/>
-  <rect x="300" y="395" width="60" height="10" rx="2" fill="#334155"/>
-  <rect x="380" y="395" width="60" height="10" rx="2" fill="url(#accent)" opacity="0.2"/>
-  <rect x="460" y="395" width="60" height="10" rx="2" fill="#334155"/>
-  <rect x="540" y="395" width="60" height="10" rx="2" fill="url(#accent)" opacity="0.15"/>
-  <rect x="620" y="395" width="60" height="10" rx="2" fill="#334155"/>
-  <rect x="700" y="395" width="60" height="10" rx="2" fill="url(#accent)" opacity="0.1"/>
-  <rect x="780" y="395" width="60" height="10" rx="2" fill="#334155"/>
-  <rect x="860" y="395" width="60" height="10" rx="2" fill="url(#accent)" opacity="0.08"/>
-  <rect x="940" y="395" width="60" height="10" rx="2" fill="#334155"/>
-  <rect x="1020" y="395" width="40" height="10" rx="2" fill="url(#accent)" opacity="0.05"/>
-  <rect x="120" y="460" width="960" height="280" rx="4" fill="#1e293b"/>
-  <rect x="140" y="480" width="120" height="16" rx="4" fill="#334155"/>
-  <rect x="140" y="510" width="920" height="200" rx="4" fill="#0f172a"/>
-  <rect x="160" y="530" width="80" height="80" rx="4" fill="url(#accent)" opacity="0.18"/>
-  <rect x="260" y="530" width="80" height="80" rx="4" fill="#334155" opacity="0.35"/>
-  <rect x="360" y="530" width="80" height="80" rx="4" fill="url(#accent)" opacity="0.12"/>
-  <rect x="460" y="530" width="80" height="80" rx="4" fill="#334155" opacity="0.25"/>
-  <rect x="560" y="530" width="80" height="80" rx="4" fill="url(#accent)" opacity="0.08"/>
-  <rect x="660" y="530" width="80" height="80" rx="4" fill="#334155" opacity="0.2"/>
-  <rect x="760" y="530" width="80" height="80" rx="4" fill="url(#accent)" opacity="0.06"/>
-  <rect x="860" y="530" width="80" height="80" rx="4" fill="#334155" opacity="0.15"/>
-  <rect x="960" y="530" width="80" height="80" rx="4" fill="url(#accent)" opacity="0.04"/>
+  <rect width="1200" height="800" fill="url(#glow)"/>
+  <circle cx="600" cy="330" r="150" fill="none" stroke="url(#brand)" stroke-width="3" opacity="0.55"/>
+  <circle cx="600" cy="330" r="150" fill="url(#brand)" opacity="0.08"/>
+  <line x1="492" y1="316" x2="570" y2="278" stroke="#f9a8d4" stroke-width="4" opacity="0.75"/>
+  <line x1="492" y1="344" x2="570" y2="382" stroke="#f9a8d4" stroke-width="4" opacity="0.75"/>
+  <line x1="632" y1="278" x2="710" y2="316" stroke="#f9a8d4" stroke-width="4" opacity="0.75"/>
+  <line x1="632" y1="382" x2="710" y2="344" stroke="#f9a8d4" stroke-width="4" opacity="0.75"/>
+  <circle cx="470" cy="330" r="26" fill="url(#brand)" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="470" cy="330" r="7" fill="#ffffff"/>
+  <circle cx="600" cy="264" r="26" fill="url(#brand)" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="600" cy="264" r="7" fill="#ffffff"/>
+  <circle cx="600" cy="396" r="26" fill="url(#brand)" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="600" cy="396" r="7" fill="#ffffff"/>
+  <circle cx="730" cy="330" r="26" fill="url(#brand)" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="730" cy="330" r="7" fill="#ffffff"/>
+  <text x="600" y="535" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="2" fill="#ffffff">DATA ENGINEERING</text>
+  <text x="600" y="582" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="5" fill="#f9a8d4">ETL PIPELINES &#183; APACHE AIRFLOW</text>
+  <rect x="482" y="612" width="236" height="42" rx="21" fill="#1a0b14" stroke="#9d174d" stroke-width="1.5" opacity="0.9"/>
+  <text x="600" y="639" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="3" fill="#f472b6">PYTHON &#183; SQL &#183; DOCKER</text>
 </svg>

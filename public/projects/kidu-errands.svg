@@ -1,46 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e"/>
-      <stop offset="100%" style="stop-color:#16213e"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17102b"/>
+      <stop offset="1" stop-color="#2a1250"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#a855f7"/>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#d946ef"/>
     </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#a855f7" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="1200" height="800" fill="url(#bg)"/>
-  <rect x="40" y="40" width="1120" height="720" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
-  <rect x="40" y="40" width="1120" height="48" rx="12" fill="#1e293b"/>
-  <circle cx="64" cy="64" r="8" fill="#ef4444"/>
-  <circle cx="88" cy="64" r="8" fill="#f59e0b"/>
-  <circle cx="112" cy="64" r="8" fill="#22c55e"/>
-  <rect x="400" y="56" width="400" height="16" rx="8" fill="#334155"/>
-  <rect x="80" y="120" width="400" height="560" rx="8" fill="#1e293b"/>
-  <rect x="100" y="140" width="360" height="200" rx="8" fill="url(#accent)" opacity="0.2"/>
-  <rect x="100" y="360" width="360" height="16" rx="4" fill="#334155"/>
-  <rect x="100" y="384" width="240" height="12" rx="4" fill="#1e293b"/>
-  <rect x="100" y="420" width="360" height="80" rx="4" fill="#0f172a"/>
-  <rect x="120" y="440" width="60" height="40" rx="4" fill="url(#accent)" opacity="0.3"/>
-  <rect x="200" y="440" width="60" height="40" rx="4" fill="#334155" opacity="0.5"/>
-  <rect x="280" y="440" width="60" height="40" rx="4" fill="url(#accent)" opacity="0.15"/>
-  <rect x="360" y="440" width="60" height="40" rx="4" fill="#334155" opacity="0.3"/>
-  <rect x="100" y="520" width="360" height="16" rx="4" fill="#334155"/>
-  <rect x="100" y="544" width="200" height="12" rx="4" fill="#1e293b"/>
-  <rect x="100" y="580" width="360" height="80" rx="4" fill="#0f172a"/>
-  <rect x="520" y="120" width="600" height="560" rx="8" fill="#1e293b"/>
-  <rect x="540" y="140" width="200" height="16" rx="4" fill="#334155"/>
-  <rect x="540" y="164" width="120" height="12" rx="4" fill="#1e293b"/>
-  <rect x="540" y="200" width="560" height="440" rx="8" fill="#0f172a"/>
-  <rect x="560" y="220" width="160" height="120" rx="4" fill="url(#accent)" opacity="0.2"/>
-  <rect x="740" y="220" width="160" height="120" rx="4" fill="#334155" opacity="0.4"/>
-  <rect x="920" y="220" width="160" height="120" rx="4" fill="url(#accent)" opacity="0.1"/>
-  <rect x="560" y="360" width="160" height="120" rx="4" fill="#334155" opacity="0.3"/>
-  <rect x="740" y="360" width="160" height="120" rx="4" fill="url(#accent)" opacity="0.15"/>
-  <rect x="920" y="360" width="160" height="120" rx="4" fill="#334155" opacity="0.2"/>
-  <rect x="560" y="500" width="560" height="120" rx="4" fill="#1e293b"/>
-  <rect x="580" y="520" width="120" height="80" rx="4" fill="url(#accent)" opacity="0.25"/>
-  <rect x="720" y="520" width="120" height="80" rx="4" fill="#334155" opacity="0.35"/>
-  <rect x="860" y="520" width="120" height="80" rx="4" fill="url(#accent)" opacity="0.12"/>
-  <rect x="1000" y="520" width="100" height="80" rx="4" fill="#334155" opacity="0.25"/>
+  <rect width="1200" height="800" fill="url(#glow)"/>
+  <circle cx="600" cy="330" r="150" fill="none" stroke="url(#brand)" stroke-width="3" opacity="0.55"/>
+  <circle cx="600" cy="330" r="150" fill="url(#brand)" opacity="0.08"/>
+  <ellipse cx="600" cy="402" rx="120" ry="14" fill="#17102b" opacity="0.55"/>
+  <path d="M 568 288 v -20 a 32 32 0 0 1 64 0 v 20" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
+  <rect x="535" y="283" width="130" height="115" rx="20" fill="#ffffff"/>
+  <circle cx="600" cy="338" r="15" fill="url(#brand)"/>
+  <circle cx="600" cy="338" r="5" fill="#ffffff"/>
+  <line x1="450" y1="447" x2="750" y2="447" stroke="url(#brand)" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="444" cy="447" r="6" fill="url(#brand)"/>
+  <circle cx="756" cy="447" r="6" fill="url(#brand)"/>
+  <text x="600" y="535" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="3" fill="#ffffff">KIDU ERRANDS</text>
+  <text x="600" y="582" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="6" fill="#d8b4fe">ON-DEMAND ERRANDS &amp; DELIVERY</text>
+  <rect x="468" y="612" width="264" height="42" rx="21" fill="#17102b" stroke="#4c1d95" stroke-width="1.5" opacity="0.9"/>
+  <text x="600" y="639" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="4" fill="#a78bfa">PRODUCTION &#183; TANZANIA</text>
 </svg>
