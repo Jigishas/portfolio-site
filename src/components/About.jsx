@@ -59,7 +59,7 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="py-20 w-full min-h-screen bg-about"
+      className="py-16 w-full min-h-screen bg-about"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -67,7 +67,7 @@ const About = () => {
     >
       <div className="w-full max-w-none px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           variants={textVariants}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
@@ -76,7 +76,7 @@ const About = () => {
           <div className="w-24 h-1 bg-secondary mx-auto"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <motion.div
             className="space-y-6"
@@ -106,7 +106,7 @@ const About = () => {
             </p>
 
             <motion.div
-              className="flex flex-wrap gap-3 mt-6"
+              className="flex flex-wrap gap-1.5 mt-5"
               variants={badgeVariants}
             >
               {[
@@ -127,10 +127,10 @@ const About = () => {
                 <motion.div
                   key={tech}
                   variants={badgeVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  <Badge variant="outline">{tech}</Badge>
+                  <Badge variant="outline" className="text-[10px] px-2 py-0.5">{tech}</Badge>
                 </motion.div>
               ))}
             </motion.div>
@@ -138,53 +138,53 @@ const About = () => {
 
           {/* Image/Visual Content */}
           <motion.div variants={imageVariants}>
-            <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.3 }}>
-              <Card className="glass transition-shadow hover:shadow-2xl border-border/50">
-                <CardContent className="p-8">
+            <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+              <Card className="card-refined transition-shadow hover:shadow-lg border-border/40">
+                <CardContent className="p-5">
                   <div className="relative text-center">
-                    <div className="absolute inset-0 rounded-2xl opacity-40 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.35),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(124,58,237,0.30),transparent_40%),radial-gradient(circle_at_50%_90%,rgba(16,185,129,0.25),transparent_35%)]" />
-                    <div className="relative w-48 h-48 mx-auto mb-6 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 flex items-center justify-center">
+                    <div className="absolute inset-0 rounded-xl opacity-30 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.25),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(124,58,237,0.20),transparent_40%),radial-gradient(circle_at_50%_90%,rgba(16,185,129,0.15),transparent_35%)]" />
+                    <div className="relative w-40 h-40 mx-auto mb-5 rounded-full bg-card/50 backdrop-blur-sm border border-border/40 flex items-center justify-center">
                       <div className="text-center">
-                        <div className="text-6xl font-bold mb-2 text-primary">JG</div>
-                        <div className="text-lg opacity-90">Joseph Gachuru</div>
-                        <div className="text-sm opacity-75">Backend & Product Engineer</div>
+                        <div className="text-5xl font-bold mb-1 text-primary">JG</div>
+                        <div className="text-sm opacity-90">Joseph Gachuru</div>
+                        <div className="text-[10px] opacity-75">Backend & Product Engineer</div>
                       </div>
                     </div>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-4 mt-8 relative">
+                    <div className="grid grid-cols-3 gap-3 mt-6 relative">
                       <motion.div className="text-center" variants={statVariants}>
                         <motion.div
-                          className="text-2xl font-bold text-primary"
+                          className="text-xl font-bold text-primary"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
-                          transition={{ duration: 0.6, delay: 0.2 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
                         >
                           3+
                         </motion.div>
-                        <div className="text-sm opacity-90 text-muted-foreground">Years Experience</div>
+                        <div className="text-[10px] opacity-90 text-muted-foreground">Years Exp</div>
                       </motion.div>
                       <motion.div className="text-center" variants={statVariants}>
                         <motion.div
-                          className="text-2xl font-bold text-secondary"
+                          className="text-xl font-bold text-secondary"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
-                          transition={{ duration: 0.6, delay: 0.4 }}
+                          transition={{ duration: 0.5, delay: 0.4 }}
                         >
                           10+
                         </motion.div>
-                        <div className="text-sm opacity-90 text-muted-foreground">Projects Completed</div>
+                        <div className="text-[10px] opacity-90 text-muted-foreground">Projects</div>
                       </motion.div>
                       <motion.div className="text-center" variants={statVariants}>
                         <motion.div
-                          className="text-2xl font-bold text-accent"
+                          className="text-xl font-bold text-accent"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
-                          transition={{ duration: 0.6, delay: 0.6 }}
+                          transition={{ duration: 0.5, delay: 0.6 }}
                         >
                           4
                         </motion.div>
-                        <div className="text-sm opacity-90 text-muted-foreground">Featured Platforms</div>
+                        <div className="text-[10px] opacity-90 text-muted-foreground">Platforms</div>
                       </motion.div>
                     </div>
                   </div>

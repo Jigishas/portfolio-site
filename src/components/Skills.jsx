@@ -86,7 +86,7 @@ const Skills = () => {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -106,79 +106,55 @@ const Skills = () => {
 
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {skillCategories.map((category, categoryIndex) => (
+          {skillCategories.map((category) => (
             <motion.div
               key={category.title}
               variants={cardVariants}
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.2 },
-              }}
             >
-              <Card className="h-full bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border border-border/50 hover:border-secondary/30 hover:shadow-xl hover:shadow-secondary/5 transition-all duration-300 group">
-                <CardHeader className="text-center pb-3">
-                  <motion.div
-                    className="flex justify-center mb-4"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: categoryIndex * 0.1,
-                      type: "spring",
-                      stiffness: 200,
-                    }}
-                  >
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-secondary/20 to-primary/10 group-hover:from-secondary/30 group-hover:to-primary/20 transition-all duration-300">
+              <Card className="h-full card-refined hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
+                <CardHeader className="p-4 pb-2">
+                  <CardTitle className="text-sm flex items-center gap-2">
+                    <div className="p-1.5 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
                       {category.icon}
                     </div>
-                  </motion.div>
-                  <CardTitle className="text-lg font-semibold text-primary group-hover:text-secondary transition-colors duration-300">
                     {category.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.div
+                <CardContent className="p-4 pt-2">
+                  <div className="flex flex-wrap gap-1.5">
+                    {category.skills.map((skill) => (
+                      <Badge
                         key={skill}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: skillIndex * 0.05 }}
+                        variant="secondary"
+                        className="text-[10px] font-medium px-2 py-0.5 bg-secondary/10 text-secondary hover:bg-secondary hover:text-white border-0 transition duration-200 cursor-default"
                       >
-                        <Badge
-                          variant="secondary"
-                          className="text-xs font-medium px-3 py-1.5 bg-secondary/10 text-secondary hover:bg-secondary hover:text-white border-0 transition duration-300 cursor-default shadow-sm"
-                        >
-                          {skill}
-                        </Badge>
-                      </motion.div>
+                        {skill}
+                      </Badge>
                     ))}
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
-
           ))}
         </motion.div>
 
         {/* Familiar With */}
-        <div className="mt-12 text-center">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+        <div className="mt-8 text-center">
+          <h3 className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">
             Familiar With
           </h3>
-          <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-1.5 max-w-3xl mx-auto">
             {['Java', 'GraphQL', 'Django', 'Kubernetes', 'AWS', 'BigQuery', 'Socket.io', 'Web Scraping', 'Jest / Testing', 'Azure', 'Flask', 'TensorFlow / ML'].map((skill) => (
               <Badge
                 key={skill}
                 variant="outline"
-                className="text-xs px-3 py-1.5 border-border/60 text-muted-foreground"
+                className="text-[10px] px-2 py-0.5 border-border/50 text-muted-foreground"
               >
                 {skill}
               </Badge>
@@ -188,38 +164,38 @@ const Skills = () => {
 
         {/* Summary Stats */}
         <motion.div
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           {[
-            { icon: <Layers className="h-6 w-6" />, value: '4', label: 'Featured Platforms' },
-            { icon: <Code className="h-6 w-6" />, value: '10+', label: 'Projects Delivered' },
-            { icon: <Zap className="h-6 w-6" />, value: '3+', label: 'Years Building' },
-            { icon: <Shield className="h-6 w-6" />, value: 'Backend', label: 'Product-Focused' },
+            { icon: <Layers className="h-5 w-5" />, value: '4', label: 'Featured Platforms' },
+            { icon: <Code className="h-5 w-5" />, value: '10+', label: 'Projects Delivered' },
+            { icon: <Zap className="h-5 w-5" />, value: '3+', label: 'Years Building' },
+            { icon: <Shield className="h-5 w-5" />, value: 'Backend', label: 'Product-Focused' },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="text-center p-6 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group"
-              initial={{ opacity: 0, scale: 0.8 }}
+              className="text-center p-4 card-refined rounded-lg hover:border-primary/20 transition-all duration-200 group"
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ delay: index * 0.08 }}
+              whileHover={{ scale: 1.02, y: -2 }}
             >
-              <div className="flex justify-center mb-3">
-                <div className="p-3 rounded-full bg-gradient-to-br from-primary/20 to-secondary/10 group-hover:from-primary/30 group-hover:to-secondary/20 transition-all duration-300">
-                  <div className="text-primary group-hover:text-secondary transition-colors duration-300">
+              <div className="flex justify-center mb-2">
+                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/15 transition-all duration-200">
+                  <div className="text-primary group-hover:text-secondary transition-colors duration-200">
                     {stat.icon}
                   </div>
                 </div>
               </div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+              <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
                 {stat.value}
               </div>
-              <div className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+              <div className="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-200">
                 {stat.label}
               </div>
             </motion.div>

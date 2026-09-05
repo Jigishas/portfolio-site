@@ -108,56 +108,6 @@ const Hero = () => {
       animate="visible"
       variants={containerVariants}
     >
-      {/* Animated Background Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {!prefersReducedMotion &&
-          [...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full"
-              initial={{
-                x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-              }}
-              animate={{ y: [null, -20, 20], opacity: [0.2, 0.5, 0.2] }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                repeatType: 'reverse',
-                delay: Math.random() * 2,
-              }}
-              style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-            />
-          ))}
-      </div>
-
-      {/* Floating Tech Icons */}
-      {floatingIcons.map((item, index) => {
-        const IconComponent = item.Icon;
-        return (
-          <motion.div
-            key={index}
-            className="absolute text-white/20 pointer-events-none hidden md:block"
-            style={{ left: item.x, top: item.y }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1, y: [0, -15, 0] }}
-            transition={{
-              opacity: { delay: item.delay * 0.5, duration: 0.5 },
-              scale: { delay: item.delay * 0.5, duration: 0.5 },
-              y: {
-                delay: item.delay * 0.5,
-                duration: 3,
-                repeat: Infinity,
-                repeatType: 'reverse',
-                ease: 'easeInOut',
-              },
-            }}
-          >
-            <IconComponent className="w-8 h-8 md:w-12 md:h-12" />
-          </motion.div>
-        );
-      })}
-
       {/* Background Pattern */}
       <motion.div className="absolute inset-0 opacity-10">
         <div
@@ -168,16 +118,16 @@ const Hero = () => {
         ></div>
       </motion.div>
 
-      <div className="w-full max-w-none mt-40 px-4 text-center relative z-10">
+      <div className="w-full max-w-none mt-32 px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image with Animated Ring */}
-          <motion.div className="mb-8 mt-20 relative" variants={itemVariants}>
+          <motion.div className="mb-6 relative" variants={itemVariants}>
             <motion.div
-              className="w-36 h-36 mx-auto rounded-full relative"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="w-28 h-28 mx-auto rounded-full relative"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <motion.div className="relative w-full h-full rounded-full bg-gradient-to-br from-secondary to-accent p-1">
+              <motion.div className="relative w-full h-full rounded-full bg-gradient-to-br from-secondary to-accent p-0.5">
                 <motion.img
                   src={photo}
                   alt="Joseph Gachuru — Software Engineer"
@@ -227,11 +177,11 @@ const Hero = () => {
           </motion.div>
 
           {/* Positioning */}
-          <motion.p className="text-lg font-semibold text-white/90 mb-3 max-w-2xl mx-auto" variants={itemVariants}>
+          <motion.p className="text-base font-semibold text-white/90 mb-2 max-w-2xl mx-auto" variants={itemVariants}>
             Backend & Product Engineering
           </motion.p>
           <motion.p
-            className="text-base md:text-lg text-white/80 mb-6 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm md:text-base text-white/75 mb-5 max-w-3xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             I build scalable APIs, business systems and data-driven products — taking ideas from problem to production with Laravel, Node.js, Python, React and PostgreSQL.
@@ -239,74 +189,74 @@ const Hero = () => {
 
           {/* Tech Strip */}
           <motion.div
-            className="flex flex-wrap justify-center items-center gap-2 mb-6 max-w-3xl mx-auto"
+            className="flex flex-wrap justify-center items-center gap-1.5 mb-5 max-w-3xl mx-auto"
             variants={itemVariants}
           >
             {techStrip.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 rounded-full text-xs font-medium bg-white/10 border border-white/20 text-white/85 backdrop-blur-sm"
+                className="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-white/10 border border-white/15 text-white/80"
               >
                 {tech}
               </span>
             ))}
           </motion.div>
 
-          <motion.p className="text-sm text-white/70 mb-8 max-w-2xl mx-auto" variants={itemVariants}>
+          <motion.p className="text-xs text-white/60 mb-6 max-w-2xl mx-auto" variants={itemVariants}>
             BSc Software Engineering (Kirinyaga University) · Graduate of Power Learn Project Africa, Moringa School & productNBO.
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" variants={itemVariants}>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8" variants={itemVariants}>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
                 onClick={() => scrollToSection('#projects')}
-                size="lg"
-                className="bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold px-8 py-3 text-lg rounded-full shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 inline-flex items-center gap-2"
+                size="default"
+                className="bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold px-6 py-2 text-sm rounded-full shadow-lg hover:shadow-emerald-500/40 transition-all duration-200 inline-flex items-center gap-2"
               >
                 View My Work
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
                 onClick={() => scrollToSection('#contact')}
                 variant="outline"
-                size="lg"
-                className="border-2 border-white bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 hover:border-white px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                size="default"
+                className="border border-white/30 bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 px-6 py-2 text-sm rounded-full shadow-md hover:shadow-lg transition-all duration-200"
               >
                 Get In Touch
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
                 variant="outline"
-                size="lg"
-                className="rounded-full border-2 border-white bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 hover:border-white px-6 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                size="default"
+                className="rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 px-5 py-2 text-sm shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2"
                 onClick={() => window.open('/resume.pdf', '_blank')}
               >
-                <Download className="w-5 h-5" />
+                <Download className="w-4 h-4" />
                 Resume
               </Button>
             </motion.div>
           </motion.div>
 
           {/* Social Links */}
-          <motion.div className="flex justify-center space-x-6 mb-12" variants={socialVariants}>
+          <motion.div className="flex justify-center space-x-5 mb-8" variants={socialVariants}>
             {[
-              { href: 'https://github.com/Jigishas', icon: <Github className="h-6 w-6" />, label: 'GitHub' },
-              { href: 'https://www.linkedin.com/in/joseph-gachuru-375219350', icon: <Linkedin className="h-6 w-6" />, label: 'LinkedIn' },
-              { href: 'https://x.com/JigishaF5831/', icon: <Twitter className="h-6 w-6" />, label: 'Twitter' },
-              { href: 'https://www.instagram.com/ni.jigisha/', icon: <Instagram className="h-6 w-6" />, label: 'Instagram' },
+              { href: 'https://github.com/Jigishas', icon: <Github className="h-5 w-5" />, label: 'GitHub' },
+              { href: 'https://www.linkedin.com/in/joseph-gachuru-375219350', icon: <Linkedin className="h-5 w-5" />, label: 'LinkedIn' },
+              { href: 'https://x.com/JigishaF5831/', icon: <Twitter className="h-5 w-5" />, label: 'Twitter' },
+              { href: 'https://www.instagram.com/ni.jigisha/', icon: <Instagram className="h-5 w-5" />, label: 'Instagram' },
             ].map((social) => (
               <motion.a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-secondary transition-colors duration-300"
+                className="text-white/70 hover:text-secondary transition-colors duration-200"
                 variants={socialItemVariants}
-                whileHover={{ scale: 1.2, y: -5 }}
+                whileHover={{ scale: 1.15, y: -3 }}
                 whileTap={{ scale: 0.9 }}
               >
                 {social.icon}

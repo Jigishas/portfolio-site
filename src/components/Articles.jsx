@@ -42,7 +42,7 @@ const articles = [
 const Articles = () => (
   <motion.section
     id="notes"
-    className="py-20 w-full bg-skills"
+    className="py-16 w-full bg-skills"
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     viewport={{ once: true }}
@@ -50,7 +50,7 @@ const Articles = () => (
   >
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
-        className="text-center mb-12"
+        className="text-center mb-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -68,27 +68,27 @@ const Articles = () => (
         <div className="w-28 h-1 bg-gradient-to-r from-secondary to-accent mx-auto rounded-full"></div>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {articles.map((article, index) => (
           <motion.div
             key={article.title}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.45, delay: index * 0.08 }}
+            transition={{ duration: 0.35, delay: index * 0.06 }}
           >
-            <Card className="h-full glass border-border/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-              <CardContent className="p-6 flex flex-col h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <Badge variant="secondary" className="text-xs">{article.category}</Badge>
-                  <BookOpen className="h-4 w-4 text-muted-foreground" />
+            <Card className="h-full card-refined hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
+              <CardContent className="p-4 flex flex-col h-full">
+                <div className="flex items-center justify-between mb-2">
+                  <Badge variant="secondary" className="text-[10px] px-2 py-0.5">{article.category}</Badge>
+                  <BookOpen className="h-3.5 w-3.5 text-muted-foreground" />
                 </div>
-                <h3 className="font-semibold text-primary mb-3 leading-snug group-hover:text-secondary transition-colors">
+                <h3 className="text-sm font-semibold text-primary mb-2 leading-snug group-hover:text-secondary transition-colors">
                   {article.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5">{article.summary}</p>
-                <div className="mt-auto pt-2 flex items-center gap-2 text-xs text-muted-foreground">
-                  <PenLine className="h-3.5 w-3.5" />
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3 line-clamp-2">{article.summary}</p>
+                <div className="mt-auto pt-2 flex items-center gap-1.5 text-[10px] text-muted-foreground">
+                  <PenLine className="h-3 w-3" />
                   From production experience
                 </div>
               </CardContent>

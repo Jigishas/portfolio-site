@@ -245,12 +245,12 @@ const Experience = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="space-y-12"
+            className="space-y-8"
           >
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${
+                className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
                 variants={index % 2 === 0 ? itemVariants : rightItemVariants}
@@ -258,64 +258,66 @@ const Experience = () => {
                 {/* Timeline Node */}
                 <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 z-10">
                   <motion.div
-                    className={`w-12 h-12 rounded-full ${exp.color} flex items-center justify-center text-white shadow-lg border-4 border-background`}
-                    whileHover={{ scale: 1.2, rotate: 360 }}
-                    transition={{ duration: 0.5 }}
+                    className={`w-10 h-10 rounded-full ${exp.color} flex items-center justify-center text-white shadow-md border-3 border-background`}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
                   >
                     {exp.icon}
                   </motion.div>
                 </div>
 
                 {/* Content Card */}
-                <div className={`ml-20 md:ml-0 md:w-5/12 ${
-                  index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'
+                <div className={`ml-16 md:ml-0 md:w-5/12 ${
+                  index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'
                 }`}>
                   <motion.div
-                    whileHover={{ scale: 1.02, y: -5 }}
-                    transition={{ duration: 0.3 }}
+                    whileHover={{ scale: 1.01, y: -2 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <Card className="hover:shadow-xl transition-all duration-300 border-l-4 border-l-secondary">
-                      <CardContent className="p-6">
+                    <Card className="card-refined hover:shadow-md transition-all duration-200 border-l-4 border-l-secondary">
+                      <CardContent className="p-4">
                         {/* Header */}
-                        <div className={`flex flex-col ${index % 2 === 0 ? 'md:items-end' : 'md:items-start'} mb-4`}>
-                          <div className="flex items-center gap-2 mb-2">
-                            <Badge variant="outline" className="text-xs">
+                        <div className={`flex flex-col ${index % 2 === 0 ? 'md:items-end' : 'md:items-start'} mb-3`}>
+                          <div className="flex items-center gap-2 mb-1">
+                            <Badge variant="outline" className="text-[10px] px-2 py-0.5">
                               {exp.type === 'work' ? 'Experience' : 'Education'}
                             </Badge>
-                            <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
                               <Calendar className="h-3 w-3" />
                               {exp.period}
                             </div>
                           </div>
-                          <h3 className="text-xl font-bold text-primary">
+                          <h3 className="text-base font-bold text-primary">
                             {exp.title}
                           </h3>
-                          <p className="text-secondary font-medium">
+                          <p className="text-xs text-secondary font-medium">
                             {exp.organization}
                           </p>
-                          <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
-                            <MapPin className="h-3 w-3" />
+                          <div className={`flex items-center gap-1 text-[10px] text-muted-foreground mt-0.5 ${
+                            index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                          }`}>
+                            <MapPin className="h-2.5 w-2.5" />
                             {exp.location}
                           </div>
                         </div>
 
                         {/* Description */}
-                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                        <p className="text-xs text-muted-foreground mb-3 leading-relaxed line-clamp-2">
                           {exp.description}
                         </p>
 
                         {/* Achievements */}
-                        <div className={`mb-4 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                          <h4 className="text-sm font-semibold text-primary mb-2 flex items-center gap-2">
-                            <Award className="h-4 w-4" />
+                        <div className={`mb-3 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                          <h4 className="text-[10px] font-semibold text-primary mb-1.5 flex items-center gap-1.5">
+                            <Award className="h-3 w-3" />
                             Key Achievements
                           </h4>
-                          <ul className={`space-y-1 text-sm text-muted-foreground ${
+                          <ul className={`space-y-0.5 text-xs text-muted-foreground ${
                             index % 2 === 0 ? 'md:text-right' : 'md:text-left'
                           }`}>
-                            {exp.achievements.map((achievement, i) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <Star className="h-3 w-3 text-accent mt-1 flex-shrink-0" />
+                            {exp.achievements.slice(0, 3).map((achievement, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <Star className="h-2.5 w-2.5 text-accent mt-0.5 flex-shrink-0" />
                                 <span>{achievement}</span>
                               </li>
                             ))}
@@ -323,14 +325,14 @@ const Experience = () => {
                         </div>
 
                         {/* Technologies */}
-                        <div className={`flex flex-wrap gap-2 ${
+                        <div className={`flex flex-wrap gap-1 ${
                           index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'
                         }`}>
                           {exp.technologies.map((tech) => (
                             <Badge
                               key={tech}
                               variant="secondary"
-                              className="text-xs hover:bg-secondary hover:text-white transition-colors"
+                              className="text-[10px] px-2 py-0.5 hover:bg-secondary hover:text-white transition-colors"
                             >
                               {tech}
                             </Badge>

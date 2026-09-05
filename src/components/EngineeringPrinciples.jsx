@@ -66,27 +66,27 @@ const EngineeringPrinciples = () => (
         <div className="w-28 h-1 bg-gradient-to-r from-secondary to-accent mx-auto rounded-full"></div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {principles.map((principle, index) => (
           <motion.div
             key={principle.number}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: index * 0.08 }}
+            transition={{ duration: 0.4, delay: index * 0.06 }}
           >
-            <Card className="h-full glass border-border/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-3xl font-bold text-primary/15 group-hover:text-primary/30 transition-colors">
+            <Card className="h-full card-refined hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-xl font-bold text-primary/10 group-hover:text-primary/25 transition-colors">
                     {principle.number}
                   </span>
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary/15 to-secondary/10 text-primary group-hover:text-secondary transition-colors">
+                  <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
                     {principle.icon}
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-primary mb-2">{principle.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{principle.description}</p>
+                <h3 className="text-sm font-semibold text-primary mb-1.5">{principle.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{principle.description}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -94,20 +94,20 @@ const EngineeringPrinciples = () => (
 
         {/* Product Engineering callout */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
         >
-          <Card className="h-full border-primary/20 bg-gradient-to-br from-primary/10 to-secondary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <CardContent className="p-6 flex flex-col h-full">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-xl bg-primary text-primary-foreground">
-                  <Sparkles className="h-6 w-6" />
+          <Card className="h-full border-primary/15 bg-gradient-to-br from-primary/8 to-secondary/8 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <CardContent className="p-4 flex flex-col h-full">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="p-2 rounded-lg bg-primary text-primary-foreground">
+                  <Sparkles className="h-4 w-4" />
                 </div>
-                <h3 className="text-lg font-semibold text-primary">Product Engineering</h3>
+                <h3 className="text-sm font-semibold text-primary">Product Engineering</h3>
               </div>
-              <p className="text-sm text-foreground/80 leading-relaxed">
+              <p className="text-xs text-foreground/70 leading-relaxed">
                 I enjoy working across the full product lifecycle — from identifying a business problem and designing workflows
                 to implementing backend architecture, building interfaces and deploying the final system.
               </p>

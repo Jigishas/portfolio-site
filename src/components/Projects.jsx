@@ -206,9 +206,9 @@ const StatusBadge = ({ status }) => {
   return (
     <Badge
       variant="outline"
-      className={`text-xs font-medium ${statusStyles[status] || 'bg-gray-500/20 text-gray-600'}`}
+      className={`text-[10px] font-medium ${statusStyles[status] || 'bg-gray-500/20 text-gray-600'}`}
     >
-      <span className="w-1.5 h-1.5 rounded-full bg-current mr-1.5 animate-pulse" />
+      <span className="w-1 h-1 rounded-full bg-current mr-1" />
       {status}
     </Badge>
   );
@@ -256,14 +256,14 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 w-full bg-projects">
+    <section id="projects" className="py-16 w-full bg-projects">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium tracking-wider text-secondary uppercase bg-secondary/10 rounded-full">
             Featured Work
@@ -278,87 +278,82 @@ const Projects = () => {
         </motion.div>
 
         {/* Featured case studies */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-12">
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: (i % 2) * 0.1 }}
+              transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
             >
-              <Card className="h-full glass border-border/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <CardContent className="p-6 md:p-8 flex flex-col h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent leading-none">
+              <Card className="h-full card-refined hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
+                <CardContent className="p-4 flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl font-bold text-primary/10 group-hover:text-primary/25 transition-colors">
                       {project.number}
                     </span>
-                    <div className="flex items-center gap-2 flex-wrap justify-end">
-                      {project.actors && (
-                        <Badge variant="secondary" className="hidden sm:inline-flex text-xs">
-                          <Layers className="w-3 h-3 mr-1" />
-                          Multi-sided
-                        </Badge>
-                      )}
-                      <StatusBadge status={project.status} />
-                    </div>
+                    <StatusBadge status={project.status} />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-primary mb-1">{project.title}</h3>
-                  <p className="text-sm font-medium text-secondary mb-4">{project.tagline}</p>
-                  <p className="text-muted-foreground leading-relaxed mb-5">{project.summary}</p>
+                  <h3 className="text-base font-semibold text-primary mb-0.5">{project.title}</h3>
+                  <p className="text-xs font-medium text-secondary mb-2">{project.tagline}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-3 line-clamp-2">{project.summary}</p>
 
-                  <ul className="space-y-2 mb-6">
-                    {project.engineering.slice(0, 3).map((point) => (
-                      <li key={point} className="flex items-start gap-2 text-sm text-foreground/80">
-                        <CheckCircle2 className="h-4 w-4 text-secondary mt-0.5 flex-shrink-0" />
-                        <span>{point}</span>
+                  <ul className="space-y-1.5 mb-3">
+                    {project.engineering.slice(0, 2).map((point) => (
+                      <li key={point} className="flex items-start gap-1.5 text-xs text-foreground/70">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-secondary mt-0.5 flex-shrink-0" />
+                        <span className="line-clamp-1">{point}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.slice(0, 5).map((tech) => (
+                  <div className="flex flex-wrap gap-1 mt-auto pt-3 border-t border-border/30">
+                    {project.technologies.slice(0, 4).map((tech) => (
                       <Badge
                         key={tech}
                         variant="outline"
-                        className="text-xs rounded-full px-3 py-1 border-white/10 text-muted-foreground"
+                        className="text-[10px] px-2 py-0.5 font-normal"
                       >
                         {tech}
                       </Badge>
                     ))}
-                    {project.technologies.length > 5 && (
-                      <Badge variant="outline" className="text-xs rounded-full px-3 py-1">
-                        +{project.technologies.length - 5}
+                    {project.technologies.length > 4 && (
+                      <Badge variant="outline" className="text-[10px] px-2 py-0.5 font-normal">
+                        +{project.technologies.length - 4}
                       </Badge>
                     )}
                   </div>
 
-                  <div className="flex gap-3 mt-auto pt-2">
+                  <div className="flex gap-2 mt-3">
                     <Button
                       variant="secondary"
-                      className="flex-1 gap-2"
+                      size="sm"
+                      className="flex-1 h-7 text-xs gap-1.5"
                       onClick={() => setSelectedProject(project)}
                     >
-                      <ArrowUpRight className="h-4 w-4" />
-                      View Case Study
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                      Case Study
                     </Button>
                     <Button
                       variant="outline"
                       size="icon"
+                      className="h-7 w-7"
                       aria-label={`${project.title} on GitHub`}
                       onClick={() => window.open(project.github, '_blank')}
                     >
-                      <Github className="h-4 w-4" />
+                      <Github className="h-3.5 w-3.5" />
                     </Button>
                     {project.demo && (
                       <Button
                         variant="outline"
                         size="icon"
+                        className="h-7 w-7"
                         aria-label={`${project.title} live demo`}
                         onClick={() => window.open(project.demo, '_blank')}
                       >
-                        <ExternalLink className="h-4 w-4" />
+                        <ExternalLink className="h-3.5 w-3.5" />
                       </Button>
                     )}
                   </div>
@@ -382,50 +377,64 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
           {additionalProjects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
             >
-              <Card className="h-full glass border-border/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <div className="flex items-center justify-between mb-3 gap-2">
-                    <h4 className="text-lg font-semibold text-primary group-hover:text-secondary transition-colors">
+              <Card className="h-full card-refined hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
+                <CardContent className="p-4 flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-2 gap-2">
+                    <h4 className="text-sm font-semibold text-primary group-hover:text-secondary transition-colors">
                       {project.title}
                     </h4>
                     <StatusBadge status={project.status} />
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{project.summary}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <span key={tech} className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-3 line-clamp-2">{project.summary}</p>
+                  <div className="flex flex-wrap gap-1 mt-auto">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span key={tech} className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
                         {tech}
                       </span>
                     ))}
+                    {project.technologies.length > 3 && (
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
+                        +{project.technologies.length - 3}
+                      </span>
+                    )}
                   </div>
-                  <div className="flex gap-2 mt-auto">
+                  <div className="flex gap-2 mt-3">
                     <Button
-                      variant="secondary"
+                      variant="ghost"
                       size="sm"
-                      className="flex-1 gap-2"
+                      className="flex-1 h-7 text-xs gap-1.5 text-secondary"
                       onClick={() => setSelectedProject(project)}
                     >
-                      <ArrowUpRight className="h-4 w-4" />
+                      <ArrowUpRight className="h-3.5 w-3.5" />
                       Details
                     </Button>
                     <Button
                       variant="outline"
-                      size="sm"
-                      className="gap-2"
+                      size="icon"
+                      className="h-7 w-7"
                       onClick={() => window.open(project.github, '_blank')}
                     >
-                      <Github className="h-4 w-4" />
-                      Code
+                      <Github className="h-3.5 w-3.5" />
                     </Button>
+                    {project.demo && (
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="h-7 w-7"
+                        onClick={() => window.open(project.demo, '_blank')}
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

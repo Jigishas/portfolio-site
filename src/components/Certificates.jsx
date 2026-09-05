@@ -73,31 +73,24 @@ const CertificateCard = ({ cert, index, onOpen }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.45, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.35, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="group relative h-full overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-b from-card/90 via-card/70 to-card/50 backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/[0.08]">
-        {/* Hover glow */}
-        <div className={`pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br ${cat?.glow || 'from-primary/20'} to-transparent opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100`} />
-
+      <div className="group relative h-full overflow-hidden rounded-xl border border-border/40 bg-card transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-md">
         {/* Top accent line */}
-        <div className={`h-1 w-full bg-gradient-to-r ${cat?.seal || 'from-primary to-secondary'}`} />
+        <div className={`h-0.5 w-full bg-gradient-to-r ${cat?.seal || 'from-primary to-secondary'}`} />
 
         {/* Preview area */}
-        <div className="relative w-full overflow-hidden bg-gradient-to-br from-muted/40 via-muted/20 to-muted/10">
-          <div className="relative aspect-[4/3] w-full">
+        <div className="relative w-full overflow-hidden bg-gradient-to-br from-muted/30 via-muted/15 to-muted/5">
+          <div className="relative aspect-[16/10] w-full">
             {/* Loading shimmer */}
             {!iframeLoaded && (
-              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-muted/30 to-muted/10">
-                <div className="relative">
-                  <div className="absolute inset-0 rounded-full blur-lg bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/10 opacity-60 animate-pulse" />
-                  <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-card/80 border border-border/40 shadow-sm">
-                    <Loader2 className="h-5 w-5 text-muted-foreground/70 animate-spin" />
-                  </div>
+              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-muted/20 to-muted/5">
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-card/80 border border-border/30">
+                  <Loader2 className="h-4 w-4 text-muted-foreground/60 animate-spin" />
                 </div>
-                <p className="text-[11px] font-medium text-muted-foreground/60 tracking-wide">Loading preview</p>
               </div>
             )}
 
@@ -106,7 +99,7 @@ const CertificateCard = ({ cert, index, onOpen }) => {
               ref={iframeRef}
               src={`${pdfUrl(cert.file)}#page=1&view=FitH`}
               title={`${cert.title} certificate preview`}
-              className={`absolute inset-0 w-full h-full border-0 transition-all duration-500 ease-out ${iframeLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+              className={`absolute inset-0 w-full h-full border-0 transition-all duration-300 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
               loading="lazy"
               onLoad={() => setIframeLoaded(true)}
             />
@@ -116,39 +109,39 @@ const CertificateCard = ({ cert, index, onOpen }) => {
               type="button"
               onClick={() => onOpen(cert)}
               aria-label={`Enlarge preview of ${cert.title}`}
-              className="absolute inset-0 z-20 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/40 group-hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+              className="absolute inset-0 z-20 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-200 group-hover:bg-black/30 group-hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
             >
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2.5 text-sm font-semibold text-foreground shadow-xl backdrop-blur-sm translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
-                <ZoomIn className="h-4 w-4" />
-                Enlarge Preview
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-foreground shadow-lg backdrop-blur-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
+                <ZoomIn className="h-3.5 w-3.5" />
+                Preview
               </span>
             </button>
           </div>
         </div>
 
         {/* Card content */}
-        <div className="relative flex flex-col h-full p-5">
+        <div className="relative flex flex-col h-full p-3.5">
           {/* Seal + category */}
-          <div className="flex items-start justify-between gap-3 mb-4">
-            <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${cat?.seal || 'from-primary to-secondary'} shadow-lg shadow-black/10 ring-2 ring-white/10 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl`}>
-              <Award className="h-6 w-6 text-white drop-shadow-sm" />
+          <div className="flex items-center justify-between gap-2 mb-2">
+            <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${cat?.seal || 'from-primary to-secondary'} shadow-sm transition-all duration-200 group-hover:scale-105`}>
+              <Award className="h-4 w-4 text-white drop-shadow-sm" />
             </div>
-            <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold tracking-wide ${cat?.chip || 'bg-primary/10 text-primary border-primary/30'}`}>
-              <CatIcon className="h-3 w-3" />
+            <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold tracking-wide ${cat?.chip || 'bg-primary/10 text-primary border-primary/30'}`}>
+              <CatIcon className="h-2.5 w-2.5" />
               {cat?.label || cert.category}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="text-[15px] font-bold leading-snug text-foreground mb-1.5 line-clamp-2 group-hover:text-primary transition-colors duration-200">
+          <h3 className="text-xs font-bold leading-snug text-foreground mb-1 line-clamp-2 group-hover:text-primary transition-colors duration-200">
             {cert.title}
           </h3>
 
           {/* Issuer */}
-          <p className="text-sm text-muted-foreground mb-1 font-medium">{cert.issuer}</p>
+          <p className="text-[11px] text-muted-foreground mb-0.5 font-medium">{cert.issuer}</p>
 
           {/* Year */}
-          <p className="text-xs font-semibold text-muted-foreground/60 mb-4">
+          <p className="text-[10px] font-semibold text-muted-foreground/50 mb-3">
             Issued {cert.year}
           </p>
 
@@ -156,24 +149,24 @@ const CertificateCard = ({ cert, index, onOpen }) => {
           <div className="flex-1" />
 
           {/* Actions */}
-          <div className="flex items-center gap-2 pt-3 border-t border-border/30">
+          <div className="flex items-center gap-1.5 pt-2 border-t border-border/20">
             <button
               type="button"
               onClick={() => onOpen(cert)}
               aria-label={`Preview ${cert.title}`}
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary/[0.08] px-4 py-2.5 text-sm font-semibold text-primary transition-all duration-200 hover:bg-primary/15 hover:shadow-md hover:shadow-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary/[0.06] px-3 py-1.5 text-[11px] font-semibold text-primary transition-all duration-150 hover:bg-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
             >
-              <Eye className="h-4 w-4" />
-              Preview
+              <Eye className="h-3.5 w-3.5" />
+              View
             </button>
             <a
               href={pdfUrl(cert.file)}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${cert.title} in new tab`}
-              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border/50 bg-background/50 px-3.5 py-2.5 text-sm font-medium text-foreground transition-all duration-200 hover:bg-accent/10 hover:border-accent/40 hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+              className="inline-flex items-center justify-center rounded-lg border border-border/40 bg-background/50 px-2.5 py-1.5 text-[11px] font-medium text-foreground transition-all duration-150 hover:bg-accent/10 hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
             >
-              <ExternalLink className="h-4 w-4" />
+              <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
@@ -283,7 +276,7 @@ const Certificates = () => {
     <section
       id="certificates"
       aria-labelledby="certificates-heading"
-      className="relative overflow-hidden py-24"
+      className="relative overflow-hidden py-16"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
@@ -307,7 +300,7 @@ const Certificates = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mx-auto max-w-3xl text-center mb-16"
+          className="mx-auto max-w-3xl text-center mb-10"
         >
           <Badge
             variant="outline"
@@ -319,7 +312,7 @@ const Certificates = () => {
 
           <h2
             id="certificates-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight"
           >
             <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
               Certificates, Training
@@ -330,24 +323,24 @@ const Certificates = () => {
             </span>
           </h2>
 
-          <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Professional certifications and training programs across software engineering,
             data, cloud, AI, and product management.
           </p>
 
           {/* Category summary */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-1.5">
             {Object.values(categories).map((cat) => {
               const Icon = cat.icon;
               const count = certificates.filter((c) => c.category === cat.id).length;
               return (
                 <span
                   key={cat.id}
-                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium ${cat.chip}`}
+                  className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[10px] font-medium ${cat.chip}`}
                 >
-                  <Icon className="h-3.5 w-3.5" />
+                  <Icon className="h-3 w-3" />
                   {cat.label}
-                  <span className="ml-0.5 rounded-full bg-background/40 px-1.5 py-0.5 text-[10px] font-bold">
+                  <span className="ml-0.5 rounded-full bg-background/40 px-1.5 py-0.5 text-[9px] font-bold">
                     {count}
                   </span>
                 </span>
@@ -356,8 +349,8 @@ const Certificates = () => {
           </div>
 
           {/* Credly link */}
-          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <Sparkles className="h-4 w-4 text-secondary" />
+          <div className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+            <Sparkles className="h-3.5 w-3.5 text-secondary" />
             Badges also live on{' '}
             <a
               href="https://www.credly.com/users/joseph-gachuru"
@@ -369,13 +362,13 @@ const Certificates = () => {
             </a>
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <div className="h-1 w-28 rounded-full bg-gradient-to-r from-primary via-secondary to-accent" />
+          <div className="mt-6 flex justify-center">
+            <div className="h-0.5 w-20 rounded-full bg-gradient-to-r from-primary via-secondary to-accent" />
           </div>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {certificates.map((cert, index) => (
             <CertificateCard
               key={cert.file}
