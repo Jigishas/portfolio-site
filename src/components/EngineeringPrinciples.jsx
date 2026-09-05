@@ -92,7 +92,7 @@ const EngineeringPrinciples = () => (
           </motion.div>
         ))}
 
-        {/* Product Engineering callout */}
+        {/* Product Management callout */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ const EngineeringPrinciples = () => (
                 <div className="p-2 rounded-lg bg-primary text-primary-foreground">
                   <Sparkles className="h-4 w-4" />
                 </div>
-                <h3 className="text-sm font-semibold text-primary">Product Engineering</h3>
+                <h3 className="text-sm font-semibold text-primary">Product Management</h3>
               </div>
               <p className="text-xs text-foreground/70 leading-relaxed">
                 I enjoy working across the full product lifecycle — from identifying a business problem and designing workflows
