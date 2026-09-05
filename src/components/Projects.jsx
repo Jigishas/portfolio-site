@@ -14,6 +14,32 @@ const StatusBadge = ({ status }) => {
 
 const TechStack = ({ items }) => (<div className="flex flex-wrap gap-1.5">{items.slice(0, 5).map((tech) => (<span key={tech} className="text-[11px] px-2.5 py-1 rounded-md bg-muted/60 text-muted-foreground font-medium">{tech}</span>))}{items.length > 5 && (<span className="text-[11px] px-2.5 py-1 rounded-md bg-muted/60 text-muted-foreground font-medium">+{items.length - 5}</span>)}</div>);
 
+const ProjectVisual = ({ project, eager = false, large = false, className = '' }) => {
+  const [imgError, setImgError] = useState(false);
+  const isRaster = /\.(jpe?g|png|webp|avif)$/i.test(project.image || '');
+  return (
+    <div className={`group relative overflow-hidden ${className}`}>
+      {project.image && !imgError ? (
+        <img
+          src={project.image}
+          alt={`${project.title} — ${project.subtitle}`}
+          width={1200}
+          height={800}
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          onError={() => setImgError(true)}
+          className={`absolute inset-0 h-full w-full ${isRaster ? 'object-contain p-8 md:p-12' : 'object-cover'} transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100`}
+        />
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5" aria-hidden="true">
+          <project.icon className={`${large ? 'w-16 h-16' : 'w-12 h-12'} text-primary/20 transition-colors duration-500 group-hover:text-primary/30`} />
+        </div>
+      )}
+      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-border/20" aria-hidden="true" />
+    </div>
+  );
+};
+
 const ProjectMeta = ({ number, market, flag, year }) => (
   <div className="flex items-center gap-3 text-[11px] uppercase tracking-wider text-muted-foreground font-medium"><span>{number}</span>{market && (<span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{market} {flag}</span>)}<span>{year}</span></div>
 );
@@ -32,11 +58,7 @@ const FeaturedProject = ({ project, index, onSelect }) => {
     <motion.div variants={itemVariants} className="relative">
       <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center`}>
         <div className={`lg:col-span-7 ${isReversed ? 'lg:order-2' : ''}`}>
-          <div className="relative rounded-xl overflow-hidden border border-border/40 bg-muted/20 aspect-video flex items-center justify-center group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5" />
-            <project.icon className="w-16 h-16 text-primary/20 group-hover:text-primary/30 transition-colors duration-500" />
-            <div className="absolute inset-0 ring-1 ring-inset ring-border/20 rounded-xl" />
-          </div>
+          <ProjectVisual project={project} eager={index === 0} large className="aspect-video rounded-xl border border-border/40 bg-card" />
         </div>
         <div className={`lg:col-span-5 ${isReversed ? 'lg:order-1' : ''}`}>
           <div className="space-y-5">
@@ -55,9 +77,8 @@ const FeaturedProject = ({ project, index, onSelect }) => {
 
 const ProjectCard = ({ project, onSelect }) => (
   <motion.div variants={itemVariants} className="group">
-    <div className="relative rounded-xl overflow-hidden border border-border/40 bg-muted/20 aspect-[4/3] flex items-center justify-center mb-4">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 group-hover:from-primary/8 group-hover:to-secondary/8 transition-colors duration-300" />
-      <project.icon className="w-12 h-12 text-primary/20 group-hover:text-primary/40 transition-colors duration-300" />
+    <div className="relative mb-4">
+      <ProjectVisual project={project} className="aspect-[4/3] rounded-xl border border-border/40 bg-card" />
     </div>
     <div className="space-y-3">
       <div className="flex items-center justify-between"><span className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">{project.number}</span><StatusBadge status={project.status} /></div>
@@ -74,7 +95,7 @@ const CaseStudyDialog = ({ project, onClose }) => {
   return (
     <Dialog open onOpenChange={onClose}>
       <DialogContent className="max-w-3xl w-[94vw] max-h-[90vh] overflow-y-auto p-0"><DialogTitle className="sr-only">{project.title}</DialogTitle><DialogDescription className="sr-only">Case study</DialogDescription>
-        <div className="sticky top-0 z-10 bg-card border-b border-border/30 px-6 py-4"><div className="flex items-center justify-between"><div className="flex items-center gap-3"><project.icon className="h-5 w-5 text-primary" /><div><div className="flex items-center gap-2"><h2 className="text-lg font-bold text-primary">{project.title}</h2>{project.flag && <span>{project.flag}</span>}<StatusBadge status={project.status} /></div><p className="text-xs text-secondary font-medium">{project.subtitle}</p></div></div><button onClick={onClose} className="p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Close"><X className="h-4 w-4" /></button></div></div>
+        <div className="sticky top-0 z-10 bg-card border-b border-border/30 px-6 py-4"><div className="flex items-center justify-between"><div className="flex items-center gap-3">{project.image ? (<img src={project.image} alt="" className="h-8 w-8 rounded-lg object-cover flex-shrink-0" />) : (<project.icon className="h-5 w-5 text-primary" />)}<div><div className="flex items-center gap-2"><h2 className="text-lg font-bold text-primary">{project.title}</h2>{project.flag && <span>{project.flag}</span>}<StatusBadge status={project.status} /></div><p className="text-xs text-secondary font-medium">{project.subtitle}</p></div></div><button onClick={onClose} className="p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Close"><X className="h-4 w-4" /></button></div></div>
         <div className="px-6 py-6 space-y-8">
           <div><h3 className="text-sm font-semibold text-primary mb-2">Overview</h3><p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p></div>
           {project.market && (<div className="inline-flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 px-3 py-1 text-xs font-medium text-blue-600"><MapPin className="h-3 w-3" />{project.market}</div>)}
