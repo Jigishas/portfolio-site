@@ -30,13 +30,13 @@ const Hero = () => {
     [],
   );
 
-  const floatingIcons = [
-    { Icon: Code2, delay: 0, x: '10%', y: '20%' },
-    { Icon: Database, delay: 1, x: '85%', y: '15%' },
-    { Icon: Cloud, delay: 2, x: '75%', y: '70%' },
-    { Icon: Server, delay: 3, x: '15%', y: '75%' },
-    { Icon: Terminal, delay: 4, x: '90%', y: '50%' },
-  ];
+  // const floatingIcons = [
+  //   { Icon: Code2, delay: 0, x: '10%', y: '20%' },
+  //   { Icon: Database, delay: 1, x: '85%', y: '15%' },
+  //   { Icon: Cloud, delay: 2, x: '75%', y: '70%' },
+  //   { Icon: Server, delay: 3, x: '15%', y: '75%' },
+  //   { Icon: Terminal, delay: 4, x: '90%', y: '50%' },
+  // ];
 
   // Keep hero snappy on low-power devices
   useEffect(() => {

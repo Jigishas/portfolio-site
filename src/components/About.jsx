@@ -48,14 +48,14 @@ const About = () => {
     },
   };
 
-  const statVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5, delay: 0.3 },
-    },
-  };
+  // const statVariants = {
+  //   hidden: { opacity: 0, scale: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     scale: 1,
+  //     transition: { duration: 0.5, delay: 0.3 },
+  //   },
+  // };
 
   const focusAreas = [
     { label: 'Backend Engineering', icon: Code, color: 'text-blue-500' },
