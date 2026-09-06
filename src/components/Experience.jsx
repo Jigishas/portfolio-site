@@ -24,7 +24,7 @@ const Experience = () => {
       title: 'Software Engineer — Backend & Product',
       organization: 'PLAT-DEL · Logistics & Delivery Platform',
       location: 'Remote',
-      period: '2025 — Present',
+      period: 'May,2026 — Present',
       description: 'Backend and product engineering on a production logistics platform connecting customers, vendors, riders and administrators through automated order-to-delivery workflows.',
       achievements: [
         'Designed and implemented Laravel backend APIs for logistics workflows',
@@ -33,7 +33,7 @@ const Experience = () => {
         'Worked with production Linux/Nginx infrastructure, caching and background processing',
         'Collaborated on product requirements and shipped features end-to-end',
       ],
-      technologies: ['Laravel', 'MySQL', 'React', 'TypeScript', 'Redis', 'Nginx', 'Docker'],
+      technologies: ['Laravel', 'MySQL', 'React', 'TypeScript', 'Redis', 'Nginx', 'XAMPP', 'Git'],
       icon: <Rocket className="h-6 w-6" />,
       color: 'bg-purple-500',
     },
@@ -74,7 +74,7 @@ const Experience = () => {
       title: 'Full Stack Developer — Freelance',
       organization: 'Self-Employed',
       location: 'Remote',
-      period: '2023 - Present',
+      period: '2024 - Present',
       description: 'Building custom web applications and data products for clients — from business problem and workflow design to backend architecture, interfaces and production deployment.',
       achievements: [
         'Delivered complete products across e-commerce, legal tech and agricultural domains',
@@ -90,7 +90,7 @@ const Experience = () => {
       title: 'Data Engineering Certification',
       organization: 'Various Online Platforms',
       location: 'Online',
-      period: '2024 - 2025',
+      period: '2024 - 2026',
       description: 'Self-directed learning in data engineering technologies including Apache Airflow, Snowflake, and cloud data warehousing solutions.',
       achievements: [
         'Completed 5+ specialized courses',
