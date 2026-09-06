@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { PdfThumbnail, PdfPages } from './PdfViewer';
+import previewManifest from '../data/certPreviewManifest.json';
 import {
   Dialog,
   DialogContent,
@@ -59,6 +59,56 @@ const certificates = [
 const pdfUrl = (file) => `/Certificates/${encodeURIComponent(file)}`;
 
 /* ------------------------------------------------------------------ */
+/*  Build-time previews (public/Certificates/previews)                 */
+/*  Plain <img loading="lazy"> tags — the browser prefetches them      */
+/*  natively while scrolling, so previews are ready before the user    */
+/*  arrives. No runtime PDF parsing, no spinners, works without JS.    */
+/* ------------------------------------------------------------------ */
+const previewBase = (file) => file.replace(/\.pdf$/i, '').trim().replace(/\s+/g, '-');
+const previewUrl = (file, page = 1) =>
+  `/Certificates/previews/${encodeURIComponent(previewBase(file))}${page > 1 ? `-p${page}` : ''}.webp`;
+const previewPageCount = (file) => previewManifest[file] || 1;
+
+const PreviewImage = ({ src, alt, className = '' }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className={`relative w-full overflow-hidden bg-muted/40 ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        width={900}
+        height={636}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        className={`h-full w-full object-cover object-top transition-opacity duration-300 ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+    </div>
+  );
+};
+
+const CertPages = ({ file, title }) => {
+  const pages = previewPageCount(file);
+  return (
+    <div className="space-y-4">
+      {Array.from({ length: pages }, (_, i) => (
+        <img
+          key={i}
+          src={previewUrl(file, i + 1)}
+          alt={`${title} certificate — page ${i + 1}`}
+          width={900}
+          loading={i === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+          className="mx-auto block h-auto w-full rounded-md border border-border/40 bg-white shadow-sm"
+        />
+      ))}
+    </div>
+  );
+};
+
+/* ------------------------------------------------------------------ */
 /*  Certificate Card                                                   */
 /* ------------------------------------------------------------------ */
 const CertificateCard = ({ cert, index, onOpen }) => {
@@ -84,12 +134,11 @@ const CertificateCard = ({ cert, index, onOpen }) => {
             aria-label={`Enlarge preview of ${cert.title}`}
             className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
           >
-            {/* Canvas-rendered thumbnail — works on mobile (iframes don't). */}
-            <PdfThumbnail
-              src={pdfUrl(cert.file)}
+            {/* Static build-time preview — lazy-loaded natively. */}
+            <PreviewImage
+              src={previewUrl(cert.file)}
               alt={`${cert.title} certificate preview`}
-              aspect="aspect-[16/10]"
-              className="group-hover:shadow-inner"
+              className="aspect-[16/10] group-hover:shadow-inner"
             />
           </button>
         </div>
@@ -197,7 +246,7 @@ const PreviewDialog = ({ cert, onClose }) => {
 
         {/* Body */}
         <div className="relative flex-1 overflow-y-auto bg-muted/20 px-4 py-4">
-          <PdfPages src={pdfUrl(cert.file)} />
+          <CertPages file={cert.file} title={cert.title} />
         </div>
 
         {/* Footer */}
