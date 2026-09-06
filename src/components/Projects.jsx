@@ -93,7 +93,7 @@ const CaseStudyDialog = ({ project, onClose }) => {
   if (!project) return null;
   return (
     <Dialog open onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl w-[94vw] max-h-[90vh] overflow-y-auto p-0"><DialogTitle className="sr-only">{project.title}</DialogTitle><DialogDescription className="sr-only">Case study</DialogDescription>
+      <DialogContent className="max-w-3xl w-[94vw] max-h-[90dvh] sm:max-h-[90vh] overflow-y-auto p-0 sm:rounded-lg"><DialogTitle className="sr-only">{project.title}</DialogTitle><DialogDescription className="sr-only">Case study</DialogDescription>
         <div className="sticky top-0 z-10 bg-card border-b border-border/30 px-6 py-4"><div className="flex items-center justify-between"><div className="flex items-center gap-3">{project.image ? (<img src={project.image} alt="" className="h-8 w-8 rounded-lg object-cover flex-shrink-0" />) : (<project.icon className="h-5 w-5 text-primary" />)}<div><div className="flex items-center gap-2"><h2 className="text-lg font-bold text-primary">{project.title}</h2>{project.flag && <span>{project.flag}</span>}<StatusBadge status={project.status} /></div><p className="text-xs text-secondary font-medium">{project.subtitle}</p></div></div><button onClick={onClose} className="p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Close"><X className="h-4 w-4" /></button></div></div>
         <div className="px-6 py-6 space-y-8">
           <div><h3 className="text-sm font-semibold text-primary mb-2">Overview</h3><p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p></div>
@@ -116,7 +116,7 @@ const CaseStudyDialog = ({ project, onClose }) => {
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   return (
-    <section id="projects" className="py-24 md:py-32 w-full bg-projects">
+    <section id="projects" className="py-20 md:py-32 w-full bg-projects overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div>
           <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="max-w-3xl mb-20 md:mb-28">

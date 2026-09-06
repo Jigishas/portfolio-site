@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import {
@@ -12,12 +12,11 @@ import {
   Globe,
   Briefcase,
   Sparkles,
-  Loader2,
   X,
-  ZoomIn,
 } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import { PdfThumbnail, PdfPages } from './PdfViewer';
 import {
   Dialog,
   DialogContent,
@@ -52,7 +51,8 @@ const certificates = [
   { title: 'Cybersecurity', issuer: 'Shujaa Digital Skills Training', year: '2026', category: 'Security', file: 'Joseph Gachuru Cybersecurity-and-Emerging-Technologies-Awareness-Training-Shujaa-March-2026-Cybersec-Certificate-Digital-Skills-Training.pdf' },
   { title: 'Azure Fundamentals', issuer: 'Microsoft', year: '2024', category: 'Cloud', file: 'Azure fundamentals.pdf' },
   { title: 'Cloud Infrastructure & Services', issuer: 'AWS re/Start', year: '2024', category: 'Cloud', file: 'Joseph Gachuru Fundamentals-to-Cloud-Infrastructure-and-Services-Pathways-Cloud-Infrastructure-and-Services-Certificate-Digital-Skills-Training.pdf' },
-  { title: 'IBM Design \u2014 AI Fundamentals', issuer: 'IBM Skillsbuild', year: '2026', category: 'Data', file: 'IBM Design - AI Fundamentals.pdf' },
+  { title: 'IBM Design \u2014 AI Fundamentals', issuer: 'IBM Skillsbuild', year: '2026', category: 'Data', file: 'IBMDesign AI fundamentals-30-uamnr8.pdf' },
+  { title: 'IBM Design \u2014 ML Methods and Tools', issuer: 'IBM Skillsbuild', year: '2026', category: 'Data', file: 'IBMDesign ML methods and tools.pdf' },
   { title: 'Intro to Azure Basics', issuer: 'Simplilearn', year: '2025', category: 'Cloud', file: 'Simplilearn cert.intro to azure basics.pdf' },
 ];
 
@@ -64,12 +64,6 @@ const pdfUrl = (file) => `/Certificates/${encodeURIComponent(file)}`;
 const CertificateCard = ({ cert, index, onOpen }) => {
   const cat = categories[cert.category];
   const CatIcon = cat?.icon || Award;
-  const [iframeLoaded, setIframeLoaded] = useState(false);
-  const iframeRef = useRef(null);
-
-  useEffect(() => {
-    setIframeLoaded(false);
-  }, [cert.file]);
 
   return (
     <motion.div
@@ -83,40 +77,21 @@ const CertificateCard = ({ cert, index, onOpen }) => {
         <div className={`h-0.5 w-full bg-gradient-to-r ${cat?.seal || 'from-primary to-secondary'}`} />
 
         {/* Preview area */}
-        <div className="relative w-full overflow-hidden bg-gradient-to-br from-muted/30 via-muted/15 to-muted/5">
-          <div className="relative aspect-[16/10] w-full">
-            {/* Loading shimmer */}
-            {!iframeLoaded && (
-              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-muted/20 to-muted/5">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-card/80 border border-border/30">
-                  <Loader2 className="h-4 w-4 text-muted-foreground/60 animate-spin" />
-                </div>
-              </div>
-            )}
-
-            {/* iframe preview */}
-            <iframe
-              ref={iframeRef}
-              src={`${pdfUrl(cert.file)}#page=1&view=FitH`}
-              title={`${cert.title} certificate preview`}
-              className={`absolute inset-0 w-full h-full border-0 transition-all duration-300 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
-              loading="lazy"
-              onLoad={() => setIframeLoaded(true)}
+        <div className="relative w-full overflow-hidden">
+          <button
+            type="button"
+            onClick={() => onOpen(cert)}
+            aria-label={`Enlarge preview of ${cert.title}`}
+            className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+          >
+            {/* Canvas-rendered thumbnail — works on mobile (iframes don't). */}
+            <PdfThumbnail
+              src={pdfUrl(cert.file)}
+              alt={`${cert.title} certificate preview`}
+              aspect="aspect-[16/10]"
+              className="group-hover:shadow-inner"
             />
-
-            {/* Hover overlay */}
-            <button
-              type="button"
-              onClick={() => onOpen(cert)}
-              aria-label={`Enlarge preview of ${cert.title}`}
-              className="absolute inset-0 z-20 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-200 group-hover:bg-black/30 group-hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-            >
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-foreground shadow-lg backdrop-blur-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-200">
-                <ZoomIn className="h-3.5 w-3.5" />
-                Preview
-              </span>
-            </button>
-          </div>
+          </button>
         </div>
 
         {/* Card content */}
@@ -154,7 +129,7 @@ const CertificateCard = ({ cert, index, onOpen }) => {
               type="button"
               onClick={() => onOpen(cert)}
               aria-label={`Preview ${cert.title}`}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary/[0.06] px-3 py-1.5 text-[11px] font-semibold text-primary transition-all duration-150 hover:bg-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary/[0.06] px-3 py-2 text-xs font-semibold text-primary transition-all duration-150 hover:bg-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
             >
               <Eye className="h-3.5 w-3.5" />
               View
@@ -164,7 +139,7 @@ const CertificateCard = ({ cert, index, onOpen }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${cert.title} in new tab`}
-              className="inline-flex items-center justify-center rounded-lg border border-border/40 bg-background/50 px-2.5 py-1.5 text-[11px] font-medium text-foreground transition-all duration-150 hover:bg-accent/10 hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+              className="inline-flex items-center justify-center rounded-lg border border-border/40 bg-background/50 px-3 py-2 text-xs font-medium text-foreground transition-all duration-150 hover:bg-accent/10 hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
             >
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
@@ -179,19 +154,14 @@ const CertificateCard = ({ cert, index, onOpen }) => {
 /*  Preview Dialog                                                     */
 /* ------------------------------------------------------------------ */
 const PreviewDialog = ({ cert, onClose }) => {
-  const [loading, setLoading] = useState(true);
   const cat = categories[cert?.category];
   const CatIcon = cat?.icon || Award;
-
-  useEffect(() => {
-    setLoading(true);
-  }, [cert?.file]);
 
   if (!cert) return null;
 
   return (
     <Dialog open onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl w-[94vw] max-h-[92vh] h-[90vh] flex flex-col gap-0 p-0 overflow-hidden border-border/60">
+        <DialogContent className="flex flex-col gap-0 overflow-hidden border-border/60 p-0 max-w-none w-screen h-[100dvh] max-h-[100dvh] rounded-none sm:rounded-lg sm:max-w-5xl sm:w-[94vw] sm:h-[90vh] sm:max-h-[90vh] [&>button]:hidden">
         <DialogTitle className="sr-only">{cert.title} - Certificate Preview</DialogTitle>
         <DialogDescription className="sr-only">
           Full-size preview of {cert.title} certificate from {cert.issuer}
@@ -226,24 +196,8 @@ const PreviewDialog = ({ cert, onClose }) => {
         </div>
 
         {/* Body */}
-        <div className="relative flex-1 overflow-hidden bg-muted/20">
-          {loading && (
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-muted/20">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full blur-xl bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/10 opacity-50 animate-pulse" />
-                <div className="relative flex items-center justify-center w-14 h-14 rounded-xl bg-card border border-border/30">
-                  <Loader2 className="h-6 w-6 text-muted-foreground/60 animate-spin" />
-                </div>
-              </div>
-              <p className="text-sm font-medium text-muted-foreground/60">Loading certificate</p>
-            </div>
-          )}
-          <iframe
-            src={pdfUrl(cert.file)}
-            title={`${cert.title} certificate`}
-            className={`w-full h-full border-0 transition-opacity duration-500 ${loading ? 'opacity-0' : 'opacity-100'}`}
-            onLoad={() => setLoading(false)}
-          />
+        <div className="relative flex-1 overflow-y-auto bg-muted/20 px-4 py-4">
+          <PdfPages src={pdfUrl(cert.file)} />
         </div>
 
         {/* Footer */}
@@ -368,7 +322,7 @@ const Certificates = () => {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-4">
           {certificates.map((cert, index) => (
             <CertificateCard
               key={cert.file}

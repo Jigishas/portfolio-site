@@ -103,7 +103,7 @@ const Hero = () => {
   return (
     <motion.section
       id="home"
-      className="relative h-screen w-screen min-w-full flex items-center justify-center bg-hero-gradient dark:bg-hero-gradient-dark text-white overflow-hidden"
+      className="relative h-screen w-full flex items-center justify-center bg-hero-gradient dark:bg-hero-gradient-dark text-white overflow-hidden"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

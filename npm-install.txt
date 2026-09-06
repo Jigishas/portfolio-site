@@ -1,0 +1,20 @@
+
+changed 3 packages, and audited 447 packages in 21s
+
+112 packages are looking for funding
+  run `npm fund` for details
+
+18 vulnerabilities (1 low, 4 moderate, 13 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm warn allow-scripts 2 packages have install scripts not yet covered by allowScripts:
+npm warn allow-scripts   @swc/core@1.14.0 (postinstall: node postinstall.js)
+npm warn allow-scripts   esbuild@0.25.12 (postinstall: node install.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
