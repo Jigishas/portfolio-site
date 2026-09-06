@@ -11,76 +11,34 @@
  *
  * Usage:  npm run previews        (re-run after adding a certificate)
  */
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
-import { createCanvas, DOMMatrix, ImageData, Path2D } from '@napi-rs/canvas';
-import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
-
-/* pdf.js legacy build expects these browser globals when rendering. */
-globalThis.DOMMatrix = globalThis.DOMMatrix ?? DOMMatrix;
-globalThis.Path2D = globalThis.Path2D ?? Path2D;
-globalThis.ImageData = globalThis.ImageData ?? ImageData;
+import sharp from 'sharp';
+import { pdf } from 'pdf-to-img';
 
 const CERTS_DIR = path.join(process.cwd(), 'public', 'Certificates');
 const OUT_DIR = path.join(CERTS_DIR, 'previews');
 const MANIFEST = path.join(process.cwd(), 'src', 'data', 'certPreviewManifest.json');
 const WIDTH = 900; /* rendered width in px — crisp in the dialog, small file */
 
-const FONT_URL =
-  pathToFileURL(path.join(process.cwd(), 'node_modules', 'pdfjs-dist', 'standard_fonts')) + '/';
-const CMAP_URL =
-  pathToFileURL(path.join(process.cwd(), 'node_modules', 'pdfjs-dist', 'cmaps')) + '/';
-
-/* pdf.js needs a canvas factory in Node — back it with @napi-rs/canvas. */
-const canvasFactory = {
-  create(width, height) {
-    const canvas = createCanvas(Math.max(1, width), Math.max(1, height));
-    return { canvas, context: canvas.getContext('2d') };
-  },
-  reset(canvasAndContext, width, height) {
-    canvasAndContext.canvas.width = Math.max(1, width);
-    canvasAndContext.canvas.height = Math.max(1, height);
-  },
-  destroy(canvasAndContext) {
-    canvasAndContext.canvas = null;
-    canvasAndContext.context = null;
-  },
-};
 
 /* Preview filename must match the app-side helper exactly:
    strip .pdf, trim, collapse whitespace to dashes. */
 const pdfNameToBase = (name) => name.replace(/\.pdf$/i, '').trim().replace(/\s+/g, '-');
 
 async function renderPdf(pdfPath, baseName) {
-  const data = new Uint8Array(await readFile(pdfPath));
-  const pdf = await getDocument({
-    data,
-    canvasFactory,
-    cMapUrl: CMAP_URL,
-    cMapPacked: true,
-    standardFontDataUrl: FONT_URL,
-  }).promise;
-
-  for (let i = 1; i <= pdf.numPages; i += 1) {
-    const page = await pdf.getPage(i);
-    const baseVp = page.getViewport({ scale: 1 });
-    const viewport = page.getViewport({ scale: WIDTH / baseVp.width });
-    const canvas = createCanvas(Math.round(viewport.width), Math.round(viewport.height));
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    await page.render({ canvasContext: ctx, viewport }).promise;
-
-    const outName = i === 1 ? `${baseName}.webp` : `${baseName}-p${i}.webp`;
-    const bytes = await canvas.encode('webp', 82);
+  /* scale 2 (~144 dpi) renders ~2× the target width; the sharp resize
+     brings every page down to a consistent, crisp 900px WebP. */
+  const document = await pdf(pdfPath, { scale: 2 });
+  let pageNo = 0;
+  for await (const png of document) {
+    pageNo += 1;
+    const bytes = await sharp(png).resize({ width: WIDTH }).webp({ quality: 82 }).toBuffer();
+    const outName = pageNo === 1 ? `${baseName}.webp` : `${baseName}-p${pageNo}.webp`;
     await writeFile(path.join(OUT_DIR, outName), bytes);
     console.log(`  ✓ ${outName} (${Math.round(bytes.length / 1024)} KB)`);
   }
-
-  const pages = pdf.numPages;
-  await pdf.destroy();
-  return pages;
+  return pageNo;
 }
 
 async function main() {
@@ -93,11 +51,12 @@ async function main() {
   const manifest = {};
   let failed = 0;
   for (const file of files) {
+    process.stdout.write(`• ${file} … `);
     try {
       manifest[file] = await renderPdf(path.join(CERTS_DIR, file), pdfNameToBase(file));
     } catch (err) {
       failed += 1;
-      console.error(`  ✗ ${file}: ${err.message}`);
+      console.error(`✗ ${err.message}`);
     }
   }
 
