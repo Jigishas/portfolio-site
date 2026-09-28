@@ -7,7 +7,7 @@
 export const profile = {
   name: 'Joseph Gachuru',
   role: 'Software Engineer',
-  focus: 'Backend · Product Engineering',
+  focus: 'Backend · Product Manager',
   tagline: 'I build software systems that solve real operational and business problems.',
   supporting:
     'From backend architecture and APIs to data infrastructure and production products — I take systems from problem to production.',
@@ -55,7 +55,7 @@ export const focusAreas = [
   },
   {
     number: '02',
-    title: 'Product Engineering',
+    title: 'Product Management',
     description:
       'Turning business requirements into complete software products — workflows, interfaces and the decisions that connect them.',
     stack: ['React', 'TypeScript', 'Workflow design', 'Product thinking'],
@@ -118,11 +118,11 @@ export const experience = [
   {
     period: '2026 — Present',
     organization: 'PLAT-DEL',
-    role: 'Software Engineer · Product Engineering',
+    role: 'Software Engineer · Product Manager',
     type: 'Production platform',
     location: 'Remote',
     summary:
-      'Backend and product engineering on a production marketplace and delivery platform connecting customers, vendors, riders and administrators through automated order-to-delivery workflows.',
+      'Backend and product management on a production marketplace and delivery platform connecting customers, vendors, riders and administrators through automated order-to-delivery workflows.',
     contributions: [
       'Designed and implemented Laravel backend APIs for logistics workflows',
       'Built role-based access control across customer, vendor, rider and admin surfaces',

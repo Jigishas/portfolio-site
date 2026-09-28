@@ -43,7 +43,7 @@ const Hero = () => {
           variants={container}
         >
           <motion.p variants={item} className="eyebrow">
-            Software Engineer · Backend · Product Engineering
+            Software Engineer · Backend · Product Manager
           </motion.p>
 
           <motion.h1

@@ -2,7 +2,7 @@ import { Truck, ShoppingBag, Leaf, Building2, Scale, Database } from 'lucide-rea
 
 export const categories = {
   all: { label: 'All', id: 'all' },
-  product: { label: 'Product Engineering', id: 'product' },
+  product: { label: 'Product Management', id: 'product' },
   backend: { label: 'Backend', id: 'backend' },
   ai: { label: 'AI / ML', id: 'ai' },
   saas: { label: 'SaaS', id: 'saas' },

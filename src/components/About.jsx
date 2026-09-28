@@ -105,7 +105,7 @@ const About = () => (
 
         <div className="mt-7 max-w-2xl space-y-5 text-[15px] leading-relaxed text-muted-foreground">
           <p>
-            I'm Joseph Gachuru — a software engineer focused on backend and product engineering. I
+            I'm Joseph Gachuru — a software engineer focused on backend and product management. I
             approach software engineering from both a technical and product perspective, with a
             focus on building systems that are useful, maintainable and production-ready.
           </p>

@@ -21,7 +21,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Software Engineer · Backend · Product Engineering
+              Software Engineer · Backend · Product Manager
             </p>
             <p className="mt-3 text-[13px] leading-relaxed text-subtle-foreground">
               Building production APIs, marketplace systems and data infrastructure — from problem

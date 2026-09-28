@@ -46,7 +46,7 @@ const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false 
     { k: 'Year', v: project.year },
     { k: 'Market', v: project.market || 'Remote' },
     { k: 'Status', v: project.status },
-    { k: 'Role', v: 'Backend · Product engineering' },
+    { k: 'Role', v: 'Backend · Product Manager' },
   ];
 
   return (
