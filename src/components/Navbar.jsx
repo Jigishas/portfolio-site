@@ -1,197 +1,241 @@
-import React, { useState, useEffect } from 'react';
-import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { Menu, X, Moon, Sun, ArrowUp } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Menu, X, ArrowUpRight, ArrowUp } from 'lucide-react';
 // eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { navLinks, profile, links, socials } from '@/data/site';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeId, setActiveId] = useState('#work');
+  const [progress, setProgress] = useState(0);
+  const [showToTop, setShowToTop] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY > 100;
-      setIsScrolled(scrolled);
-      setShowBackToTop(window.scrollY > 500);
-      
-      // Calculate scroll progress
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight - windowHeight;
-      const progress = (window.scrollY / documentHeight) * 100;
-      setScrollProgress(progress);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setIsScrolled(y > 12);
+      setShowToTop(y > 900);
+
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(100, (y / max) * 100) : 0);
+
+      // Active section tracking (sections are ordered in the DOM)
+      let current = navLinks[0].href;
+      document.querySelectorAll('section[id]').forEach((section) => {
+        if (section.getBoundingClientRect().top <= 140) current = `#${section.id}`;
+      });
+      setActiveId(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
-  };
-
-  const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#engineering', label: 'Engineering' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#notes', label: 'Notes' },
-    { href: '#certificates', label: 'Certificates' },
-    { href: '#contact', label: 'Contact' },
-  ];
-
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: 'smooth',
-      });
-    }
-    setIsOpen(false);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
-      {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 z-[60] bg-transparent">
-        <motion.div
-          className="h-full bg-gradient-to-r from-secondary via-accent to-secondary"
-          initial={{ width: 0 }}
-          animate={{ width: `${scrollProgress}%` }}
-          transition={{ duration: 0.1 }}
+      {/* Scroll progress */}
+      <div className="fixed inset-x-0 top-0 z-[70] h-[2px] bg-white/5" aria-hidden="true">
+        <div
+          className="h-full origin-left bg-accent-gradient"
+          style={{ transform: `scaleX(${progress / 100})` }}
         />
       </div>
 
       <header
-        className={`fixed top-1 w-full z-50 transition-all duration-500 ${
+        className={cn(
+          'fixed inset-x-0 top-0 z-[60] transition-[background-color,border-color] duration-300 ease-soft',
           isScrolled
-            ? 'bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/50'
-            : 'bg-transparent'
-        }`}
+            ? 'border-b border-white/10 bg-background/70 backdrop-blur-xl'
+            : 'border-b border-transparent bg-transparent',
+        )}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <motion.a 
-              href="#home" 
-              className="text-2xl font-bold text-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Joseph<span className="text-secondary">Gachuru</span>
-            </motion.a>
+        <div className="page-shell flex h-16 items-center justify-between gap-6">
+          <a
+            href="#top"
+            className="group flex items-center gap-2.5 rounded-md text-[13px] font-medium uppercase tracking-[0.18em] text-foreground sm:text-sm"
+          >
+            <span
+              className="h-4 w-4 rounded-[5px] bg-accent-gradient shadow-[0_0_14px_-2px_rgba(139,124,255,0.9)] transition-transform duration-300 group-hover:rotate-45"
+              aria-hidden="true"
+            />
+            Joseph Gachuru
+          </a>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-1">
-              {navItems.map((item, index) => (
-                <motion.button
+          <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+            {navLinks.map((item) => {
+              const active = activeId === item.href;
+              return (
+                <a
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className="relative px-4 py-2 text-foreground hover:text-primary transition-colors duration-200 text-sm font-medium"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  href={item.href}
+                  aria-current={active ? 'true' : undefined}
+                  className={cn(
+                    'relative rounded-md px-3 py-2 text-[13px] transition-colors duration-200',
+                    active ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
+                  )}
                 >
                   {item.label}
-                  <motion.span 
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-secondary rounded-full"
-                    whileHover={{ width: '80%' }}
-                    transition={{ duration: 0.3 }}
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      'absolute inset-x-3 -bottom-0.5 h-px origin-left bg-accent-gradient transition-transform duration-300',
+                      active ? 'scale-x-100' : 'scale-x-0',
+                    )}
                   />
-                </motion.button>
-              ))}
-            </nav>
+                </a>
+              );
+            })}
+          </nav>
 
-            {/* Theme Toggle & Mobile Menu */}
-            <div className="flex items-center space-x-2">
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 180 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={toggleTheme}
-                  className="rounded-full bg-muted/50 hover:bg-muted"
-                >
-                  {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-                </Button>
-              </motion.div>
+          {/* Actions */}
+          <div className="flex items-center gap-2">
+            <a
+              href={links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile (opens in a new tab)"
+              className="hidden h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:text-foreground sm:inline-flex"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-[17px] w-[17px]">
+                <path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.4-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.07.78 2.16v3.2c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z" />
+              </svg>
+            </a>
 
-              {/* Mobile Menu */}
-              <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                <SheetTrigger asChild className="md:hidden">
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="w-72 bg-background/95 backdrop-blur-xl">
-                  <div className="flex flex-col space-y-2 mt-8">
-                    <div className="mb-6 pb-4 border-b border-border">
-                      <h3 className="text-lg font-bold text-primary">Menu</h3>
-                      <p className="text-sm text-muted-foreground">Navigate to any section</p>
-                    </div>
-                    {navItems.map((item, index) => (
-                      <motion.button
-                        key={item.href}
-                        onClick={() => scrollToSection(item.href)}
-                        className="text-left text-lg text-foreground hover:text-primary transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-muted/50 flex items-center gap-3"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ x: 10 }}
-                      >
-                        <span className="w-2 h-2 rounded-full bg-secondary"></span>
-                        {item.label}
-                      </motion.button>
-                    ))}
-                  </div>
-                </SheetContent>
-              </Sheet>
-            </div>
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline hidden h-10 px-4 text-[13px] sm:inline-flex"
+            >
+              Resume
+              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((v) => !v)}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-foreground transition-colors hover:border-white/25 lg:hidden"
+            >
+              {isMenuOpen ? (
+                <X className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Back to Top Button */}
+      {/* Mobile menu */}
       <AnimatePresence>
-        {showBackToTop && (
+        {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
-            className="fixed bottom-8 right-8 z-50"
+            id="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[65] lg:hidden"
           >
-            <motion.div
-              whileHover={{ scale: 1.1, y: -5 }}
-              whileTap={{ scale: 0.9 }}
+            <div
+              className="absolute inset-0 bg-background/85 backdrop-blur-xl"
+              onClick={() => setIsMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.nav
+              aria-label="Mobile"
+              initial={{ y: -12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -12, opacity: 0 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-x-0 top-0 max-h-[100dvh] overflow-y-auto border-b border-white/10 bg-soft/95 px-5 pb-8 pt-20"
             >
-              <Button
-                onClick={scrollToTop}
-                size="icon"
-                className="rounded-full bg-secondary hover:bg-secondary/90 text-white shadow-lg hover:shadow-xl w-12 h-12"
-              >
-                <ArrowUp className="h-5 w-5" />
-              </Button>
-            </motion.div>
+              <ul className="flex flex-col">
+                {navLinks.map((item, i) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="group flex items-center gap-4 border-b border-white/5 py-4 text-2xl font-light tracking-tight text-foreground"
+                    >
+                      <span className="font-mono text-[11px] text-subtle-foreground">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      {item.label}
+                      <ArrowUpRight className="ml-auto h-4 w-4 text-subtle-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:text-secondary" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <a
+                  href={profile.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary flex-1"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Resume
+                </a>
+                <a
+                  href={links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline flex-1"
+                >
+                  GitHub
+                </a>
+              </div>
+
+              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+                {socials.map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-[11px] uppercase tracking-widest text-subtle-foreground transition-colors hover:text-foreground"
+                    >
+                      {social.short}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.nav>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Back to top */}
+      <AnimatePresence>
+        {showToTop && (
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Back to top"
+            className="fixed bottom-6 right-5 z-50 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-soft/80 text-muted-foreground backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:text-foreground sm:bottom-8 sm:right-8"
+          >
+            <ArrowUp className="h-4 w-4" aria-hidden="true" />
+          </motion.button>
         )}
       </AnimatePresence>
     </>

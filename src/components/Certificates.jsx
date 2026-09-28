@@ -14,9 +14,9 @@ import {
   Sparkles,
   X,
 } from 'lucide-react';
-import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import previewManifest from '../data/certPreviewManifest.json';
+import { certificates } from '@/data/certificates';
 import {
   Dialog,
   DialogContent,
@@ -39,22 +39,6 @@ const categories = [
 /* ------------------------------------------------------------------ */
 /*  Certificate data                                                   */
 /* ------------------------------------------------------------------ */
-const certificates = [
-  { title: 'AI Essentials for Professionals', issuer: 'Moringa School', year: '2026', category: 'AI', file: 'joseph-gachuru_certificate Moringa.pdf' },
-  { title: 'MERN Stack Developer', issuer: 'Power Learn Project', year: '2025', category: 'Web', file: 'Joseph Gachuru certificate plp MERN.pdf' },
-  { title: 'Product NBO \u2014 Product Manager & AI', issuer: 'Product NBO', year: '2026', category: 'Product', file: 'Product NBO .pdf' },
-  { title: 'Software Engineering', issuer: 'Power Learn Project', year: '2025', category: 'Web', file: 'joseph plp certificate.pdf' },
-  { title: 'AI Training Certificate', issuer: 'ADMI Digital Skills Training', year: '2026', category: 'AI', file: 'Artificial-Intelligence-Training-ADMI-AI-Certificate-Digital-Skills-Training.pdf' },
-  { title: 'Data Fundamentals', issuer: 'IBM Skillsbuild', year: '2026', category: 'Data', file: 'IBM Data Fundamentals.pdf' },
-  { title: 'Data Analytics', issuer: 'Digital Skills Training', year: '2026', category: 'Data', file: 'Joseph Gachuru Data Analytics.pdf' },
-  { title: 'Agentic AI on AWS', issuer: 'Become A solutions Architect', year: '2026', category: 'Cloud', file: 'Agentic AI on AWS.pdf' },
-  { title: 'Cybersecurity', issuer: 'Shujaa Digital Skills Training', year: '2026', category: 'Security', file: 'Joseph Gachuru Cybersecurity-and-Emerging-Technologies-Awareness-Training-Shujaa-March-2026-Cybersec-Certificate-Digital-Skills-Training.pdf' },
-  { title: 'Azure Fundamentals', issuer: 'Microsoft', year: '2024', category: 'Cloud', file: 'Azure fundamentals.pdf' },
-  { title: 'Cloud Infrastructure & Services', issuer: 'AWS re/Start', year: '2024', category: 'Cloud', file: 'Joseph Gachuru Fundamentals-to-Cloud-Infrastructure-and-Services-Pathways-Cloud-Infrastructure-and-Services-Certificate-Digital-Skills-Training.pdf' },
-  { title: 'IBM Design \u2014 AI Fundamentals', issuer: 'IBM Skillsbuild', year: '2026', category: 'Data', file: 'IBMDesign AI fundamentals-30-uamnr8.pdf' },
-  { title: 'IBM Design \u2014 ML Methods and Tools', issuer: 'IBM Skillsbuild', year: '2026', category: 'Data', file: 'IBMDesign ML methods and tools.pdf' },
-  { title: 'Intro to Azure Basics', issuer: 'Simplilearn', year: '2025', category: 'Cloud', file: 'Simplilearn cert.intro to azure basics.pdf' },
-];
 
 const pdfUrl = (file) => `/Certificates/${encodeURIComponent(file)}`;
 
@@ -305,30 +289,20 @@ const Certificates = () => {
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-3xl text-center mb-10"
         >
-          <Badge
-            variant="outline"
-            className="mb-4 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
-          >
-            <Award className="h-3.5 w-3.5" />
-            Credentials & Certifications
-          </Badge>
+          <p className="eyebrow justify-center">
+            <span>Credentials</span>
+          </p>
 
           <h2
             id="certificates-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight"
+            className="mt-6 text-3xl font-normal leading-[1.1] tracking-tight sm:text-4xl md:text-[2.75rem]"
           >
-            <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-              Certificates, Training
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-              & Awards
-            </span>
+            Certifications &amp; training
           </h2>
 
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground leading-relaxed">
             Professional certifications and training programs across software engineering,
-            data, cloud, AI, and product management.
+            data, cloud, AI and product management.
           </p>
 
           {/* Category summary */}

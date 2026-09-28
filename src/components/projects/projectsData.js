@@ -20,3 +20,31 @@ export const projects = [
 
 export const featuredProjects = projects.filter((p) => p.featured);
 export const secondaryProjects = projects.filter((p) => !p.featured);
+
+/* ------------------------------------------------------------------ */
+/* Architecture diagrams used by the flagship project visuals.         */
+/* These describe systems that actually exist — no invented metrics.   */
+/* ------------------------------------------------------------------ */
+const architectureBySlug = {
+  'plat-del': [
+    { label: 'Clients', detail: 'Customers · Vendors · Riders · Administrators' },
+    { label: 'API layer', detail: 'Laravel REST APIs · Authentication · RBAC' },
+    { label: 'Services', detail: 'Order processing · Delivery operations · Vendor management · POS' },
+    { label: 'Data', detail: 'MySQL · Redis caching · Background jobs' },
+    { label: 'Ops', detail: 'Linux · Nginx · Production deployment' },
+  ],
+  'kidu-errands': [
+    { label: 'Clients', detail: 'Customers · Vendors · Riders' },
+    { label: 'API layer', detail: 'Laravel REST APIs · Authentication · RBAC' },
+    { label: 'Services', detail: 'Service discovery · Location matching · Order lifecycle · Notifications' },
+    { label: 'Data', detail: 'MySQL · Migrations · Indexes' },
+    { label: 'Ops', detail: 'Nginx · Production deployment' },
+  ],
+};
+
+projects.forEach((project) => {
+  if (architectureBySlug[project.slug]) {
+    project.architecture = architectureBySlug[project.slug];
+  }
+});
+

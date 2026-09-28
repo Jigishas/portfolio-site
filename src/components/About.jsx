@@ -1,237 +1,157 @@
-import React from 'react'
+import React from 'react';
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion'
-import { Card, CardContent } from './ui/card'
-import { Badge } from './ui/badge'
-import { Code, Database, Briefcase } from 'lucide-react'
+import { motion } from 'framer-motion';
+import { MapPin, ArrowUpRight, Download } from 'lucide-react';
+import SectionHeading from './SectionHeading';
+import { profile, links } from '@/data/site';
 
-const About = () => {
+const focusRows = [
+  {
+    label: 'Backend',
+    detail: 'APIs, authentication, business logic, schemas and services designed to stay maintainable.',
+  },
+  {
+    label: 'Product',
+    detail: 'Requirements translated into workflows and interfaces people can actually operate.',
+  },
+  {
+    label: 'Data',
+    detail: 'Pipelines, modelling and orchestration for data that needs to arrive dependably.',
+  },
+];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.15,
-      },
-    },
-  };
+const About = () => (
+  <section id="about" className="relative py-24 sm:py-32">
+    <div className="page-shell grid gap-10 lg:grid-cols-12 lg:gap-14">
+      {/* Portrait */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="lg:col-span-5"
+      >
+        <figure className="surface overflow-hidden rounded-2xl shadow-raised">
+          <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/10] lg:aspect-[4/3]">
+            <img
+              src="/jose%201.jpg"
+              alt="Joseph Gachuru, software engineer"
+              width={1123}
+              height={1280}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover object-center grayscale-[35%] transition-[filter,transform] duration-700 ease-soft hover:scale-[1.02] hover:grayscale-0"
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent"
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-accent-gradient opacity-[0.07] mix-blend-overlay"
+              aria-hidden="true"
+            />
+          </div>
 
-  const textVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, x: 30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
-  const badgeVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-        staggerChildren: 0.05,
-      },
-    },
-  };
-
-  // const statVariants = {
-  //   hidden: { opacity: 0, scale: 0 },
-  //   visible: {
-  //     opacity: 1,
-  //     scale: 1,
-  //     transition: { duration: 0.5, delay: 0.3 },
-  //   },
-  // };
-
-  const focusAreas = [
-    { label: 'Backend Engineering', icon: Code, color: 'text-blue-500' },
-    { label: 'Product Management', icon: Briefcase, color: 'text-emerald-500' },
-    { label: 'Data Engineering', icon: Database, color: 'text-purple-500' },
-  ];
-
-  return (
-    <motion.section
-      id="about"
-      className="py-16 w-full min-h-screen bg-about"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={containerVariants}
-    >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-12"
-          variants={textVariants}
-        >
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium tracking-wider text-secondary uppercase bg-secondary/10 rounded-full">
-            Get to Know Me
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            About Me
-          </h2>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-5 gap-8 items-start">
-          {/* Text Content - Takes 3 columns */}
-          <motion.div
-            className="lg:col-span-3 space-y-5"
-            variants={textVariants}
-          >
-            <h3 className="text-xl md:text-2xl font-semibold text-primary">
-              Backend & Product Management
-            </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Hello! I'm Joseph Gachuru — a Software Engineer focused on backend and product management. I work across the full product lifecycle: identifying a business problem, designing workflows, building the backend architecture, shipping the interface and deploying the final system.
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              My work centers on three key areas — spanning logistics, property management, agriculture and legal tech. I design relational schemas, build REST APIs with role-based access control and deploy behind Linux/Nginx with caching and monitoring.
-            </p>
-
-            {/* Focus Areas */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              {focusAreas.map((area) => (
-                <motion.div
-                  key={area.label}
-                  className="flex items-center gap-2.5 p-3 rounded-lg border border-border/40 bg-card/50 hover:border-primary/20 hover:bg-card transition-all duration-200"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                >
-                  <div className={`p-1.5 rounded-md bg-primary/10 ${area.color}`}>
-                    <area.icon className="h-4 w-4" />
-                  </div>
-                  <span className="text-xs font-medium text-foreground">{area.label}</span>
-                </motion.div>
-              ))}
+          <figcaption className="space-y-3 px-5 py-5 sm:px-6">
+            <div>
+              <p className="text-base font-medium tracking-tight text-foreground">{profile.name}</p>
+              <p className="mt-0.5 text-[13px] text-secondary">
+                {profile.role} · {profile.focus}
+              </p>
             </div>
 
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              I care about why a feature exists, not only how to code it — which is why I build real, multi-user systems rather than tutorial apps, and measure the impact of the engineering behind them.
-            </p>
+            <dl className="grid grid-cols-2 gap-3 border-t border-white/[0.07] pt-4 text-[12px]">
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-subtle-foreground">
+                  Based in
+                </dt>
+                <dd className="mt-1 flex items-center gap-1.5 text-foreground">
+                  <MapPin className="h-3 w-3" aria-hidden="true" />
+                  {profile.location}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-subtle-foreground">
+                  Focus
+                </dt>
+                <dd className="mt-1 text-foreground">Backend · Product · Data</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-subtle-foreground">
+                  Education
+                </dt>
+                <dd className="mt-1 text-foreground">BSc Software Engineering</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-subtle-foreground">
+                  Status
+                </dt>
+                <dd className="mt-1 flex items-center gap-1.5 text-foreground">
+                  <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse-dot" aria-hidden="true" />
+                  Open to work
+                </dd>
+              </div>
+            </dl>
+          </figcaption>
+        </figure>
+      </motion.div>
 
-            <motion.div
-              className="flex flex-wrap gap-1.5 mt-5"
-              variants={badgeVariants}
-            >
-              {[
-                'Laravel',
-                'Node.js',
-                'Python',
-                'PostgreSQL',
-                'MySQL',
-                'React',
-                'TypeScript',
-                'Redis',
-                'Docker',
-                'Nginx',
-                'REST APIs',
-                'RBAC',
-                'ETL',
-              ].map((tech) => (
-                <motion.div
-                  key={tech}
-                  variants={badgeVariants}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <Badge variant="outline" className="text-[10px] px-2 py-0.5">{tech}</Badge>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+      {/* Copy */}
+      <div className="lg:col-span-7">
+        <SectionHeading
+          eyebrow="About"
+          title="Engineering with a product perspective."
+        />
 
-          {/* Profile Card - Takes 2 columns */}
-          <motion.div variants={imageVariants} className="lg:col-span-2">
-            <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
-              <Card className="card-refined overflow-hidden border-border/40">
-                {/* Card header with gradient */}
-                <div className="h-16 bg-gradient-to-r from-primary/20 via-secondary/15 to-accent/20 relative">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.15),transparent_60%)]" />
-                </div>
-                <CardContent className="p-5 -mt-8 relative">
-                  <div className="text-center">
-                    {/* Avatar */}
-                    <div className="relative w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary to-secondary p-0.5 shadow-lg">
-                      <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
-                        <span className="text-xl font-bold text-primary">JG</span>
-                      </div>
-                    </div>
+        <div className="mt-7 max-w-2xl space-y-5 text-[15px] leading-relaxed text-muted-foreground">
+          <p>
+            I'm Joseph Gachuru — a software engineer focused on backend and product engineering. I
+            approach software engineering from both a technical and product perspective, with a
+            focus on building systems that are useful, maintainable and production-ready.
+          </p>
+          <p>
+            My work spans backend architecture, REST APIs with role-based access control,
+            relational schema design, deployment behind Linux/Nginx, and the data pipelines that
+            support decision-making. I work across the full product lifecycle — from identifying
+            the business problem and designing workflows to building the services, shipping the
+            interface and operating the system in production.
+          </p>
+          <p>
+            Recent work includes marketplace and delivery platforms serving customers, vendors,
+            riders and administrators, alongside data engineering systems and applied AI products.
+            I care most about problems where software has to hold up against real operational
+            pressure.
+          </p>
+        </div>
 
-                    <h3 className="text-sm font-bold text-primary">Joseph Gachuru</h3>
-                    <p className="text-xs text-secondary font-medium mb-0.5">Backend & Product Manager</p>
-                    <p className="text-[10px] text-muted-foreground mb-4">Kirinyaga University · BSc Software Engineering</p>
+        {/* Focus areas */}
+        <dl className="mt-9 grid gap-px overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-3">
+          {focusRows.map((row) => (
+            <div key={row.label} className="bg-[#0b0b11] p-5">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-secondary">
+                {row.label}
+              </dt>
+              <dd className="mt-2.5 text-[13px] leading-relaxed text-muted-foreground">
+                {row.detail}
+              </dd>
+            </div>
+          ))}
+        </dl>
 
-                    {/* Stats */}
-                    <div className="grid grid-cols-3 gap-3 pt-3 border-t border-border/20">
-                      <motion.div
-                        className="text-center"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.2 }}
-                      >
-                        <div className="text-lg font-bold text-primary">3+</div>
-                        <div className="text-[9px] text-muted-foreground font-medium">Years Exp</div>
-                      </motion.div>
-                      <motion.div
-                        className="text-center"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.35 }}
-                      >
-                        <div className="text-lg font-bold text-secondary">10+</div>
-                        <div className="text-[9px] text-muted-foreground font-medium">Projects</div>
-                      </motion.div>
-                      <motion.div
-                        className="text-center"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.5 }}
-                      >
-                        <div className="text-lg font-bold text-accent">4</div>
-                        <div className="text-[9px] text-muted-foreground font-medium">Platforms</div>
-                      </motion.div>
-                    </div>
-
-                    {/* Quick info */}
-                    <div className="mt-3 pt-3 border-t border-border/20 space-y-2">
-                      <div className="flex items-center justify-between text-[10px]">
-                        <span className="text-muted-foreground">Location</span>
-                        <span className="font-medium text-foreground">Kenya</span>
-                      </div>
-                      <div className="flex items-center justify-between text-[10px]">
-                        <span className="text-muted-foreground">Focus</span>
-                        <span className="font-medium text-foreground">Backend · Product · Data</span>
-                      </div>
-                      <div className="flex items-center justify-between text-[10px]">
-                        <span className="text-muted-foreground">Available</span>
-                        <span className="font-medium text-emerald-500">Open to work</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
+        {/* Actions */}
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+            <Download className="h-4 w-4" aria-hidden="true" />
+            Download resume
+          </a>
+          <a href={links.credly} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+            Certifications
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </a>
         </div>
       </div>
-    </motion.section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;
