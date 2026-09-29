@@ -9,6 +9,7 @@ const ProjectVisual = ({ project, className = '', eager = false, padding = 'p-8 
   const [errored, setErrored] = useState(false);
   const isRaster = /\.(jpe?g|png|webp|avif)$/i.test(project.image || '');
   const showImage = project.image && !errored;
+  const Icon = project.icon;
 
   return (
     <div className={cn('group relative overflow-hidden bg-soft', className)} aria-hidden={!showImage}>
@@ -28,7 +29,8 @@ const ProjectVisual = ({ project, className = '', eager = false, padding = 'p-8 
           )}
         />
       ) : (
-        <div className="absolute inset-0 grid place-items-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
+          {Icon && <Icon className="h-9 w-9 text-white/20" aria-hidden="true" />}
           <span className="text-4xl font-light tracking-tight text-white/15">{project.title}</span>
         </div>
       )}

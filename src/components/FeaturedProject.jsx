@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, ExternalLink, MapPin } from 'lucide-react';
 import ProjectVisual from './ProjectVisual';
+import ProjectEmblem from './ProjectEmblem';
 import { StatusBadge } from './ProjectCard';
 
 /**
@@ -84,15 +85,22 @@ const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false 
             <StatusBadge status={project.status} />
           </div>
 
-          <h3
-            className={
-              flagship
-                ? 'mt-5 text-[2rem] font-light leading-none tracking-[-0.03em] text-foreground sm:text-[2.5rem]'
-                : 'mt-5 text-2xl font-light tracking-tight text-foreground'
-            }
-          >
-            {project.title}
-          </h3>
+          <div className="mt-5 flex items-center gap-4">
+            <ProjectEmblem
+              project={project}
+              size={flagship ? 'h-12 w-12' : 'h-11 w-11'}
+              className="rounded-2xl"
+            />
+            <h3
+              className={
+                flagship
+                  ? 'min-w-0 text-[2rem] font-light leading-none tracking-[-0.03em] text-foreground sm:text-[2.5rem]'
+                  : 'min-w-0 text-2xl font-light tracking-tight text-foreground'
+              }
+            >
+              {project.title}
+            </h3>
+          </div>
 
           <p className="mt-2 text-sm font-medium text-secondary">{project.subtitle}</p>
 

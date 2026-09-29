@@ -121,6 +121,8 @@ export const experience = [
     role: 'Software Engineer · Product Manager',
     type: 'Production platform',
     location: 'Remote',
+    icon: 'truck',
+    logo: '/projects/plat-del-icon-512.png',
     summary:
       'Backend and product management on a production marketplace and delivery platform connecting customers, vendors, riders and administrators through automated order-to-delivery workflows.',
     contributions: [
@@ -138,6 +140,7 @@ export const experience = [
     role: 'Software Engineering',
     type: 'Healthcare',
     location: 'Kenya',
+    icon: 'hospital',
     summary:
       'Software engineering contribution in a hospital environment — application work and internal systems supporting day-to-day operational and administrative workflows.',
     contributions: [],
@@ -149,6 +152,7 @@ export const experience = [
     role: 'Product & Backend Engineering · Freelance',
     type: 'Freelance / Contract',
     location: 'Remote',
+    icon: 'briefcase',
     summary:
       'Building software products for clients and for my own platforms — from business problem and workflow design to backend architecture, interfaces and production deployment.',
     contributions: [
@@ -165,12 +169,14 @@ export const education = [
     period: '2023 — 2026',
     organization: 'Kirinyaga University',
     role: 'BSc Software Engineering',
+    icon: 'graduation',
     description: 'Software architecture, data structures, algorithms and full-stack development.',
   },
   {
     period: '2025',
     organization: 'Power Learn Project Africa',
     role: 'Software Engineering Program',
+    icon: 'book',
     description: 'Full-stack MERN development, SQL and database design, Python and product building.',
   },
 ];

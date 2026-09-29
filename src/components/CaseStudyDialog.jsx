@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, CheckCircle2, AlertTriangle, Layers, ExternalLink, Github } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
+import ProjectEmblem from './ProjectEmblem';
 
 const Block = ({ title, children }) => (
   <div>
@@ -27,15 +28,18 @@ const CaseStudyDialog = ({ project, onClose }) => {
 
         {/* Header */}
         <div className="flex items-start justify-between gap-6 border-b border-white/[0.07] px-5 py-5 sm:px-7">
-          <div className="min-w-0">
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-subtle-foreground">
-              {project.number} · {project.year}
-              {project.market ? ` · ${project.market}` : ''} · {project.status}
-            </p>
-            <h2 className="mt-2 text-2xl font-light tracking-tight text-foreground sm:text-3xl">
-              {project.title}
-            </h2>
-            <p className="mt-1 text-sm text-secondary">{project.subtitle}</p>
+          <div className="flex min-w-0 items-start gap-4">
+            <ProjectEmblem project={project} size="h-12 w-12" className="rounded-2xl" />
+            <div className="min-w-0">
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-subtle-foreground">
+                {project.number} · {project.year}
+                {project.market ? ` · ${project.market}` : ''} · {project.status}
+              </p>
+              <h2 className="mt-2 text-2xl font-light tracking-tight text-foreground sm:text-3xl">
+                {project.title}
+              </h2>
+              <p className="mt-1 text-sm text-secondary">{project.subtitle}</p>
+            </div>
           </div>
           <button
             type="button"

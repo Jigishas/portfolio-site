@@ -1,9 +1,49 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin, Truck, Hospital, Briefcase, GraduationCap, BookOpen, Building2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import SectionHeading from './SectionHeading';
 import { experience, education } from '@/data/site';
+
+/* Organization marks — one glanceable visual per entry. */
+const organizationIcons = {
+  truck: Truck,
+  hospital: Hospital,
+  briefcase: Briefcase,
+  graduation: GraduationCap,
+  book: BookOpen,
+};
+
+/**
+ * Square organization mark: loads a real logo when one is supplied, otherwise
+ * falls back to the entry's lucide icon (and Building2 as a generic default).
+ */
+const OrganizationMark = ({ icon, logo, size = 'h-10 w-10' }) => {
+  const Icon = organizationIcons[icon] || Building2;
+
+  return (
+    <span
+      className={cn(
+        'grid shrink-0 place-items-center overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] text-secondary',
+        size,
+      )}
+      aria-hidden="true"
+    >
+      {logo ? (
+        <img
+          src={logo}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-contain p-1"
+        />
+      ) : (
+        <Icon className="h-4 w-4" />
+      )}
+    </span>
+  );
+};
 
 const item = {
   hidden: { opacity: 0, y: 20 },
@@ -55,10 +95,15 @@ const ExperienceTimeline = () => (
 
             {/* Body */}
             <div>
-              <h3 className="text-lg font-medium tracking-tight text-foreground sm:text-xl">
-                {role.organization}
-              </h3>
-              <p className="mt-1 text-sm text-secondary">{role.role}</p>
+              <div className="flex items-start gap-3.5">
+                <OrganizationMark icon={role.icon} logo={role.logo} />
+                <div className="min-w-0">
+                  <h3 className="text-lg font-medium tracking-tight text-foreground sm:text-xl">
+                    {role.organization}
+                  </h3>
+                  <p className="mt-1 text-sm text-secondary">{role.role}</p>
+                </div>
+              </div>
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
                 {role.summary}
               </p>
@@ -100,9 +145,12 @@ const ExperienceTimeline = () => (
               key={entry.organization}
               className="surface surface-hover rounded-xl p-5 sm:p-6"
             >
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-subtle-foreground">
-                {entry.period}
-              </p>
+              <div className="flex items-center gap-3">
+                <OrganizationMark icon={entry.icon} size="h-9 w-9" />
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-subtle-foreground">
+                  {entry.period}
+                </p>
+              </div>
               <h3 className="mt-3 text-base font-medium tracking-tight text-foreground">
                 {entry.organization}
               </h3>
