@@ -32,13 +32,13 @@ const THUMB_QUALITY = 74;
 
 const kb = (bytes) => `${Math.round(bytes / 1024)} KB`;
 
-/* Previews are 16:10-ish landscape pages; keep the aspect for width/height. */
+/* Certificates are landscape pages; withoutEnlargement keeps an
+   unusually small source page from being upscaled. */
 const toThumb = (input) =>
   sharp(input)
     .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
     .webp({ quality: THUMB_QUALITY })
     .toBuffer();
-
 
 /* Preview filename must match the app-side helper exactly:
    strip .pdf, trim, collapse whitespace to dashes. */
