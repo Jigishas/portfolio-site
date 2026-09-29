@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import {
@@ -13,6 +13,8 @@ import {
   Briefcase,
   Sparkles,
   X,
+  ZoomIn,
+  Minimize2,
 } from 'lucide-react';
 import { Button } from './ui/button';
 import previewManifest from '../data/certPreviewManifest.json';
@@ -44,49 +46,138 @@ const pdfUrl = (file) => `/Certificates/${encodeURIComponent(file)}`;
 
 /* ------------------------------------------------------------------ */
 /*  Build-time previews (public/Certificates/previews)                 */
-/*  Plain <img loading="lazy"> tags — the browser prefetches them      */
-/*  natively while scrolling, so previews are ready before the user    */
-/*  arrives. No runtime PDF parsing, no spinners, works without JS.    */
+/*  Cards use the 480px thumbs (~12 KB each); the 900px pages are only */
+/*  fetched for the dialog, and are warmed on hover so opening one is  */
+/*  instant. No runtime PDF parsing, no spinners.                     */
 /* ------------------------------------------------------------------ */
 const previewBase = (file) => file.replace(/\.pdf$/i, '').trim().replace(/\s+/g, '-');
 const previewUrl = (file, page = 1) =>
   `/Certificates/previews/${encodeURIComponent(previewBase(file))}${page > 1 ? `-p${page}` : ''}.webp`;
+const thumbUrl = (file, page = 1) =>
+  `/Certificates/previews/thumbs/${encodeURIComponent(previewBase(file))}${
+    page > 1 ? `-p${page}` : ''
+  }.webp`;
 const previewPageCount = (file) => previewManifest[file] || 1;
 
-const PreviewImage = ({ src, alt, className = '' }) => {
+/* Warm the full-size page once per certificate, the first time its card
+   is hovered or focused — the dialog then opens straight from cache. */
+const warmedPreviews = new Set();
+const warmPreview = (file) => {
+  if (warmedPreviews.has(file) || typeof window === 'undefined') return;
+  warmedPreviews.add(file);
+  const image = new window.Image();
+  image.decoding = 'async';
+  image.src = previewUrl(file);
+};
+
+/* One automatic retry with a cache-busting query. A dropped connection
+   (ERR_CONNECTION_RESET) or a stalled body would otherwise leave the
+   card permanently blank. */
+const useImageRetry = (src) => {
+  const [currentSrc, setCurrentSrc] = useState(src);
+  const [failed, setFailed] = useState(false);
+  const retried = useRef(false);
+
+  const onError = () => {
+    if (!retried.current) {
+      retried.current = true;
+      setCurrentSrc(`${src}${src.includes('?') ? '&' : '?'}retry=1`);
+      return;
+    }
+    setFailed(true);
+  };
+
+  return { currentSrc, failed, onError };
+};
+
+const PreviewImage = ({ src, alt, className = '', eager = false }) => {
   const [loaded, setLoaded] = useState(false);
+  const { currentSrc, failed, onError } = useImageRetry(src);
+
   return (
     <div className={`relative w-full overflow-hidden bg-muted/40 ${className}`}>
+      {/* Skeleton while loading — never a silently invisible box. */}
+      {!loaded && !failed && (
+        <div className="absolute inset-0 animate-pulse bg-muted/60" aria-hidden="true" />
+      )}
       <img
-        src={src}
+        src={currentSrc}
         alt={alt}
-        width={900}
-        height={636}
-        loading="lazy"
+        width={480}
+        height={339}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchPriority={eager ? 'high' : 'auto'}
         decoding="async"
         onLoad={() => setLoaded(true)}
-        className={`h-full w-full object-cover object-top transition-opacity duration-300 ${
+        onError={onError}
+        className={`relative h-full w-full object-cover object-top transition-opacity duration-300 ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
       />
+      {failed && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-muted/40 px-4 text-center">
+          <Award className="h-5 w-5 text-muted-foreground/60" aria-hidden="true" />
+          <p className="text-[10px] font-medium leading-snug text-muted-foreground">
+            Preview didn&rsquo;t load — use the PDF button below.
+          </p>
+        </div>
+      )}
     </div>
   );
 };
 
-const CertPages = ({ file, title }) => {
+/* A single dialog page: the 480px thumb is already in cache from the card,
+   so it paints instantly (blurred) while the crisp 900px page fades in. */
+const DialogPage = ({ file, page, title, eager }) => {
+  const [loaded, setLoaded] = useState(false);
+  const { currentSrc, failed, onError } = useImageRetry(previewUrl(file, page));
+
+  return (
+    <figure className="relative mx-auto w-full max-w-[900px] overflow-hidden rounded-md border border-border/40 bg-white shadow-sm">
+      {!loaded && !failed && (
+        <img
+          src={thumbUrl(file, page)}
+          alt=""
+          aria-hidden="true"
+          width={480}
+          height={339}
+          className="absolute inset-0 h-full w-full scale-105 blur-md"
+        />
+      )}
+      <img
+        src={currentSrc}
+        alt={`${title} certificate — page ${page}`}
+        width={900}
+        height={636}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchPriority={eager ? 'high' : 'auto'}
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        onError={onError}
+        className={`relative block h-auto w-full transition-opacity duration-300 ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+      {failed && (
+        <div className="flex min-h-[45vh] flex-col items-center justify-center gap-2 px-6 text-center">
+          <Award className="h-6 w-6 text-muted-foreground/60" aria-hidden="true" />
+          <p className="text-xs text-muted-foreground">
+            Page {page} didn&rsquo;t load — use &ldquo;Open Full Size&rdquo; to view the PDF.
+          </p>
+        </div>
+      )}
+    </figure>
+  );
+};
+
+const CertPages = ({ file, title, zoom }) => {
   const pages = previewPageCount(file);
   return (
-    <div className="space-y-4">
+    /* Zoom keeps the pages at their native 900px so fine print stays
+       readable; the dialog body scrolls horizontally when it doesn't fit. */
+    <div className={`space-y-4 ${zoom ? 'min-w-[900px]' : ''}`}>
       {Array.from({ length: pages }, (_, i) => (
-        <img
-          key={i}
-          src={previewUrl(file, i + 1)}
-          alt={`${title} certificate — page ${i + 1}`}
-          width={900}
-          loading={i === 0 ? 'eager' : 'lazy'}
-          decoding="async"
-          className="mx-auto block h-auto w-full rounded-md border border-border/40 bg-white shadow-sm"
-        />
+        <DialogPage key={i} file={file} page={i + 1} title={title} eager={i === 0} />
       ))}
     </div>
   );
@@ -95,7 +186,7 @@ const CertPages = ({ file, title }) => {
 /* ------------------------------------------------------------------ */
 /*  Certificate Card                                                   */
 /* ------------------------------------------------------------------ */
-const CertificateCard = ({ cert, index, onOpen }) => {
+const CertificateCard = ({ cert, index, onOpen, eager = false }) => {
   const cat = categories[cert.category];
   const CatIcon = cat?.icon || Award;
 
@@ -106,7 +197,12 @@ const CertificateCard = ({ cert, index, onOpen }) => {
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.35, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="group relative h-full overflow-hidden rounded-xl border border-border/40 bg-card transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-md">
+      {/* Warm the full-size page on hover/focus so the dialog opens from cache. */}
+      <div
+        className="group relative h-full overflow-hidden rounded-xl border border-border/40 bg-card transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-md"
+        onPointerEnter={() => warmPreview(cert.file)}
+        onFocus={() => warmPreview(cert.file)}
+      >
         {/* Top accent line */}
         <div className={`h-0.5 w-full bg-gradient-to-r ${cat?.seal || 'from-primary to-secondary'}`} />
 
@@ -118,10 +214,11 @@ const CertificateCard = ({ cert, index, onOpen }) => {
             aria-label={`Enlarge preview of ${cert.title}`}
             className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
           >
-            {/* Static build-time preview — lazy-loaded natively. */}
+            {/* 480px build-time thumbnail — a third of the full page's bytes. */}
             <PreviewImage
-              src={previewUrl(cert.file)}
+              src={thumbUrl(cert.file)}
               alt={`${cert.title} certificate preview`}
+              eager={eager}
               className="aspect-[16/10] group-hover:shadow-inner"
             />
           </button>
@@ -187,6 +284,8 @@ const CertificateCard = ({ cert, index, onOpen }) => {
 /*  Preview Dialog                                                     */
 /* ------------------------------------------------------------------ */
 const PreviewDialog = ({ cert, onClose }) => {
+  /* Fit (scaled into the dialog) vs Zoom (native 900px, pan to read the fine print). */
+  const [zoom, setZoom] = useState(false);
   const cat = categories[cert?.category];
   const CatIcon = cat?.icon || Award;
 
@@ -217,6 +316,21 @@ const PreviewDialog = ({ cert, onClose }) => {
               {cat?.label || cert.category}
             </span>
             <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setZoom((value) => !value)}
+              aria-pressed={zoom}
+              className="h-8 gap-1.5 px-2.5 text-xs font-medium text-muted-foreground hover:text-foreground"
+              title={zoom ? 'Shrink to fit the dialog' : 'View at native 900px resolution'}
+            >
+              {zoom ? (
+                <Minimize2 className="h-3.5 w-3.5" />
+              ) : (
+                <ZoomIn className="h-3.5 w-3.5" />
+              )}
+              <span className="hidden sm:inline">{zoom ? 'Fit' : 'Zoom'}</span>
+            </Button>
+            <Button
               variant="ghost"
               size="sm"
               onClick={onClose}
@@ -229,8 +343,12 @@ const PreviewDialog = ({ cert, onClose }) => {
         </div>
 
         {/* Body */}
-        <div className="relative flex-1 overflow-y-auto bg-muted/20 px-4 py-4">
-          <CertPages file={cert.file} title={cert.title} />
+        <div
+          className={`relative flex-1 bg-muted/20 px-4 py-4 ${
+            zoom ? 'overflow-auto' : 'overflow-y-auto'
+          }`}
+        >
+          <CertPages file={cert.file} title={cert.title} zoom={zoom} />
         </div>
 
         {/* Footer */}
@@ -352,6 +470,9 @@ const Certificates = () => {
               cert={cert}
               index={index}
               onOpen={setSelected}
+              /* First visible row loads eagerly at high priority; the rest
+                 stream in as the user scrolls. */
+              eager={index < 4}
             />
           ))}
         </div>

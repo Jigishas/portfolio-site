@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "previews": "node scripts/generate-cert-previews.mjs"
+    "previews": "node scripts/generate-cert-previews.mjs",
+    "thumbs": "node scripts/generate-cert-previews.mjs --thumbs-only"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
