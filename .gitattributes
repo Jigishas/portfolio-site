@@ -1,0 +1,27 @@
+# Repository-wide line-ending policy.
+#
+# Git for Windows sets `core.autocrlf=true` in the system config, which converts
+# LF -> CRLF on checkout and prints warnings like:
+#   "warning: in the working copy of 'x.jsx', LF will be replaced by CRLF the next
+#    time Git touches it"
+# Pinning `eol=lf` here overrides core.autocrlf for every matched path, so the
+# repository stays normalized to LF (as it already is) and the warnings stop.
+* text=auto eol=lf
+
+# Windows shell scripts must keep CRLF to execute correctly.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary assets - never convert or diff these as text.
+*.pdf binary
+*.webp binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.svg text eol=lf
+*.woff binary
+*.woff2 binary
+*.ttf binary
