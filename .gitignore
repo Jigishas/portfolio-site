@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Local QA screenshots produced by scripts/shot.mjs and scripts/a11y-check.mjs
+shot-*.png
