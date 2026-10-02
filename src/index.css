@@ -22,8 +22,8 @@
     /* ---------- Type ---------- */
     --foreground: 240 12% 96%;        /* #F5F5F7 */
     --muted: 245 12% 11%;
-    --muted-foreground: 240 5% 65%;   /* #A1A1AA */
-    --subtle-foreground: 240 4% 46%;  /* #71717A */
+    --muted-foreground: 240 5% 68%;   /* #ADADB8 */
+    --subtle-foreground: 240 5% 56%;  /* #8C8C96 — WCAG-conscious on dark surfaces */
 
     /* ---------- Accent ---------- */
     --primary: 247 100% 74%;          /* #8B7CFF */
@@ -77,8 +77,8 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "cv11", "ss01";
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: "kern", "liga", "calt";
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
@@ -209,7 +209,7 @@
 
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium tracking-tight;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold tracking-tight;
     min-height: 2.75rem;
     padding: 0 1.375rem;
     transition:

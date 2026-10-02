@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className="page-shell flex h-16 items-center justify-between gap-6">
           <a
             href="#top"
-            className="group flex items-center gap-2.5 rounded-md text-[13px] font-medium uppercase tracking-[0.18em] text-foreground sm:text-sm"
+            className="group flex items-center gap-2.5 rounded-md text-[13px] font-semibold uppercase tracking-[0.16em] text-foreground sm:text-sm"
           >
             <span
               className="h-4 w-4 rounded-[5px] bg-accent-gradient shadow-[0_0_14px_-2px_rgba(139,124,255,0.9)] transition-transform duration-300 group-hover:rotate-45"
@@ -81,7 +81,7 @@ const Navbar = () => {
                   href={item.href}
                   aria-current={active ? 'true' : undefined}
                   className={cn(
-                    'relative rounded-md px-3 py-2 text-[13px] transition-colors duration-200',
+                    'relative rounded-md px-3 py-2 text-[13px] font-medium transition-colors duration-200',
                     active ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
                   )}
                 >
@@ -170,7 +170,7 @@ const Navbar = () => {
                     <a
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="group flex items-center gap-4 border-b border-white/5 py-4 text-2xl font-light tracking-tight text-foreground"
+                      className="group flex items-center gap-4 border-b border-white/5 py-4 text-2xl font-semibold tracking-[-0.02em] text-foreground"
                     >
                       <span className="font-mono text-[11px] text-subtle-foreground">
                         {String(i + 1).padStart(2, '0')}

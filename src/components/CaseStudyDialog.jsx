@@ -35,7 +35,7 @@ const CaseStudyDialog = ({ project, onClose }) => {
                 {project.number} · {project.year}
                 {project.market ? ` · ${project.market}` : ''} · {project.status}
               </p>
-              <h2 className="mt-2 text-2xl font-light tracking-tight text-foreground sm:text-3xl">
+              <h2 className="mt-2 text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-3xl">
                 {project.title}
               </h2>
               <p className="mt-1 text-sm text-secondary">{project.subtitle}</p>

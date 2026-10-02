@@ -28,7 +28,7 @@ const Metrics = () => (
   >
     {metrics.map((metric) => (
       <div key={metric.label} className="bg-[#0b0b11] p-5 sm:p-6">
-        <div className="text-3xl font-light tracking-tight text-foreground sm:text-4xl">
+        <div className="text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-4xl">
           {metric.value}
         </div>
         <div className="mt-2 text-[13px] font-medium text-muted-foreground">{metric.label}</div>

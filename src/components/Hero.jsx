@@ -48,14 +48,14 @@ const Hero = () => {
 
           <motion.h1
             variants={item}
-            className="mt-7 text-[clamp(2.6rem,9vw,4.5rem)] font-light leading-[0.95] tracking-[-0.035em] text-foreground"
+            className="mt-7 text-[clamp(2.3rem,7.4vw,3.75rem)] font-bold leading-[1.02] tracking-[-0.035em] text-foreground"
           >
             <span className="text-gradient">Joseph Gachuru</span>
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="mt-7 max-w-2xl text-xl font-light leading-snug tracking-tight text-foreground sm:text-2xl"
+            className="mt-7 max-w-2xl text-xl font-normal leading-snug tracking-tight text-foreground/95 sm:text-2xl"
           >
             {profile.tagline}
           </motion.p>

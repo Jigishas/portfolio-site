@@ -413,7 +413,7 @@ const Certificates = () => {
 
           <h2
             id="certificates-heading"
-            className="mt-6 text-3xl font-normal leading-[1.1] tracking-tight sm:text-4xl md:text-[2.75rem]"
+            className="mt-6 text-[1.7rem] font-bold leading-[1.14] tracking-[-0.02em] sm:text-4xl md:text-[2.6rem]"
           >
             Certifications &amp; training
           </h2>

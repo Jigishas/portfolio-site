@@ -1,6 +1,7 @@
 /**
  * Single source of truth for site-wide content (profile, navigation,
- * engineering focus, process, experience and technologies).
+ * engineering focus, process and technologies).
+ * Career history lives in `src/data/experience.js`.
  * All facts mirror the existing portfolio — nothing invented here.
  */
 
@@ -108,76 +109,6 @@ export const engineeringPrinciples = [
   {
     title: 'Product thinking',
     description: 'The business problem behind the ticket matters more than the framework used to solve it.',
-  },
-];
-
-/* ---------------------------------------------------------------- */
-/* Experience — real roles and education                             */
-/* ---------------------------------------------------------------- */
-export const experience = [
-  {
-    period: '2026 — Present',
-    organization: 'PLAT-DEL',
-    role: 'Software Engineer · Product Manager',
-    type: 'Production platform',
-    location: 'Remote',
-    icon: 'truck',
-    logo: '/projects/plat-del-icon-512.png',
-    summary:
-      'Backend and product management on a production marketplace and delivery platform connecting customers, vendors, riders and administrators through automated order-to-delivery workflows.',
-    contributions: [
-      'Designed and implemented Laravel backend APIs for logistics workflows',
-      'Built role-based access control across customer, vendor, rider and admin surfaces',
-      'Optimised API and database performance with caching under heavy page-load traffic',
-      'Operated Linux/Nginx production infrastructure with background processing',
-      'Worked across product requirements and shipped features end-to-end',
-    ],
-    stack: ['Laravel', 'PHP', 'MySQL', 'Redis', 'React', 'TypeScript', 'Nginx', 'Git'],
-  },
-  {
-    period: '2026',
-    organization: 'Londiani Sub County Hospital',
-    role: 'Software Engineering',
-    type: 'Healthcare',
-    location: 'Kenya',
-    icon: 'hospital',
-    summary:
-      'Software engineering contribution in a hospital environment — application work and internal systems supporting day-to-day operational and administrative workflows.',
-    contributions: [],
-    stack: [],
-  },
-  {
-    period: '2024 — Present',
-    organization: 'Independent Software Engineer',
-    role: 'Product & Backend Engineering · Freelance',
-    type: 'Freelance / Contract',
-    location: 'Remote',
-    icon: 'briefcase',
-    summary:
-      'Building software products for clients and for my own platforms — from business problem and workflow design to backend architecture, interfaces and production deployment.',
-    contributions: [
-      'Delivered complete products across commerce, legal-tech and agricultural domains',
-      'Designed multi-user, role-based workflows for client platforms',
-      'Owned deployment, caching and performance work on shipped systems',
-    ],
-    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Docker', 'Tailwind CSS'],
-  },
-];
-
-export const education = [
-  {
-    period: '2023 — 2026',
-    organization: 'Kirinyaga University',
-    role: 'BSc Software Engineering',
-    icon: 'graduation',
-    description: 'Software architecture, data structures, algorithms and full-stack development.',
-  },
-  {
-    period: '2025',
-    organization: 'Power Learn Project Africa',
-    role: 'Software Engineering Program',
-    icon: 'book',
-    description: 'Full-stack MERN development, SQL and database design, Python and product building.',
   },
 ];
 

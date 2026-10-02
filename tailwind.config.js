@@ -58,7 +58,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Geist", "Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "sans-serif"],
+        /* Poppins carries the whole UI. Geist Mono stays for technical
+           labels, code-like content and data readouts. */
+        sans: ["Poppins", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "sans-serif"],
         mono: ["Geist Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       borderRadius: {

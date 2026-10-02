@@ -54,7 +54,7 @@ const EngineeringFocus = () => (
                 </span>
               </div>
 
-              <h3 className="mt-6 text-lg font-medium tracking-tight text-foreground">
+              <h3 className="mt-6 text-lg font-semibold tracking-[-0.01em] text-foreground">
                 {area.title}
               </h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">

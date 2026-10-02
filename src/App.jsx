@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import EngineeringFocus from './components/EngineeringFocus';
 import EngineeringProcess from './components/EngineeringProcess';
 import SelectedWork from './components/SelectedWork';
-import ExperienceTimeline from './components/ExperienceTimeline';
+import ExperienceSection from './components/experience/ExperienceSection';
 import TechnologyGrid from './components/TechnologyGrid';
 import Certificates from './components/Certificates';
 import About from './components/About';
@@ -26,7 +26,7 @@ function App() {
         <EngineeringFocus />
         <EngineeringProcess />
         <SelectedWork />
-        <ExperienceTimeline />
+        <ExperienceSection />
         <TechnologyGrid />
         <Certificates />
         <About />

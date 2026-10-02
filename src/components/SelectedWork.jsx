@@ -47,7 +47,7 @@ const SelectedWork = () => {
           <div className="flex flex-wrap items-end justify-between gap-4 border-t border-white/[0.07] pt-8">
             <div>
               <p className="eyebrow">More work</p>
-              <h3 className="mt-4 text-xl font-light tracking-tight text-foreground sm:text-2xl">
+              <h3 className="mt-4 text-xl font-semibold tracking-[-0.01em] text-foreground sm:text-2xl">
                 Other engineering work
               </h3>
             </div>
@@ -67,7 +67,7 @@ const SelectedWork = () => {
         {/* GitHub CTA */}
         <div className="mt-14 flex flex-col items-start gap-5 rounded-2xl border border-white/[0.07] bg-soft px-6 py-7 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 className="text-lg font-light tracking-tight text-foreground">
+            <h3 className="text-lg font-semibold tracking-[-0.01em] text-foreground">
               More work lives on GitHub
             </h3>
             <p className="mt-1.5 text-sm text-muted-foreground">

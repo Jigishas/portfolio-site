@@ -31,7 +31,7 @@ const ProjectVisual = ({ project, className = '', eager = false, padding = 'p-8 
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
           {Icon && <Icon className="h-9 w-9 text-white/20" aria-hidden="true" />}
-          <span className="text-4xl font-light tracking-tight text-white/15">{project.title}</span>
+          <span className="text-4xl font-medium tracking-[-0.02em] text-white/15">{project.title}</span>
         </div>
       )}
 

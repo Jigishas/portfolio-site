@@ -54,7 +54,7 @@ const About = () => (
 
           <figcaption className="space-y-3 px-5 py-5 sm:px-6">
             <div>
-              <p className="text-base font-medium tracking-tight text-foreground">{profile.name}</p>
+              <p className="text-base font-semibold tracking-[-0.01em] text-foreground">{profile.name}</p>
               <p className="mt-0.5 text-[13px] text-secondary">
                 {profile.role} · {profile.focus}
               </p>

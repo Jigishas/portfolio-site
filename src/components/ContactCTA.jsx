@@ -28,7 +28,7 @@ const ContactCTA = () => (
     >
       <p className="eyebrow justify-center">Let's talk</p>
 
-      <h2 className="mt-6 text-[clamp(2.1rem,6vw,3.5rem)] font-light leading-[1.05] tracking-[-0.03em] text-foreground">
+      <h2 className="mt-6 text-[clamp(1.95rem,5.2vw,3.15rem)] font-bold leading-[1.1] tracking-[-0.03em] text-foreground">
         Let's build something <span className="text-gradient">useful</span>.
       </h2>
 

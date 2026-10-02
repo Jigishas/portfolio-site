@@ -22,12 +22,12 @@ const SectionHeading = ({ eyebrow, title, lead, align = 'left', className }) => 
       {align !== 'center' && <span className="eyebrow-rule" aria-hidden="true" />}
     </p>
 
-    <h2 className="mt-6 text-3xl font-normal leading-[1.08] tracking-tight text-foreground sm:text-4xl md:text-[2.75rem]">
+    <h2 className="mt-6 text-[1.7rem] font-bold leading-[1.14] tracking-[-0.02em] text-foreground sm:text-4xl md:text-[2.6rem]">
       {title}
     </h2>
 
     {lead && (
-      <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+      <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-[17px]">
         {lead}
       </p>
     )}

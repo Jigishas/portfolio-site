@@ -94,8 +94,8 @@ const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false 
             <h3
               className={
                 flagship
-                  ? 'min-w-0 text-[2rem] font-light leading-none tracking-[-0.03em] text-foreground sm:text-[2.5rem]'
-                  : 'min-w-0 text-2xl font-light tracking-tight text-foreground'
+                  ? 'min-w-0 text-[1.9rem] font-bold leading-[1.05] tracking-[-0.03em] text-foreground sm:text-[2.35rem]'
+                  : 'min-w-0 text-2xl font-bold tracking-[-0.02em] text-foreground'
               }
             >
               {project.title}

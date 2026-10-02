@@ -37,7 +37,7 @@ const EngineeringProcess = () => (
             <span className="font-mono text-[11px] tracking-[0.2em] text-subtle-foreground transition-colors group-hover:text-secondary">
               {step.number}
             </span>
-            <h3 className="mt-4 text-base font-medium tracking-tight text-foreground">
+            <h3 className="mt-4 text-base font-semibold tracking-[-0.01em] text-foreground">
               {step.title}
             </h3>
             <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">
@@ -59,7 +59,7 @@ const EngineeringProcess = () => (
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
             >
-              <h3 className="text-sm font-medium tracking-tight text-foreground">
+              <h3 className="text-sm font-semibold tracking-[-0.01em] text-foreground">
                 {principle.title}
               </h3>
               <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">

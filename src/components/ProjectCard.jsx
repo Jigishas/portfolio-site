@@ -44,7 +44,7 @@ const ProjectCard = ({ project, onSelect, index = 0 }) => (
 
     <div className="flex flex-1 flex-col p-5 sm:p-6">
       <div className="flex items-baseline justify-between gap-3">
-        <h3 className="text-lg font-medium tracking-tight text-foreground">{project.title}</h3>
+        <h3 className="text-lg font-semibold tracking-[-0.01em] text-foreground">{project.title}</h3>
         <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-subtle-foreground">
           {project.year}
         </span>
