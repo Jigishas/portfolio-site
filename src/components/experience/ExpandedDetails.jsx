@@ -16,15 +16,21 @@ const DetailLabel = ({ children }) => (
 
 /**
  * Expanded content of an experience card:
- * ABOUT THE ROLE · KEY CONTRIBUTIONS · TECHNOLOGY · SELECTED WORK / SYSTEMS
+ * ABOUT THE ROLE · KEY CONTRIBUTIONS · TECHNOLOGY / TECHNICAL AREAS ·
+ * SELECTED WORK / SYSTEMS · IMPACT
  *
  * Every block renders only when the underlying data exists, so an entry with
  * no recorded detail never shows an empty heading.
  */
 const ExpandedDetails = ({ entry }) => {
-  const hasContributions = entry.contributions.length > 0;
-  const hasTechnology = entry.technology.length > 0;
-  const hasSystems = entry.systems.length > 0;
+  const contributions = entry.contributions ?? [];
+  const technology = entry.technology ?? [];
+  const systems = entry.systems ?? [];
+  const hasContributions = contributions.length > 0;
+  const hasTechnology = technology.length > 0;
+  const hasSystems = systems.length > 0;
+  const hasImpact = Boolean(entry.impact);
+  const technologyHeading = entry.technologyLabel ?? 'Technology';
 
   return (
     <div className="mt-6 border-t border-white/[0.07] pt-6">
@@ -37,7 +43,7 @@ const ExpandedDetails = ({ entry }) => {
         <div className="mt-8">
           <DetailLabel>Key contributions</DetailLabel>
           <ul className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-            {entry.contributions.map((point) => (
+            {contributions.map((point) => (
               <li key={point} className="flex items-start gap-3 text-sm text-foreground/85">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-secondary" aria-hidden="true" />
                 <span className="leading-relaxed">{point}</span>
@@ -49,11 +55,11 @@ const ExpandedDetails = ({ entry }) => {
 
       {hasTechnology && (
         <div className="mt-8">
-          <DetailLabel>Technology</DetailLabel>
+          <DetailLabel>{technologyHeading}</DetailLabel>
           <TechnologyTags
-            items={entry.technology}
+            items={technology}
             className="mt-4"
-            label={`${entry.organization} technologies`}
+            label={`${entry.organization} ${technologyHeading.toLowerCase()}`}
           />
         </div>
       )}
@@ -62,7 +68,7 @@ const ExpandedDetails = ({ entry }) => {
         <div className="mt-8">
           <DetailLabel>Selected work / systems</DetailLabel>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-            {entry.systems.map((system) => (
+            {systems.map((system) => (
               <li
                 key={system.name}
                 className="flex items-start gap-3 rounded-lg border border-white/[0.07] bg-white/[0.02] p-4 transition-colors duration-300 hover:border-primary/30 hover:bg-white/[0.035]"
@@ -79,6 +85,15 @@ const ExpandedDetails = ({ entry }) => {
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {hasImpact && (
+        <div className="mt-8">
+          <DetailLabel>Impact</DetailLabel>
+          <p className="mt-3.5 max-w-3xl border-l-2 border-secondary/50 pl-4 text-[14px] font-medium leading-relaxed text-foreground/90">
+            {entry.impact}
+          </p>
         </div>
       )}
     </div>
