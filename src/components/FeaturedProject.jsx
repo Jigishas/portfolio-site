@@ -1,17 +1,22 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, ExternalLink, MapPin } from 'lucide-react';
 import ProjectVisual from './ProjectVisual';
 import ProjectEmblem from './ProjectEmblem';
 import { StatusBadge } from './ProjectCard';
+import { useReducedMotion } from 'framer-motion';
 
 /**
  * Layered architecture diagram — describes systems that actually exist,
  * with no fabricated metrics.
  */
-export const ArchitectureStack = ({ layers, caption = 'System architecture · high level' }) => (
-  <div className="flex h-full flex-col justify-center gap-1 bg-soft p-5 sm:p-8">
+export const ArchitectureStack = ({ layers, caption = 'System architecture · high level', reduceMotion }) => (
+  <motion.div
+    className="flex h-full flex-col justify-center gap-1 bg-soft p-5 sm:p-8"
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: reduceMotion ? 0.01 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+  >
     <div className="mb-4 flex items-center justify-between gap-4">
       <span className="eyebrow">Architecture</span>
       <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-subtle-foreground">
@@ -39,10 +44,11 @@ export const ArchitectureStack = ({ layers, caption = 'System architecture · hi
         </div>
       ))}
     </div>
-  </div>
+  </motion.div>
 );
 
 const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false }) => {
+  const reduceMotion = useReducedMotion();
   const meta = [
     { k: 'Year', v: project.year },
     { k: 'Market', v: project.market || 'Remote' },
@@ -54,11 +60,16 @@ const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false 
     <motion.article
       initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, amount: reduceMotion ? 1 : 0.15 }}
+      transition={{ duration: reduceMotion ? 0.01 : 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="surface group relative overflow-hidden rounded-2xl shadow-raised"
     >
-      <span className="absolute inset-x-0 top-0 h-px bg-accent-gradient opacity-60" aria-hidden="true" />
+      <motion.span
+        className="absolute inset-x-0 top-0 h-px bg-accent-gradient opacity-60"
+        animate={{ opacity: [0.6, 1] }}
+        transition={{ duration: 3, repeat: Infinity, yoyo: true }}
+        aria-hidden="true"
+      />
 
       <div className="grid lg:grid-cols-12">
         {/* Visual / architecture */}
@@ -68,7 +79,7 @@ const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false 
           }`}
         >
           {project.architecture ? (
-            <ArchitectureStack layers={project.architecture} />
+            <ArchitectureStack layers={project.architecture} reduceMotion={reduceMotion} />
           ) : (
             <div className="relative h-full min-h-[260px]">
               <ProjectVisual project={project} className="absolute inset-0" />
@@ -163,7 +174,11 @@ const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false 
       </div>
 
       {/* Footer strip */}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/[0.07] bg-[#0b0b11] px-5 py-3.5 sm:px-7">
+      <motion.div
+        className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/[0.07] bg-[#0b0b11] px-5 py-3.5 sm:px-7"
+        animate={{ x: [0, -5, 0] }}
+        transition={{ duration: 6, repeat: Infinity, yoyo: true }}
+      >
         <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-subtle-foreground">
           <MapPin className="h-3 w-3" aria-hidden="true" />
           {project.market || 'Remote'}
@@ -176,7 +191,7 @@ const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false 
             {cap}
           </span>
         ))}
-      </div>
+      </motion.div>
     </motion.article>
   );
 };

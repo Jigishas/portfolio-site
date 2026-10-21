@@ -30,8 +30,16 @@ const Hero = () => {
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div className="backdrop-grid absolute inset-0" />
         <div className="noise absolute inset-0" />
-        <div className="orb orb-a -left-24 top-4 h-[380px] w-[380px] sm:h-[460px] sm:w-[460px]" />
-        <div className="orb orb-b right-[-4rem] top-24 h-[340px] w-[340px] sm:h-[420px] sm:w-[420px]" />
+        <div
+          className="orb orb-a -left-24 top-4 h-[380px] w-[380px] sm:h-[460px] sm:w-[460px]"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+        />
+        <div
+          className="orb orb-b right-[-4rem] top-24 h-[340px] w-[340px] sm:h-[420px] sm:w-[420px]"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+        />
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-b from-transparent to-background" />
       </div>
 
@@ -41,6 +49,7 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
           variants={container}
+          className="reduce-motion:transition-none"
         >
           <motion.p variants={item} className="eyebrow">
             Software Engineer · Backend · Product Manager

@@ -8,7 +8,7 @@ import { profile, links } from '@/data/site';
 const contactRows = [
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}`, icon: Mail },
   { label: 'WhatsApp', value: profile.phone, href: generateWhatsAppURL('+254743121169'), icon: MessageCircle },
-  { label: 'Location', value: 'Kirinyaga, Kenya', href: null, icon: MapPin },
+  { label: 'Location', value: 'Nairobi, Kenya', href: null, icon: MapPin },
 ];
 
 const ContactCTA = () => (
@@ -39,10 +39,10 @@ const ContactCTA = () => (
 
       <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
         <a href={`mailto:${profile.email}`} className="btn btn-primary group">
-          <Mail className="h-4 w-4" aria-hidden="true" />
+          <Mail className="h-4 w-6" aria-hidden="true" />
           Email me
           <ArrowUpRight
-            className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            className="h-4 w-6 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             aria-hidden="true"
           />
         </a>

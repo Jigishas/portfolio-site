@@ -1,6 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin, ArrowUpRight, Download } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import { profile, links } from '@/data/site';
@@ -20,15 +20,17 @@ const focusRows = [
   },
 ];
 
-const About = () => (
-  <section id="about" className="relative py-24 sm:py-32">
+const About = () => {
+  const reduceMotion = useReducedMotion();
+  return (
+    <section id="about" className="relative py-24 sm:py-32">
     <div className="page-shell grid gap-10 lg:grid-cols-12 lg:gap-14">
       {/* Portrait */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, amount: reduceMotion ? 1 : 0.3 }}
+        transition={{ duration: reduceMotion ? 0.01 : 0.55, ease: [0.22, 1, 0.36, 1] }}
         className="lg:col-span-5"
       >
         <figure className="surface overflow-hidden rounded-2xl shadow-raised">
@@ -152,6 +154,6 @@ const About = () => (
       </div>
     </div>
   </section>
-);
+)};
 
 export default About;
