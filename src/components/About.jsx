@@ -34,7 +34,7 @@ const About = () => (
         <figure className="surface overflow-hidden rounded-2xl shadow-raised">
           <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/10] lg:aspect-[4/3]">
             <img
-              src="/jose%201.jpg"
+              src="icon.jpeg"
               alt="Joseph Gachuru, software engineer"
               width={1123}
               height={1280}
