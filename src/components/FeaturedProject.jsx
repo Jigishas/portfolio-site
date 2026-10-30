@@ -140,6 +140,61 @@ const FeaturedProject = ({ project, onSelect, flagship = false, reverse = false 
             ))}
           </ul>
 
+          {project.apps && (
+            <section className="mt-8 border border-white/[0.07] rounded-xl bg-[#0a0a0f]/30 p-5 sm:p-6">
+              <div className="mb-5">
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-subtle-foreground">
+                  Live on Google Play
+                </h3>
+              </div>
+              <ul className="grid gap-4 sm:grid-cols-3">
+                {project.apps.map((app) => (
+                  <li key={app.package} className="flex flex-col gap-3">
+                    <div className="relative aspect-square rounded-xl border border-white/10 bg-white/5 overflow-hidden group">
+                      <img
+                        src={app.icon}
+                        alt={app.name}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <span className="absolute left-2 top-2 h-6 min-w-[28px] rounded-full border border-white/20 bg-black/40 px-1.5 text-[10px] font-mono text-foreground">
+                        {app.rating}
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <div className="flex items-baseline justify-between gap-2">
+                        <h4 className="text-sm font-semibold text-foreground">{app.name}</h4>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-subtle-foreground">
+                          {app.category}
+                        </span>
+                      </div>
+                      <p className="text-[11.5px] text-muted-foreground leading-relaxed line-clamp-3">
+                        {app.blurb}
+                      </p>
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="font-mono text-[10px] text-secondary">
+                          {app.downloads} downloads
+                        </span>
+                        <span className="h-1 w-1 rounded-full bg-white/10" aria-hidden="true" />
+                        <span className="font-mono text-[10px] text-secondary">{app.role}</span>
+                      </div>
+                    </div>
+                    <a
+                      href={app.store}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-2 text-[11px] font-medium text-foreground transition-colors hover:border-white/30 hover:bg-white/5 focus-visible:outline-secondary"
+                    >
+                      Get it on Play
+                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           <div className="mt-auto flex flex-wrap items-center gap-3 pt-7">
             <button
               type="button"
