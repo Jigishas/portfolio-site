@@ -26,3 +26,5 @@ dist-ssr
 
 # Local QA screenshots produced by scripts/shot.mjs and scripts/a11y-check.mjs
 shot-*.png
+*.err
+*.out
