@@ -1,6 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Server, Boxes, Workflow, Gauge } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import { focusAreas } from '@/data/site';
@@ -18,8 +18,6 @@ const card = {
 };
 
 const EngineeringFocus = () => {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section id="engineering" className="relative py-24 sm:py-32">
       <div className="page-shell">

@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, ExternalLink, MapPin } from 'lucide-react';
 import ProjectVisual from './ProjectVisual';
